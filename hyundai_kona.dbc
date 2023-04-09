@@ -1,39 +1,39 @@
 VERSION ""
 
 
-NS_ : 
-	NS_DESC_
-	CM_
-	BA_DEF_
-	BA_
-	VAL_
-	CAT_DEF_
-	CAT_
-	FILTER
-	BA_DEF_DEF_
-	EV_DATA_
-	ENVVAR_DATA_
-	SGTYPE_
-	SGTYPE_VAL_
-	BA_DEF_SGTYPE_
-	BA_SGTYPE_
-	SIG_TYPE_REF_
-	VAL_TABLE_
-	SIG_GROUP_
-	SIG_VALTYPE_
-	SIGTYPE_VALTYPE_
-	BO_TX_BU_
-	BA_DEF_REL_
-	BA_REL_
-	BA_DEF_DEF_REL_
-	BU_SG_REL_
-	BU_EV_REL_
-	BU_BO_REL_
-	SG_MUL_VAL_
+NS_ :
+    NS_DESC_
+    CM_
+    BA_DEF_
+    BA_
+    VAL_
+    CAT_DEF_
+    CAT_
+    FILTER
+    BA_DEF_DEF_
+    EV_DATA_
+    ENVVAR_DATA_
+    SGTYPE_
+    SGTYPE_VAL_
+    BA_DEF_SGTYPE_
+    BA_SGTYPE_
+    SIG_TYPE_REF_
+    VAL_TABLE_
+    SIG_GROUP_
+    SIG_VALTYPE_
+    SIGTYPE_VALTYPE_
+    BO_TX_BU_
+    BA_DEF_REL_
+    BA_REL_
+    BA_DEF_DEF_REL_
+    BU_SG_REL_
+    BU_EV_REL_
+    BU_BO_REL_
+    SG_MUL_VAL_
 
 BS_:
 
-BU_: CGW
+BU_: CGW Vector__XXX XXX
 
 
 BO_ 3221225472 VECTOR__INDEPENDENT_SIG_MSG: 0 Vector__XXX
@@ -109,11 +109,11 @@ BO_ 3221225472 VECTOR__INDEPENDENT_SIG_MSG: 0 Vector__XXX
  SG_ CF_Mdps_Flex : 0|3@1+ (1,0) [0|3] "" Vector__XXX
  SG_ CF_Mdps_FlexDisp : 0|1@1+ (1,0) [0|1] "" Vector__XXX
  SG_ CF_Mdps_Stat : 0|4@1+ (1,0) [0|15] "" Vector__XXX
- SG_ CR_Mdps_DrvTq : 0|12@1+ (1,-2048) [-2048|2046] "" Vector__XXX
+ SG_ CR_Mdps_DrvTq : 0|12@1+ (1,0) [0|15] "" Vector__XXX
  SG_ CF_Mdps_ALTRequest : 0|1@1+ (1,0) [0|1] "" Vector__XXX
- SG_ CR_Mdps_StrAng : 0|16@1- (0.1,0) [-3276.8|3276.7] "Deg" Vector__XXX
- SG_ CF_Mdps_AliveCnt : 0|8@1+ (1,0) [0|255] "" Vector__XXX
- SG_ CF_Mdps_Chksum : 0|8@1+ (1,0) [0|255] "" Vector__XXX
+ SG_ CR_Mdps_StrAng : 0|16@1- (1,0) [0|65535] "" Vector__XXX
+ SG_ CF_Mdps_AliveCnt : 0|8@0+ (1,0) [0|255] "" Vector__XXX
+ SG_ CF_Mdps_Chksum : 0|8@0+ (1,0) [0|255] "" Vector__XXX
  SG_ CF_Mdps_SPAS_FUNC : 0|1@1+ (1,0) [0|1] "flag" Vector__XXX
  SG_ CF_Mdps_LKAS_FUNC : 0|1@1+ (1,0) [0|1] "flag" Vector__XXX
  SG_ CF_Mdps_CurrMode : 0|2@1+ (1,0) [0|3] "" Vector__XXX
@@ -175,7 +175,6 @@ BO_ 3221225472 VECTOR__INDEPENDENT_SIG_MSG: 0 Vector__XXX
  SG_ WHL_SPD12_AliveCounter : 0|4@1+ (1,0) [0|15] "" Vector__XXX
  SG_ WHL_SPD_FL : 0|14@1+ (0.03125,0) [0|511.96875] "km/h" Vector__XXX
  SG_ WHL_SPD_FR : 0|14@1+ (0.03125,0) [0|511.96875] "km/h" Vector__XXX
- SG_ CRC : 0|8@1+ (1,0) [0|0] "" Vector__XXX
  SG_ WHL_SPD13_AliveCounter : 0|4@1+ (1,0) [0|15] "" Vector__XXX
  SG_ WHL_SPD_RL : 0|14@1+ (0.03125,0) [0|511.96875] "km/h" Vector__XXX
  SG_ WHL_SPD_RR : 0|14@1+ (0.03125,0) [0|511.96875] "km/h" Vector__XXX
@@ -200,11 +199,6 @@ BO_ 3221225472 VECTOR__INDEPENDENT_SIG_MSG: 0 Vector__XXX
  SG_ CF_RSPA_ACC_ACT : 0|1@1+ (1,0) [0|2] "" Vector__XXX
  SG_ CF_RSPA_AliveCounter : 0|4@1+ (1,0) [0|15] "" Vector__XXX
  SG_ CF_RSPA_CRC : 0|8@1+ (1,0) [0|255] "" Vector__XXX
- SG_ CF_Mdps_Stat : 0|4@1+ (1,0) [0|15] "" Vector__XXX
- SG_ CR_Mdps_DrvTq : 0|12@1+ (1,0) [0|15] "" Vector__XXX
- SG_ CR_Mdps_StrAng : 0|16@1- (1,0) [0|65535] "" Vector__XXX
- SG_ CF_Mdps_AliveCnt : 0|8@0+ (1,0) [0|255] "" Vector__XXX
- SG_ CF_Mdps_Chksum : 0|8@0+ (1,0) [0|255] "" Vector__XXX
  SG_ TQI_1 : 0|8@1+ (0.390625,0) [0|99.6094] "%" Vector__XXX
  SG_ N : 0|16@1+ (0.25,0) [0|16383.75] "rpm" Vector__XXX
  SG_ TQI_2 : 0|8@1+ (0.390625,0) [0|99.6094] "%" Vector__XXX
@@ -233,16 +227,17 @@ BO_ 1344 uwe540: 8 Vector__XXX
  SG_ uwe540_45 : 32|16@1+ (1,0) [0|65535] "" Vector__XXX
  SG_ uwe540_01 : 0|16@1+ (1,0) [0|65535] "" Vector__XXX
 
-BO_ 1316 uwe524: 8 Vector__XXX
+BO_ 1316 EPCU_524: 8 Vector__XXX
  SG_ uwe524_EPCU_voltage : 0|9@1+ (1,0) [0|511] "" Vector__XXX
+ SG_ UNK_OUTPUT_RELATED : 16|24@1+ (1,0) [0|16777215] "" XXX
 
-BO_ 1315 uwe523: 8 Vector__XXX
+BO_ 1315 EPCU_TEMP: 8 Vector__XXX
  SG_ uwe523_7 : 56|8@1+ (1,0) [0|255] "" Vector__XXX
  SG_ uwe523_6_EPCU_coolingpump : 48|8@1+ (1,0) [0|255] "%" Vector__XXX
- SG_ uwe523_5_TEPCU_slow : 40|8@1+ (1,-40) [-40|215] "캜" Vector__XXX
- SG_ uwe523_4_TEPCU_fast2 : 32|8@1+ (1,-40) [-40|215] "캜" Vector__XXX
- SG_ uwe523_3_TEPCU_fast1 : 24|8@1+ (1,-40) [-40|215] "캜" Vector__XXX
- SG_ uwe523_2_TEPCU_in : 16|8@1+ (1,-40) [-40|215] "캜" Vector__XXX
+ SG_ uwe523_5_TEPCU_slow : 40|8@1+ (1,-40) [-40|215] "째C" Vector__XXX
+ SG_ uwe523_4_TEPCU_fast2 : 32|8@1+ (1,-40) [-40|215] "째C" Vector__XXX
+ SG_ uwe523_3_TEPCU_fast1 : 24|8@1+ (1,-40) [-40|215] "째C" Vector__XXX
+ SG_ uwe523_2_TEPCU_in : 16|8@1+ (1,-40) [-40|215] "째C" Vector__XXX
  SG_ uwe523_1 : 8|8@1+ (1,0) [0|255] "" Vector__XXX
  SG_ uwe523_0 : 0|8@1+ (1,0) [0|255] "" Vector__XXX
 
@@ -262,7 +257,7 @@ BO_ 1527 uwe5F7: 8 Vector__XXX
 
 BO_ 1528 uwe5F8: 8 Vector__XXX
  SG_ uwe5F8_7_ClimateTInside : 56|8@1+ (0.5,-40) [-40|87.5] "" Vector__XXX
- SG_ uwe5F8_6_ClimateTFreezer : 48|8@1+ (0.5,-40) [-40|87.5] "캜" Vector__XXX
+ SG_ uwe5F8_6_ClimateTFreezer : 48|8@1+ (0.5,-40) [-40|87.5] "째C" Vector__XXX
  SG_ uwe5F8_5_ClimateTTarget : 40|8@1+ (0.5,-40) [-40|87.5] "" Vector__XXX
  SG_ uwe5F8_4 : 32|8@1+ (1,0) [0|255] "" Vector__XXX
  SG_ uwe5F8_3 : 24|8@1+ (1,0) [0|255] "" Vector__XXX
@@ -346,7 +341,6 @@ BO_ 1168 EPB11: 7 Vector__XXX
  SG_ EPB_DBF_DECEL : 48|8@1+ (0.01,0) [0|2.54] "g" Vector__XXX
 
 BO_ 903 WHL_PUL11: 6 Vector__XXX
- SG_ WHL_PUL_FL : 0|8@1+ (0.5,0) [0|127.5] "pulse count" Vector__XXX
  SG_ WHL_PUL_FR : 8|8@1+ (0.5,0) [0|127.5] "pulse count" Vector__XXX
  SG_ WHL_PUL_RL : 16|8@1+ (0.5,0) [0|127.5] "pulse count" Vector__XXX
  SG_ WHL_PUL_RR : 24|8@1+ (0.5,0) [0|127.5] "pulse count" Vector__XXX
@@ -355,16 +349,17 @@ BO_ 903 WHL_PUL11: 6 Vector__XXX
  SG_ WHL_DIR_RL : 36|2@1+ (1,0) [0|3] "" Vector__XXX
  SG_ WHL_DIR_RR : 38|2@1+ (1,0) [0|3] "" Vector__XXX
  SG_ WHL_PUL_Chksum : 40|8@1+ (1,0) [0|255] "" Vector__XXX
+ SG_ WHL_PUL_FL : 0|8@1+ (0.5,0) [0|127.5] "pulse count" Vector__XXX
 
 BO_ 902 WHL_SPD11: 8 Vector__XXX
  SG_ WHL_SPD_FL : 0|14@1+ (0.03125,0) [0|511.96875] "km/h" Vector__XXX
  SG_ WHL_SPD_FR : 16|14@1+ (0.03125,0) [0|511.96875] "km/h" Vector__XXX
  SG_ WHL_SPD_RL : 32|14@1+ (0.03125,0) [0|511.96875] "km/h" Vector__XXX
  SG_ WHL_SPD_RR : 48|14@1+ (0.03125,0) [0|511.96875] "km/h" Vector__XXX
- SG_ WHL_SPD_AliveCounter_LSB : 14|2@1+ (1,0) [0|15] "" Vector__XXX
  SG_ WHL_SPD_AliveCounter_MSB : 30|2@1+ (1,0) [0|15] "" Vector__XXX
  SG_ WHL_SPD_Checksum_LSB : 46|2@1+ (1,0) [0|15] "" Vector__XXX
  SG_ WHL_SPD_Checksum_MSB : 62|2@1+ (1,0) [0|15] "" Vector__XXX
+ SG_ WHL_SPD_AliveCounter_LSB : 14|2@1+ (1,0) [0|15] "" Vector__XXX
 
 BO_ 1412 AAF11: 8 Vector__XXX
  SG_ CF_Aaf_ActFlapStatus : 0|2@1+ (1,0) [0|3] "" Vector__XXX
@@ -450,20 +445,20 @@ BO_ 339 TCS11: 8 Vector__XXX
  SG_ TQI_MSR : 32|8@1+ (0.390625,0) [0|99.609375] "%" Vector__XXX
  SG_ TQI_SLW_TCS : 40|8@1+ (0.390625,0) [0|99.609375] "%" Vector__XXX
  SG_ CF_Esc_BrkCtl : 48|1@1+ (1,0) [0|1] "" Vector__XXX
- SG_ BLA_CTL : 49|2@1+ (1,0) [0|3] ""  CGW
+ SG_ BLA_CTL : 49|2@1+ (1,0) [0|3] "" CGW
  SG_ AliveCounter_TCS1 : 52|4@1+ (1,0) [0|14] "" Vector__XXX
  SG_ CheckSum_TCS1 : 56|8@1+ (1,0) [0|255] "" Vector__XXX
 
-BO_ 1353 BAT11: 8 Vector__XXX
- SG_ BAT_SNSR_I : 0|16@1+ (0.01,-327) [-327|328] "A"  CGW
- SG_ BAT_SOC : 16|8@1+ (1,0) [0|100] "%"  CGW
- SG_ BAT_SNSR_V : 24|14@1+ (0.001,6) [6|18] "V"  CGW
- SG_ BAT_SNSR_Temp : 38|9@1- (0.5,-40) [-40|125] "deg"  CGW
- SG_ BAT_SNSR_State : 47|1@1+ (1,0) [0|1] ""  CGW
- SG_ BAT_SOH : 48|7@1+ (1,0) [0|100] "%"  CGW
- SG_ BAT_SNSR_Invalid : 55|1@1+ (1,0) [0|1] ""  CGW
- SG_ BAT_SOF : 56|7@1+ (0.1,0) [0|12] "V"  CGW
- SG_ BAT_SNSR_Error : 63|1@1+ (1,0) [0|1] ""  CGW
+BO_ 1353 BAT11_INCORRECT: 8 Vector__XXX
+ SG_ BAT_SOC : 16|8@1+ (1,0) [0|100] "%" CGW
+ SG_ BAT_SNSR_V : 24|14@1+ (0.001,6) [6|18] "V" CGW
+ SG_ BAT_SNSR_Temp : 38|9@1- (0.5,-40) [-40|125] "deg" CGW
+ SG_ BAT_SNSR_State : 47|1@1+ (1,0) [0|1] "" CGW
+ SG_ BAT_SOH : 48|7@1+ (1,0) [0|100] "%" CGW
+ SG_ BAT_SNSR_Invalid : 55|1@1+ (1,0) [0|1] "" CGW
+ SG_ BAT_SOF : 56|7@1+ (0.1,0) [0|12] "V" CGW
+ SG_ BAT_SNSR_Error : 63|1@1+ (1,0) [0|1] "" CGW
+ SG_ BAT_SNSR_I : 0|16@1+ (0.01,-327) [-327|328] "A" CGW
 
 BO_ 1345 CGW1: 8 Vector__XXX
  SG_ CF_Gway_IGNSw : 0|3@1+ (1,0) [0|7] "" Vector__XXX
@@ -549,18 +544,38 @@ BO_ 1426 LABEL11: 8 Vector__XXX
  SG_ CC_React : 34|1@1+ (1,0) [0|1] "" Vector__XXX
 
 BO_ 1430 uwe596: 8 Vector__XXX
- SG_ uwe596_7_TAkkuH : 56|8@1+ (1,0) [0|255] "캜" Vector__XXX
- SG_ uwe596_6_TAkkuL : 48|8@1+ (1,0) [0|255] "캜" Vector__XXX
+ SG_ uwe596_7_TAkkuH : 56|8@1+ (1,0) [0|255] "째C" Vector__XXX
+ SG_ uwe596_6_TAkkuL : 48|8@1+ (1,0) [0|255] "째C" Vector__XXX
  SG_ uwe596_4_remainingChTDC : 32|8@1+ (1,0) [0|255] "min" Vector__XXX
  SG_ uwe596_2_remainingChTAC : 16|16@1+ (1,0) [0|65535] "min" Vector__XXX
  SG_ uwe596_1_UKl30 : 8|8@1+ (0.1,0) [0|25] "V" Vector__XXX
 
+BO_ 356 NEW_MSG_1: 8 XXX
+
+BO_ 513 UNK_201: 8 XXX
+ SG_ UNK_MOTOR_RELATED_MAYBE : 0|16@1+ (1,0) [0|65535] "" XXX
+
+BO_ 514 MAY_EPCU_202: 8 XXX
+ SG_ REGEN_LEVEL : 23|4@0+ (1,0) [0|1] "" XXX
+
+BO_ 1525 UNK_5F5: 64 XXX
+ SG_ UNK_COUNTER : 32|4@1+ (1,0) [0|15] "" XXX
+
+BO_ 272 UNK_B110: 8 XXX
+ SG_ MAYBE_POWER_STATUS : 16|8@1+ (1,0) [0|255] "" XXX
+ SG_ MAYBE_POWER_PRESSED : 0|8@1+ (1,0) [0|255] "" XXX
+
+BO_ 852 UNK_354: 8 XXX
+ SG_ DUAL_COUNTER : 56|8@1+ (1,0) [0|255] "" XXX
+
+BO_ 1137 UNK_471: 6 XXX
 
 
-CM_ "BO_ E_EMS11: All (plug-in) hybrids use this gas signal: CR_Vcu_AccPedDep_Pos, and all EVs use the Accel_Pedal_Pos signal. See hyundai/values.py for a specific car list";
-CM_ BO_ 3221225472 "This is a message for not used signals, created by Vector CANdb++ DBC OLE DB Provider.";
+
+
+
 VAL_ 3221225472 CF_Lvr_Gear 5 "D" 8 "S" 6 "N" 7 "R" 0 "P" ;
 VAL_ 3221225472 CF_VSM_Warn 2 "FCW" 3 "AEB" ;
 VAL_ 3221225472 ACCMode 0 "off" 1 "enabled" 2 "driver_override" 3 "off_maybe_fault" 4 "cancelled" ;
 VAL_ 3221225472 Elect_Gear_Shifter 5 "D" 8 "S" 6 "N" 7 "R" 0 "P" ;
-
+CM_ "BO_ E_EMS11: All (plug-in) hybrids use this gas signal: CR_Vcu_AccPedDep_Pos, and all EVs use the Accel_Pedal_Pos signal. See hyundai/values.py for a specific car list";
