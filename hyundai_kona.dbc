@@ -124,6 +124,8 @@ BO_ 916 TCS13: 8 XXX
  SG_ CF_VSM_ConfSwi : 61|2@1+ (1,0) [0|3] "" XXX
  SG_ AEB_EQUIP : 63|1@1+ (1,0) [0|1] "" XXX
 
+BO_ 1014 BMS_3F6: 8 XXX
+
 BO_ 1115 UNK_45B: 8 XXX
  SG_ UNK_CLIMATE_DRIVE_MODE : 0|16@1+ (1,0) [0|65535] "" XXX
 
@@ -144,6 +146,20 @@ BO_ 1168 EPB11: 7 XXX
  SG_ EPB_FAIL : 29|3@1+ (1,0) [0|7] "" XXX
  SG_ EPB_FORCE : 32|12@1+ (1,-1000) [-1000|3000] "" XXX
  SG_ EPB_DBF_DECEL : 48|8@1+ (0.01,0) [0|2.54] "g" XXX
+
+BO_ 1169 BMS_491: 8 XXX
+
+BO_ 1171 BMS_493: 8 XXX
+
+BO_ 1175 BMS_497: 8 XXX
+
+BO_ 1176 BMS_498: 8 XXX
+
+BO_ 1245 BMS_4DD: 8 XXX
+
+BO_ 1246 BMS_4DE: 8 XXX
+
+BO_ 1250 BMS_4E2: 8 XXX
 
 BO_ 1287 TCS15: 4 XXX
  SG_ ABS_W_LAMP : 0|1@1+ (1,0) [0|1] "" XXX
@@ -222,7 +238,7 @@ BO_ 1345 CGW1: 8 XXX
  SG_ CF_Gway_ParkBrakeSw : 60|2@1+ (1,0) [0|3] "" XXX
  SG_ CF_Gway_TurnSigRh : 62|2@1+ (1,0) [0|3] "" XXX
 
-BO_ 1346 uwe542: 8 XXX
+BO_ 1346 BMS_542: 8 XXX
  SG_ uwe542_0_SocDisp : 0|8@1+ (0.5,0) [0|100] "%" XXX
  SG_ uwe542_12_Backcounter : 8|16@1+ (1,0) [0|65535] "V" XXX
  SG_ uwe542_78_UCCS : 48|16@1+ (0.1,0) [0|500] "V" XXX
@@ -304,16 +320,28 @@ BO_ 1412 AAF11: 8 XXX
 BO_ 1426 LABEL11: 8 XXX
  SG_ CC_React : 34|1@1+ (1,0) [0|1] "" XXX
 
-BO_ 1429 uwe595: 8 XXX
+BO_ 1428 BMS_594: 8 XXX
+
+BO_ 1429 BMS_595: 8 XXX
  SG_ uwe595_IBatt : 32|16@1- (0.1,0) [-1000|1000] "A" XXX
  SG_ uwe595_UBatt : 48|16@1+ (0.1,0) [0|500] "V" XXX
 
-BO_ 1430 uwe596: 8 XXX
+BO_ 1430 BMS_596: 8 XXX
  SG_ uwe596_1_UKl30 : 8|8@1+ (0.1,0) [0|25] "V" XXX
  SG_ uwe596_2_remainingChTAC : 16|16@1+ (1,0) [0|65535] "min" XXX
  SG_ uwe596_4_remainingChTDC : 32|8@1+ (1,0) [0|255] "min" XXX
  SG_ uwe596_6_TAkkuL : 48|8@1+ (1,0) [0|255] "°C" XXX
  SG_ uwe596_7_TAkkuH : 56|8@1+ (1,0) [0|255] "°C" XXX
+
+BO_ 1431 BMS_597: 8 XXX
+
+BO_ 1432 BMS_598: 8 XXX
+
+BO_ 1433 BMS_599: 8 XXX
+
+BO_ 1436 BMS_59C: 8 XXX
+
+BO_ 1438 BMS_59E: 8 XXX
 
 BO_ 1440 ACU11: 8 XXX
  SG_ CF_Ods_SNRcv : 1|1@1+ (1,0) [0|1] "" XXX
@@ -331,6 +359,8 @@ BO_ 1440 ACU11: 8 XXX
  SG_ CF_Acu_Dtc : 40|16@1+ (1,0) [0|65535] "" XXX
  SG_ CF_Acu_NumOfFlt : 56|8@1+ (1,0) [0|255] "" XXX
 
+BO_ 1443 BMS_5A3: 8 XXX
+
 BO_ 1488 uwe5D0: 8 XXX
  SG_ uwe5D0_ODO : 0|24@1+ (0.1,0) [0|800000] "km" XXX
 
@@ -343,8 +373,14 @@ BO_ 1492 TMU_GW_PE_01: 8 XXX
  SG_ TMU_IVRActivity : 0|2@1+ (1,0) [0|3] "" XXX
  SG_ TMU_PhoneActivity : 2|2@1+ (1,0) [0|3] "" XXX
 
-BO_ 1494 uwe5D6: 8 XXX
+BO_ 1493 BMS_5D5: 8 XXX
+
+BO_ 1494 BMS_5D6: 8 XXX
  SG_ uwe5D6_UBatt_inv : 0|16@1- (0.1,0) [0|0] "V" XXX
+
+BO_ 1495 BMS_5D7: 8 XXX
+
+BO_ 1496 BMS_5D8: 8 XXX
 
 BO_ 1525 UNK_5F5: 64 XXX
  SG_ UNK_COUNTER : 32|4@1+ (1,0) [0|15] "" XXX
