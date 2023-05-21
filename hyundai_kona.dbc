@@ -340,6 +340,9 @@ BO_ 1432 BMS_598: 8 XXX
 BO_ 1433 BMS_599: 8 XXX
 
 BO_ 1436 BMS_59C: 8 XXX
+ SG_ ChargeUnknown1 : 16|8@1+ (1,0) [0|255] "" XXX
+ SG_ ChargeUnknown2 : 24|8@1+ (1,0) [0|255] "" XXX
+ SG_ ChargePowerTarget : 32|16@1+ (4,0) [0|65535] "W" XXX
 
 BO_ 1438 BMS_59E: 8 XXX
  SG_ UNK_U_HV : 39|8@0+ (1,0) [0|255] "" XXX
