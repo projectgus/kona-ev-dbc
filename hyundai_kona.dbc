@@ -407,110 +407,7 @@ BO_ 1528 uwe5F8: 8 XXX
  SG_ uwe5F8_7_ClimateTInside : 56|8@1+ (0.5,-40) [-40|87.5] "" XXX
 
 BO_ 3221225472 VECTOR__INDEPENDENT_SIG_MSG: 0 XXX
- SG_ FCA_StopReq : 0|1@1+ (1,0) [0|1] "" XXX
- SG_ CF_Lvr_ShfErrInf : 0|20@1+ (1,0) [0|8191] "" XXX
- SG_ CF_Lvr_AC : 0|4@1+ (1,0) [0|15] "" XXX
- SG_ CF_Lvr_CS : 0|4@1+ (1,0) [0|15] "" XXX
- SG_ CF_VSM_Prefill : 0|1@1+ (1,0) [0|1] "" XXX
- SG_ CF_VSM_HBACmd : 0|2@1+ (1,0) [0|3] "" XXX
- SG_ CF_VSM_Warn : 0|2@1+ (1,0) [0|3] "" XXX
- SG_ CF_VSM_BeltCmd : 0|3@1+ (1,0) [0|7] "" XXX
- SG_ CR_VSM_DecCmd : 0|8@1+ (0.01,0) [0|2.55] "g" XXX
- SG_ FCA_Status : 0|2@1+ (1,0) [0|3] "" XXX
- SG_ FCA_CmdAct : 0|1@1+ (1,0) [0|1] "" XXX
- SG_ CF_Lvr_ShtLkStat : 0|4@1+ (1,0) [0|15] "" XXX
- SG_ FCA_DrvSetStatus : 0|3@1+ (1,0) [0|7] "" XXX
- SG_ CF_VSM_DecCmdAct : 0|1@1+ (1,0) [0|1] "" XXX
- SG_ FCA_Failinfo : 0|3@1+ (1,0) [0|7] "" XXX
- SG_ FCA_RelativeVelocity : 0|9@1+ (0.1,-25.5) [-25.5|25.5] "m/s" XXX
- SG_ FCA_TimetoCollision : 0|8@1+ (10,0) [0|2540] "ms" XXX
- SG_ CR_FCA_Alive : 0|4@1+ (1,0) [0|15] "" XXX
- SG_ CR_FCA_ChkSum : 0|4@1+ (1,0) [0|15] "" XXX
- SG_ Supplemental_Counter : 0|4@1+ (1,0) [0|15] "" XXX
- SG_ PAINT1_Status : 0|2@1+ (1,0) [0|1] "" XXX
- SG_ CF_Lvr_CruiseSet : 0|8@1+ (1,0) [0|255] "" XXX
- SG_ CF_DiBox_HPreInjVStat2 : 0|8@1+ (1,0) [0|255] "" XXX
- SG_ CF_DiBox_HPreInjVPkp : 0|8@1+ (1,0) [0|255] "" XXX
- SG_ CF_DiBox_HPreInjVBpt : 0|8@1+ (1,0) [0|255] "" XXX
- SG_ CF_DiBox_ErrRegFrtMSV : 0|8@1+ (1,0) [0|255] "" XXX
- SG_ CF_DiBox_ErrRegSedMSV : 0|8@1+ (1,0) [0|255] "" XXX
- SG_ CF_DiBox_SPIErrSedMSV : 0|1@1+ (1,0) [0|1] "" XXX
- SG_ CF_DiBox_SPIErrFrtMSV : 0|1@1+ (1,0) [0|1] "" XXX
- SG_ CF_DiBox_IDErrSedMSV : 0|1@1+ (1,0) [0|1] "" XXX
- SG_ CF_DiBox_IDErrFrtMSV : 0|1@1+ (1,0) [0|1] "" XXX
- SG_ CF_DiBox_IniStatMSV : 0|1@1+ (1,0) [0|1] "" XXX
- SG_ ComfortBandUpper : 0|6@1+ (0.02,0) [0|1.26] "m/s^2" XXX
- SG_ CF_Lvr_Gear : 0|4@1+ (1,0) [0|15] "" XXX
- SG_ CF_Lvr_GearInf : 0|4@1+ (1,0) [0|15] "" XXX
- SG_ CF_Lvr_PRelStat : 0|1@1+ (1,0) [0|1] "" XXX
- SG_ CF_Lvr_BkeAct : 0|1@1+ (1,0) [0|1] "" XXX
- SG_ CF_Lvr_NFnStat : 0|1@1+ (1,0) [0|1] "" XXX
- SG_ CF_Lvr_PosInf : 0|4@1+ (1,0) [0|15] "" XXX
- SG_ CF_Lvr_PosCpl : 0|4@1+ (1,0) [0|15] "" XXX
- SG_ CF_Lvr_UlkButStat : 0|2@1+ (1,0) [0|3] "" XXX
- SG_ CF_Lvr_PNStat : 0|2@1+ (1,0) [0|3] "" XXX
- SG_ CF_RSPA_StopReq : 0|1@1+ (1,0) [0|2] "" XXX
- SG_ IG_Reactive_Stat : 0|3@1+ (1,0) [0|3] "" XXX
- SG_ Gear_Change : 0|1@0+ (1,0) [0|31] "" XXX
- SG_ Cruise_Limit_Status : 0|1@1+ (1,0) [0|1] "" XXX
- SG_ Cruise_Limit_Target : 0|8@1+ (1,0) [0|15] "" XXX
- SG_ Accel_Pedal_Pos : 0|8@1+ (1,0) [0|254] "" XXX
- SG_ CR_Vcu_AccPedDep_Pos : 0|8@1+ (1,0) [0|254] "" XXX
- SG_ CF_RSPA_State : 0|4@1+ (1,0) [0|15] "" XXX
- SG_ CF_RSPA_Act : 0|2@1+ (1,0) [0|3] "" XXX
- SG_ CF_RSPA_DecCmd : 0|2@1+ (1,0) [0|3] "" XXX
- SG_ CF_RSPA_Trgt_Spd : 0|10@1+ (0.01,0) [0|10.23] "km/h" XXX
- SG_ Brake_Pedal_Pos : 0|8@1+ (1,0) [0|127] "" XXX
- SG_ CR_RSPA_EPB_Req : 0|2@1+ (1,0) [0|3] "" XXX
- SG_ CF_RSPA_ACC_ACT : 0|1@1+ (1,0) [0|2] "" XXX
- SG_ CF_RSPA_AliveCounter : 0|4@1+ (1,0) [0|15] "" XXX
- SG_ CF_RSPA_CRC : 0|8@1+ (1,0) [0|255] "" XXX
- SG_ TQI_1 : 0|8@1+ (0.390625,0) [0|99.6094] "%" XXX
- SG_ N : 0|16@1+ (0.25,0) [0|16383.75] "rpm" XXX
- SG_ TQI_2 : 0|8@1+ (0.390625,0) [0|99.6094] "%" XXX
- SG_ VS : 0|8@1+ (1,0) [0|255] "km/h" XXX
- SG_ SWI_IGK : 0|1@0+ (1,0) [0|1] "" XXX
- SG_ WHL_SPD_FL : 0|14@1+ (0.03125,0) [0|511.96875] "km/h" XXX
- SG_ ComfortBandLower : 0|6@1+ (0.02,0) [0|1.26] "m/s^2" XXX
- SG_ JerkUpperLimit : 0|7@1+ (0.1,0) [0|12.7] "m/s^3" XXX
- SG_ JerkLowerLimit : 0|7@1+ (0.1,0) [0|12.7] "m/s^3" XXX
- SG_ ACCMode : 0|3@1+ (1,0) [0|7] "" XXX
- SG_ ObjGap : 0|8@1+ (1,0) [0|255] "" XXX
- SG_ BCM_Door_Dri_Status : 0|1@0+ (1,0) [0|1] "" XXX
- SG_ BCM_Shift_R_MT_SW_Status : 0|2@0+ (1,0) [0|3] "" XXX
- SG_ LFA_Pressed : 0|1@0+ (1,0) [0|1] "" XXX
- SG_ CRC : 0|8@1+ (1,0) [0|0] "" XXX
- SG_ WHL_SPD12_AliveCounter : 0|4@1+ (1,0) [0|15] "" XXX
- SG_ CF_DiBox_HPreInjVStat1 : 0|8@1+ (1,0) [0|255] "" XXX
- SG_ WHL_SPD_FR : 0|14@1+ (0.03125,0) [0|511.96875] "km/h" XXX
- SG_ WHL_SPD13_AliveCounter : 0|4@1+ (1,0) [0|15] "" XXX
- SG_ WHL_SPD_RL : 0|14@1+ (0.03125,0) [0|511.96875] "km/h" XXX
- SG_ WHL_SPD_RR : 0|14@1+ (0.03125,0) [0|511.96875] "km/h" XXX
- SG_ CF_PCA_BrkReq : 0|1@1+ (1,0) [0|0] "" XXX
- SG_ CF_PCA_DclTrgtVal : 0|4@1+ (0.04,0) [0|0] "g" XXX
- SG_ PCA_ALIVE_CNT : 0|4@1+ (1,0) [0|0] "" XXX
- SG_ PCA_CHECK_SUM : 0|8@1+ (1,0) [0|0] "" XXX
- SG_ Elect_Gear_Shifter : 0|4@1+ (1,0) [0|7] "" XXX
- SG_ ABS_DEF : 0|1@1+ (1,0) [0|1] "" XXX
- SG_ SA_Z_COUNT : 0|15@1+ (2,-32768) [-32768|32766] "" XXX
- SG_ SA_Z_FLAG : 0|1@1+ (1,0) [0|1] "" XXX
- SG_ CF_Spas_Stat : 0|4@1+ (1,0) [0|15] "" XXX
- SG_ CF_Spas_TestMode : 0|2@1+ (1,0) [0|3] "" XXX
- SG_ CR_Spas_StrAngCmd : 0|16@1- (0.1,0) [-3276.8|3276.7] "" XXX
- SG_ CF_Spas_BeepAlarm : 0|4@1+ (1,0) [0|15] "" XXX
- SG_ CF_Spas_Mode_Seq : 0|2@1+ (1,0) [0|3] "" XXX
- SG_ CF_Spas_AliveCnt : 0|8@1+ (1,0) [0|255] "" XXX
- SG_ CF_Spas_Chksum : 0|8@1+ (1,0) [0|255] "" XXX
- SG_ CF_Spas_PasVol : 0|3@1+ (1,0) [0|7] "" XXX
- SG_ SA_COUNT : 0|16@1+ (2,-32768) [-32768|98302] "" XXX
- SG_ EBD_DEF : 0|1@1+ (1,0) [0|1] "" XXX
- SG_ ABS_ACT : 0|1@1+ (1,0) [0|1] "" XXX
- SG_ ABS_W_LAMP : 0|1@1+ (1,0) [0|1] "" XXX
- SG_ EBD_W_LAMP : 0|1@1+ (1,0) [0|1] "" XXX
- SG_ ABS_DIAG : 0|1@1+ (1,0) [0|1] "" XXX
- SG_ ESS_STAT : 0|2@1+ (1,0) [0|3] "" XXX
- SG_ CF_Ems_PkpCurMSV : 0|8@1+ (1,0) [0|255] "" XXX
- SG_ CF_Ems_HolCurMSV : 0|8@1+ (1,0) [0|255] "" XXX
+ SG_ C_MuteSW : 0|2@1+ (1,0) [0|3] "" XXX
  SG_ CF_Ems_InjVBnkAct : 0|8@1+ (1,0) [0|255] "" XXX
  SG_ C_SeekUpSW : 0|2@1+ (1,0) [0|3] "" XXX
  SG_ C_TwUnNValueConf : 0|2@1+ (1,0) [0|3] "" XXX
@@ -521,8 +418,8 @@ BO_ 3221225472 VECTOR__INDEPENDENT_SIG_MSG: 0 XXX
  SG_ C_WELNValueConf : 0|2@1+ (1,0) [0|3] "" XXX
  SG_ C_TriTurnLNValueConf : 0|2@1+ (1,0) [0|3] "" XXX
  SG_ C_ModeSW : 0|2@1+ (1,0) [0|3] "" XXX
- SG_ C_MuteSW : 0|2@1+ (1,0) [0|3] "" XXX
- SG_ C_SeekDnSW : 0|2@1+ (1,0) [0|3] "" XXX
+ SG_ CF_Ems_HolCurMSV : 0|8@1+ (1,0) [0|255] "" XXX
+ SG_ C_ADrLUNValueConf : 0|2@1+ (1,0) [0|3] "" XXX
  SG_ CF_Ems_InjVActSet : 0|8@1+ (1,0) [0|255] "" XXX
  SG_ C_BTPhoneCallSW : 0|2@1+ (1,0) [0|3] "" XXX
  SG_ C_BTPhoneHangUpSW : 0|2@1+ (1,0) [0|3] "" XXX
@@ -531,29 +428,29 @@ BO_ 3221225472 VECTOR__INDEPENDENT_SIG_MSG: 0 XXX
  SG_ C_SdsSW : 0|2@1+ (1,0) [0|3] "" XXX
  SG_ C_MTSSW : 0|2@1+ (1,0) [0|3] "" XXX
  SG_ C_VolDnSW : 0|2@1+ (1,0) [0|3] "" XXX
- SG_ C_VolUpSW : 0|2@1+ (1,0) [0|3] "" XXX
+ SG_ CF_Spas_Chksum : 0|8@1+ (1,0) [0|255] "" XXX
  SG_ CR_Ldc_ActVol_LS_V : 0|8@1+ (0.1,0) [0|0] "V" XXX
- SG_ CF_Mdps_ALTRequest : 0|1@1+ (1,0) [0|1] "" XXX
- SG_ CF_Fatc_ActiveEco : 0|1@1+ (1,0) [0|1] "" XXX
- SG_ CF_Fatc_AutoActivation : 0|1@1+ (1,0) [0|1] "" XXX
- SG_ CF_Fatc_DefSw : 0|1@1+ (1,0) [0|1] "" XXX
- SG_ CF_Fatc_PtcRlyStat : 0|1@1+ (1,0) [0|1] "" XXX
- SG_ CF_Fatc_ChkSum : 0|8@1+ (1,0) [0|255] "" XXX
- SG_ CF_Mdps_WLmp : 0|2@1+ (1,0) [0|3] "" XXX
- SG_ CF_Mdps_Flex : 0|3@1+ (1,0) [0|3] "" XXX
- SG_ CF_Mdps_FlexDisp : 0|1@1+ (1,0) [0|1] "" XXX
- SG_ CF_Mdps_Stat : 0|4@1+ (1,0) [0|15] "" XXX
- SG_ CR_Mdps_DrvTq : 0|12@1+ (1,0) [0|15] "" XXX
- SG_ CF_Fatc_Compload : 0|3@1+ (1,0) [0|7] "" XXX
- SG_ CR_Mdps_StrAng : 0|16@1- (1,0) [0|65535] "" XXX
- SG_ CF_Mdps_AliveCnt : 0|8@0+ (1,0) [0|255] "" XXX
- SG_ CF_Mdps_Chksum : 0|8@0+ (1,0) [0|255] "" XXX
- SG_ CF_Mdps_SPAS_FUNC : 0|1@1+ (1,0) [0|1] "flag" XXX
- SG_ CF_Mdps_LKAS_FUNC : 0|1@1+ (1,0) [0|1] "flag" XXX
- SG_ CF_Mdps_CurrMode : 0|2@1+ (1,0) [0|3] "" XXX
- SG_ CF_Mdps_Type : 0|2@1+ (1,0) [0|2] "" XXX
- SG_ CF_MDPS_VSM_FUNC : 0|1@0+ (1,0) [0|1] "" XXX
- SG_ CF_DiBox_HPreInjVConfStat : 0|8@1+ (1,0) [0|255] "" XXX
+ SG_ ABS_DEF : 0|1@1+ (1,0) [0|1] "" XXX
+ SG_ SA_Z_COUNT : 0|15@1+ (2,-32768) [-32768|32766] "" XXX
+ SG_ SA_Z_FLAG : 0|1@1+ (1,0) [0|1] "" XXX
+ SG_ CF_Spas_Stat : 0|4@1+ (1,0) [0|15] "" XXX
+ SG_ CF_Spas_TestMode : 0|2@1+ (1,0) [0|3] "" XXX
+ SG_ CR_Spas_StrAngCmd : 0|16@1- (0.1,0) [-3276.8|3276.7] "" XXX
+ SG_ CF_Spas_BeepAlarm : 0|4@1+ (1,0) [0|15] "" XXX
+ SG_ CF_Spas_Mode_Seq : 0|2@1+ (1,0) [0|3] "" XXX
+ SG_ CF_Spas_AliveCnt : 0|8@1+ (1,0) [0|255] "" XXX
+ SG_ C_VolUpSW : 0|2@1+ (1,0) [0|3] "" XXX
+ SG_ CF_Spas_PasVol : 0|3@1+ (1,0) [0|7] "" XXX
+ SG_ SA_COUNT : 0|16@1+ (2,-32768) [-32768|98302] "" XXX
+ SG_ EBD_DEF : 0|1@1+ (1,0) [0|1] "" XXX
+ SG_ ABS_ACT : 0|1@1+ (1,0) [0|1] "" XXX
+ SG_ ABS_W_LAMP : 0|1@1+ (1,0) [0|1] "" XXX
+ SG_ EBD_W_LAMP : 0|1@1+ (1,0) [0|1] "" XXX
+ SG_ ABS_DIAG : 0|1@1+ (1,0) [0|1] "" XXX
+ SG_ ESS_STAT : 0|2@1+ (1,0) [0|3] "" XXX
+ SG_ CF_Ems_PkpCurMSV : 0|8@1+ (1,0) [0|255] "" XXX
+ SG_ C_SeekDnSW : 0|2@1+ (1,0) [0|3] "" XXX
+ SG_ CF_Fatc_AcnCltEnRq : 0|1@1+ (1,0) [0|1] "" XXX
  SG_ CF_Fatc_EcvFlt : 0|1@1+ (1,0) [0|1] "" XXX
  SG_ CF_Ems_DiagFulHDEV : 0|1@1+ (1,0) [0|1] "" XXX
  SG_ CF_Ems_SwiOffIC1 : 0|1@1+ (1,0) [0|1] "" XXX
@@ -563,8 +460,8 @@ BO_ 3221225472 VECTOR__INDEPENDENT_SIG_MSG: 0 XXX
  SG_ CR_Ems_BatVolRly : 0|8@1+ (0.1,0) [0|25.5] "V" XXX
  SG_ CR_Fatc_TqAcnOut : 0|8@1+ (0.2,0) [0|50.8] "Nm" XXX
  SG_ CF_Fatc_AcnRqSwi : 0|1@1+ (1,0) [0|1] "" XXX
- SG_ CF_Fatc_AcnCltEnRq : 0|1@1+ (1,0) [0|1] "" XXX
- SG_ C_ADrLUNValueConf : 0|2@1+ (1,0) [0|3] "" XXX
+ SG_ CF_Mdps_Type : 0|2@1+ (1,0) [0|2] "" XXX
+ SG_ CF_DiBox_HPreInjVConfStat : 0|8@1+ (1,0) [0|255] "" XXX
  SG_ CF_Fatc_BlwrOn : 0|1@1+ (1,0) [0|1] "" XXX
  SG_ CF_FATC_Iden : 0|2@1+ (1,0) [0|3] "" XXX
  SG_ CF_Fatc_BlwrMax : 0|1@1+ (1,0) [0|1] "" XXX
@@ -573,11 +470,114 @@ BO_ 3221225472 VECTOR__INDEPENDENT_SIG_MSG: 0 XXX
  SG_ CF_Fatc_CtrInf : 0|3@1+ (1,0) [0|7] "" XXX
  SG_ CF_Fatc_MsgCnt : 0|4@1+ (1,0) [0|15] "" XXX
  SG_ CR_Fatc_OutTemp : 0|8@1+ (0.5,-40) [-40|60] "deg" XXX
+ SG_ CF_Mdps_FlexDisp : 0|1@1+ (1,0) [0|1] "" XXX
+ SG_ CF_Mdps_Stat : 0|4@1+ (1,0) [0|15] "" XXX
+ SG_ CR_Mdps_DrvTq : 0|12@1+ (1,0) [0|15] "" XXX
+ SG_ CF_Mdps_ALTRequest : 0|1@1+ (1,0) [0|1] "" XXX
+ SG_ CF_Fatc_ActiveEco : 0|1@1+ (1,0) [0|1] "" XXX
+ SG_ CF_Fatc_AutoActivation : 0|1@1+ (1,0) [0|1] "" XXX
+ SG_ CF_Fatc_DefSw : 0|1@1+ (1,0) [0|1] "" XXX
+ SG_ CF_Fatc_PtcRlyStat : 0|1@1+ (1,0) [0|1] "" XXX
+ SG_ CF_Fatc_ChkSum : 0|8@1+ (1,0) [0|255] "" XXX
+ SG_ CF_Mdps_WLmp : 0|2@1+ (1,0) [0|3] "" XXX
+ SG_ CF_Mdps_Flex : 0|3@1+ (1,0) [0|3] "" XXX
+ SG_ PCA_ALIVE_CNT : 0|4@1+ (1,0) [0|0] "" XXX
  SG_ CR_Fatc_OutTempSns : 0|8@1+ (0.5,-40) [-40|60] "deg" XXX
+ SG_ Elect_Gear_Shifter : 0|4@1+ (1,0) [0|7] "" XXX
+ SG_ CF_Fatc_Compload : 0|3@1+ (1,0) [0|7] "" XXX
+ SG_ CR_Mdps_StrAng : 0|16@1- (1,0) [0|65535] "" XXX
+ SG_ CF_Mdps_AliveCnt : 0|8@0+ (1,0) [0|255] "" XXX
+ SG_ CF_Mdps_Chksum : 0|8@0+ (1,0) [0|255] "" XXX
+ SG_ CF_Mdps_SPAS_FUNC : 0|1@1+ (1,0) [0|1] "flag" XXX
+ SG_ CF_Mdps_LKAS_FUNC : 0|1@1+ (1,0) [0|1] "flag" XXX
+ SG_ CF_Mdps_CurrMode : 0|2@1+ (1,0) [0|3] "" XXX
+ SG_ PAINT1_Status : 0|2@1+ (1,0) [0|1] "" XXX
+ SG_ ComfortBandUpper : 0|6@1+ (0.02,0) [0|1.26] "m/s^2" XXX
+ SG_ CF_DiBox_HPreInjVStat2 : 0|8@1+ (1,0) [0|255] "" XXX
+ SG_ CF_DiBox_HPreInjVPkp : 0|8@1+ (1,0) [0|255] "" XXX
+ SG_ CF_DiBox_HPreInjVBpt : 0|8@1+ (1,0) [0|255] "" XXX
+ SG_ CF_DiBox_ErrRegFrtMSV : 0|8@1+ (1,0) [0|255] "" XXX
+ SG_ CF_DiBox_ErrRegSedMSV : 0|8@1+ (1,0) [0|255] "" XXX
+ SG_ CF_DiBox_SPIErrSedMSV : 0|1@1+ (1,0) [0|1] "" XXX
+ SG_ CF_DiBox_SPIErrFrtMSV : 0|1@1+ (1,0) [0|1] "" XXX
+ SG_ CF_DiBox_IDErrSedMSV : 0|1@1+ (1,0) [0|1] "" XXX
+ SG_ CF_DiBox_IDErrFrtMSV : 0|1@1+ (1,0) [0|1] "" XXX
+ SG_ CF_DiBox_IniStatMSV : 0|1@1+ (1,0) [0|1] "" XXX
+ SG_ CF_Lvr_CruiseSet : 0|8@1+ (1,0) [0|255] "" XXX
+ SG_ CF_Lvr_Gear : 0|4@1+ (1,0) [0|15] "" XXX
+ SG_ CF_Lvr_GearInf : 0|4@1+ (1,0) [0|15] "" XXX
+ SG_ CF_Lvr_PRelStat : 0|1@1+ (1,0) [0|1] "" XXX
+ SG_ CF_Lvr_BkeAct : 0|1@1+ (1,0) [0|1] "" XXX
+ SG_ CF_Lvr_NFnStat : 0|1@1+ (1,0) [0|1] "" XXX
+ SG_ CF_Lvr_PosInf : 0|4@1+ (1,0) [0|15] "" XXX
+ SG_ CF_Lvr_PosCpl : 0|4@1+ (1,0) [0|15] "" XXX
+ SG_ CF_Lvr_UlkButStat : 0|2@1+ (1,0) [0|3] "" XXX
+ SG_ CF_Lvr_PNStat : 0|2@1+ (1,0) [0|3] "" XXX
+ SG_ CF_Lvr_ShtLkStat : 0|4@1+ (1,0) [0|15] "" XXX
+ SG_ CF_Lvr_ShfErrInf : 0|20@1+ (1,0) [0|8191] "" XXX
+ SG_ CF_Lvr_AC : 0|4@1+ (1,0) [0|15] "" XXX
+ SG_ CF_Lvr_CS : 0|4@1+ (1,0) [0|15] "" XXX
+ SG_ CF_VSM_Prefill : 0|1@1+ (1,0) [0|1] "" XXX
+ SG_ CF_VSM_HBACmd : 0|2@1+ (1,0) [0|3] "" XXX
+ SG_ CF_VSM_Warn : 0|2@1+ (1,0) [0|3] "" XXX
+ SG_ CF_VSM_BeltCmd : 0|3@1+ (1,0) [0|7] "" XXX
+ SG_ CR_VSM_DecCmd : 0|8@1+ (0.01,0) [0|2.55] "g" XXX
+ SG_ FCA_Status : 0|2@1+ (1,0) [0|3] "" XXX
+ SG_ FCA_StopReq : 0|1@1+ (1,0) [0|1] "" XXX
+ SG_ CF_RSPA_StopReq : 0|1@1+ (1,0) [0|2] "" XXX
+ SG_ FCA_DrvSetStatus : 0|3@1+ (1,0) [0|7] "" XXX
+ SG_ CF_VSM_DecCmdAct : 0|1@1+ (1,0) [0|1] "" XXX
+ SG_ FCA_Failinfo : 0|3@1+ (1,0) [0|7] "" XXX
+ SG_ FCA_RelativeVelocity : 0|9@1+ (0.1,-25.5) [-25.5|25.5] "m/s" XXX
+ SG_ FCA_TimetoCollision : 0|8@1+ (10,0) [0|2540] "ms" XXX
+ SG_ CR_FCA_Alive : 0|4@1+ (1,0) [0|15] "" XXX
+ SG_ CR_FCA_ChkSum : 0|4@1+ (1,0) [0|15] "" XXX
+ SG_ Supplemental_Counter : 0|4@1+ (1,0) [0|15] "" XXX
+ SG_ LFA_Pressed : 0|1@0+ (1,0) [0|1] "" XXX
+ SG_ CRC : 0|8@1+ (1,0) [0|0] "" XXX
+ SG_ WHL_SPD12_AliveCounter : 0|4@1+ (1,0) [0|15] "" XXX
+ SG_ WHL_SPD_FL : 0|14@1+ (0.03125,0) [0|511.96875] "km/h" XXX
+ SG_ ComfortBandLower : 0|6@1+ (0.02,0) [0|1.26] "m/s^2" XXX
+ SG_ JerkUpperLimit : 0|7@1+ (0.1,0) [0|12.7] "m/s^3" XXX
+ SG_ JerkLowerLimit : 0|7@1+ (0.1,0) [0|12.7] "m/s^3" XXX
+ SG_ ACCMode : 0|3@1+ (1,0) [0|7] "" XXX
+ SG_ ObjGap : 0|8@1+ (1,0) [0|255] "" XXX
+ SG_ BCM_Door_Dri_Status : 0|1@0+ (1,0) [0|1] "" XXX
+ SG_ BCM_Shift_R_MT_SW_Status : 0|2@0+ (1,0) [0|3] "" XXX
+ SG_ VS : 0|8@1+ (1,0) [0|255] "km/h" XXX
+ SG_ CF_MDPS_VSM_FUNC : 0|1@0+ (1,0) [0|1] "" XXX
+ SG_ SWI_IGK : 0|1@0+ (1,0) [0|1] "" XXX
+ SG_ CF_DiBox_HPreInjVStat1 : 0|8@1+ (1,0) [0|255] "" XXX
+ SG_ WHL_SPD_FR : 0|14@1+ (0.03125,0) [0|511.96875] "km/h" XXX
+ SG_ WHL_SPD13_AliveCounter : 0|4@1+ (1,0) [0|15] "" XXX
+ SG_ WHL_SPD_RL : 0|14@1+ (0.03125,0) [0|511.96875] "km/h" XXX
+ SG_ WHL_SPD_RR : 0|14@1+ (0.03125,0) [0|511.96875] "km/h" XXX
+ SG_ CF_PCA_BrkReq : 0|1@1+ (1,0) [0|0] "" XXX
+ SG_ CF_PCA_DclTrgtVal : 0|4@1+ (0.04,0) [0|0] "g" XXX
+ SG_ CF_RSPA_DecCmd : 0|2@1+ (1,0) [0|3] "" XXX
+ SG_ CF_RSPA_Trgt_Spd : 0|10@1+ (0.01,0) [0|10.23] "km/h" XXX
+ SG_ IG_Reactive_Stat : 0|3@1+ (1,0) [0|3] "" XXX
+ SG_ Gear_Change : 0|1@0+ (1,0) [0|31] "" XXX
+ SG_ Cruise_Limit_Status : 0|1@1+ (1,0) [0|1] "" XXX
+ SG_ Cruise_Limit_Target : 0|8@1+ (1,0) [0|15] "" XXX
+ SG_ Accel_Pedal_Pos : 0|8@1+ (1,0) [0|254] "" XXX
+ SG_ CR_Vcu_AccPedDep_Pos : 0|8@1+ (1,0) [0|254] "" XXX
+ SG_ CF_RSPA_State : 0|4@1+ (1,0) [0|15] "" XXX
+ SG_ CF_RSPA_Act : 0|2@1+ (1,0) [0|3] "" XXX
+ SG_ FCA_CmdAct : 0|1@1+ (1,0) [0|1] "" XXX
+ SG_ PCA_CHECK_SUM : 0|8@1+ (1,0) [0|0] "" XXX
+ SG_ Brake_Pedal_Pos : 0|8@1+ (1,0) [0|127] "" XXX
+ SG_ CR_RSPA_EPB_Req : 0|2@1+ (1,0) [0|3] "" XXX
+ SG_ CF_RSPA_ACC_ACT : 0|1@1+ (1,0) [0|2] "" XXX
+ SG_ CF_RSPA_AliveCounter : 0|4@1+ (1,0) [0|15] "" XXX
+ SG_ CF_RSPA_CRC : 0|8@1+ (1,0) [0|255] "" XXX
+ SG_ TQI_1 : 0|8@1+ (0.390625,0) [0|99.6094] "%" XXX
+ SG_ N : 0|16@1+ (0.25,0) [0|16383.75] "rpm" XXX
+ SG_ TQI_2 : 0|8@1+ (0.390625,0) [0|99.6094] "%" XXX
 
 CM_ SG_ 1438 UNK_U_HV "Maps to 595 UBatt, maybe voltage at another point?";
 VAL_ 512 CURRENT_GEAR 0 "P" 5 "D" 6 "N" 7 "R";
-VAL_ 3221225472 CF_VSM_Warn 2 "FCW" 3 "AEB";
-VAL_ 3221225472 CF_Lvr_Gear 5 "D" 8 "S" 6 "N" 7 "R" 0 "P";
-VAL_ 3221225472 ACCMode 0 "off" 1 "enabled" 2 "driver_override" 3 "off_maybe_fault" 4 "cancelled";
 VAL_ 3221225472 Elect_Gear_Shifter 5 "D" 8 "S" 6 "N" 7 "R" 0 "P";
+VAL_ 3221225472 CF_Lvr_Gear 5 "D" 8 "S" 6 "N" 7 "R" 0 "P";
+VAL_ 3221225472 CF_VSM_Warn 2 "FCW" 3 "AEB";
+VAL_ 3221225472 ACCMode 0 "off" 1 "enabled" 2 "driver_override" 3 "off_maybe_fault" 4 "cancelled";
