@@ -342,6 +342,7 @@ BO_ 1433 BMS_599: 8 XXX
 BO_ 1436 BMS_59C: 8 XXX
 
 BO_ 1438 BMS_59E: 8 XXX
+ SG_ UNK_U_HV : 39|8@0+ (1,0) [0|255] "" XXX
 
 BO_ 1440 ACU11: 8 XXX
  SG_ CF_Ods_SNRcv : 1|1@1+ (1,0) [0|1] "" XXX
@@ -574,6 +575,7 @@ BO_ 3221225472 VECTOR__INDEPENDENT_SIG_MSG: 0 XXX
  SG_ CR_Fatc_OutTemp : 0|8@1+ (0.5,-40) [-40|60] "deg" XXX
  SG_ CR_Fatc_OutTempSns : 0|8@1+ (0.5,-40) [-40|60] "deg" XXX
 
+CM_ SG_ 1438 UNK_U_HV "Maps to 595 UBatt, maybe voltage at another point?";
 VAL_ 512 CURRENT_GEAR 0 "P" 5 "D" 6 "N" 7 "R";
 VAL_ 3221225472 CF_VSM_Warn 2 "FCW" 3 "AEB";
 VAL_ 3221225472 CF_Lvr_Gear 5 "D" 8 "S" 6 "N" 7 "R" 0 "P";
