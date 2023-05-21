@@ -383,6 +383,9 @@ BO_ 1494 BMS_5D6: 8 XXX
  SG_ uwe5D6_UBatt_inv : 0|16@1- (0.1,0) [0|0] "V" XXX
 
 BO_ 1495 BMS_5D7: 8 XXX
+ SG_ UNK_ChargeRelated1 : 0|8@1+ (1,0) [0|255] "" XXX
+ SG_ UNK_ChargeRelated2 : 8|8@1+ (1,0) [0|255] "" XXX
+ SG_ UNK_ChargeRelated3 : 23|16@0+ (1,0) [0|65535] "" XXX
 
 BO_ 1496 BMS_5D8: 8 XXX
 
