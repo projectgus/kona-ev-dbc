@@ -334,10 +334,18 @@ BO_ 1430 BMS_596: 8 XXX
  SG_ uwe596_7_TAkkuH : 56|8@1+ (1,0) [0|255] "°C" XXX
 
 BO_ 1431 BMS_597: 8 XXX
+ SG_ Active : 2|1@0+ (1,0) [0|1] "" XXX
+ SG_ AliveCounterBit : 7|1@0+ (1,0) [0|1] "" XXX
+ SG_ UNK_STATUS_BITS : 56|8@1+ (1,0) [0|255] "" XXX
 
 BO_ 1432 BMS_598: 8 XXX
 
 BO_ 1433 BMS_599: 8 XXX
+ SG_ UNK : 7|16@0+ (1,0) [0|65535] "" XXX
+ SG_ STATE_OF_CHARGE : 16|8@1+ (1,0) [0|255] "" XXX
+ SG_ CCS_COMMS_TRIGGER : 56|1@1+ (1,0) [0|3] "" XXX
+ SG_ CCS_CHARGE_TRIGGER : 57|1@0+ (1,0) [0|1] "" XXX
+ SG_ CCS_error_ack : 63|1@0+ (1,0) [0|1] "" XXX
 
 BO_ 1436 BMS_59C: 8 XXX
  SG_ ChargeUnknown1 : 16|8@1+ (1,0) [0|255] "" XXX
@@ -592,6 +600,9 @@ BO_ 3221225472 VECTOR__INDEPENDENT_SIG_MSG: 0 XXX
  SG_ CF_Fatc_CtrInf : 0|3@1+ (1,0) [0|7] "" XXX
  SG_ CF_Fatc_MsgCnt : 0|4@1+ (1,0) [0|15] "" XXX
 
+CM_ SG_ 1431 Active "This bit set when vehicle is in Ready, or Charging";
+CM_ SG_ 1433 CCS_CHARGE_TRIGGER "Might indicate contactors closed?";
+CM_ SG_ 1433 CCS_error_ack "Seems to go high to "ack" the CCS_CCM_error bit from CCM";
 CM_ SG_ 1438 UNK_U_HV "Maps to 595 UBatt, maybe voltage at another point?";
 VAL_ 512 CURRENT_GEAR 0 "P" 5 "D" 6 "N" 7 "R";
 VAL_ 3221225472 CF_VSM_Warn 2 "FCW" 3 "AEB";
