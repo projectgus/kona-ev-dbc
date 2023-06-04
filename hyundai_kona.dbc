@@ -346,7 +346,7 @@ BO_ 1433 BMS_599: 8 XXX
  SG_ STATE_OF_CHARGE : 16|8@1+ (1,0) [0|255] "" XXX
  SG_ CCS_COMMS_TRIGGER : 56|1@1+ (1,0) [0|3] "" XXX
  SG_ CCS_CHARGE_TRIGGER : 57|1@0+ (1,0) [0|1] "" XXX
- SG_ CCS_error_ack : 63|1@0+ (1,0) [0|1] "" XXX
+ SG_ CCS_end_ack : 63|1@0+ (1,0) [0|1] "" XXX
 
 BO_ 1436 BMS_59C: 8 XXX
  SG_ ChargeUnknown1 : 16|8@1+ (1,0) [0|255] "" XXX
@@ -398,16 +398,19 @@ BO_ 1495 BMS_5D7: 8 XXX
 
 BO_ 1496 BMS_5D8: 8 XXX
 
-BO_ 1513 CCM_5E9: 8 Vector__XXX
- SG_ CCM_togglebit : 0|1@1- (1,0) [0|1] "" Vector__XXX
+BO_ 1509 CCM_5E5: 8 XXX
+ SG_ CCM_PresentVoltage : 32|16@1- (0.1,0) [0|500] "" XXX
+ SG_ CCM_PresentCurrent : 48|16@1- (0.1,0) [0|1000] "" XXX
 
-BO_ 1512 CCM_5E8: 8 Vector__XXX
+BO_ 1510 CCM_5E6: 8 XXX
+ SG_ CCM_CCS_TCP_connected : 0|1@1+ (1,0) [0|1] "" XXX
+ SG_ CCM_CCS_ended : 1|1@1+ (1,0) [0|1] "" XXX
 
-BO_ 1510 CCM_5E6: 8 Vector__XXX
- SG_ CCM_CCS_started : 0|1@1+ (1,0) [0|1] "" Vector__XXX
- SG_ CCM_CCS_error : 1|1@1+ (1,0) [0|1] "" Vector__XXX
+BO_ 1512 CCM_5E8: 8 XXX
 
-BO_ 1509 CCM_5E5: 8 Vector__XXX
+BO_ 1513 CCM_5E9: 8 XXX
+ SG_ CCM_togglebit : 0|1@1- (1,0) [0|1] "" XXX
+ SG_ CCM_ChargeProgess : 1|7@1+ (1,0) [0|127] "" XXX
 
 BO_ 1525 UNK_5F5: 64 XXX
  SG_ UNK_COUNTER : 32|4@1+ (1,0) [0|15] "" XXX
