@@ -605,13 +605,16 @@ BO_ 3221225472 VECTOR__INDEPENDENT_SIG_MSG: 0 XXX
  SG_ CF_Fatc_MsgCnt : 0|4@1+ (1,0) [0|15] "" XXX
 
 CM_ BO_ 852 "Shift Select Switch";
+CM_ SG_ 852 Button_Pressed "Bytes 0 & 2 seem to be redundant copies of same information";
+CM_ SG_ 852 Counter "Seems to be two nibbles counting independently";
 CM_ SG_ 1431 Active "This bit set when vehicle is in Ready, or Charging";
 CM_ SG_ 1433 CCS_CHARGE_TRIGGER "Might indicate contactors closed?";
-CM_ SG_ 1433 CCS_error_ack "Seems to go high to "ack" the CCS_CCM_error bit from CCM";
+CM_ SG_ 1433 CCS_end_ack "Seems to go high to 'ack' the CCS_CCM_error bit from CCM";
 CM_ SG_ 1438 UNK_U_HV "Maps to 595 UBatt, maybe voltage at another point?";
 VAL_ 512 CURRENT_GEAR 0 "P" 5 "D" 6 "N" 7 "R";
 VAL_ 3221225472 CF_VSM_Warn 2 "FCW" 3 "AEB";
 VAL_ 852 Gear_Displayed 0 "None" 1 "P" 2 "R" 3 "N" 4 "D";
+VAL_ 1513 CCM_ChargeProgess 127 "WeldingDetection" 63 "PowerDeliveryStop" 31 "CurrentDemand" 7 "PreCharge" 3 "CableCheck";
 VAL_ 3221225472 CF_Lvr_Gear 5 "D" 8 "S" 6 "N" 7 "R" 0 "P";
 VAL_ 3221225472 ACCMode 0 "off" 1 "enabled" 2 "driver_override" 3 "off_maybe_fault" 4 "cancelled";
 VAL_ 3221225472 Elect_Gear_Shifter 5 "D" 8 "S" 6 "N" 7 "R" 0 "P";
