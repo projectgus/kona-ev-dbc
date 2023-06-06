@@ -1,4 +1,9 @@
 BO_ 265 VCU_109: 8 XXX
+ SG_ Unk_Status_1 : 0|8@1+ (1,0) [0|255] "" XXX
+ SG_ Unk_Status_2 : 8|8@1+ (1,0) [0|255] "" XXX
+ SG_ Unk_Drive_Status : 16|8@1+ (1,0) [0|255] "" XXX
+ SG_ Unk_AC_Charging : 31|32@0+ (1,0) [0|4294967295] "" XXX
+ SG_ Counter : 56|8@1+ (1,0) [0|255] "" XXX
 
 BO_ 272 UNK_B110: 8 XXX
  SG_ MAYBE_POWER_PRESSED : 0|8@1+ (1,0) [0|255] "" XXX
@@ -46,7 +51,9 @@ BO_ 512 VCU_200: 6 XXX
  SG_ uwe_accpedal : 32|8@1+ (1,0) [0|255] "" XXX
 
 BO_ 513 VCU_201: 8 XXX
- SG_ UNK_MOTOR_RELATED_MAYBE : 0|16@1+ (1,0) [0|65535] "" XXX
+ SG_ Counter_1 : 0|8@1+ (1,0) [0|255] "" XXX
+ SG_ Unk_Motor_Related : 8|8@1+ (1,0) [0|255] "" XXX
+ SG_ Counter_Dup : 56|8@1+ (1,0) [0|255] "" XXX
 
 BO_ 514 VCU_202: 8 XXX
  SG_ REGEN_LEVEL : 23|4@0+ (1,0) [0|1] "" XXX
@@ -419,6 +426,7 @@ BO_ 1495 BMS_5D7: 8 XXX
 BO_ 1496 BMS_5D8: 8 XXX
 
 BO_ 1497 VCU_5D9: 8 XXX
+ SG_ Counter_Charging : 63|8@0+ (1,0) [0|255] "" XXX
 
 BO_ 1500 VCU_5DC: 8 XXX
 
@@ -632,12 +640,16 @@ BO_ 3221225472 VECTOR__INDEPENDENT_SIG_MSG: 0 XXX
 
 CM_ BO_ 852 "Shift Select Switch";
 CM_ BO_ 1353 "Incorrect label comes from uwe's records, haven't verified these";
+CM_ SG_ 265 Unk_Status_1 "Goes to 0x02 temporarily during power on, maybe due to parking actuator. Also goes to 0x04 temporarily when switching to Drive, might be park brake actuator?";
+CM_ SG_ 265 Unk_AC_Charging "Probably multiple fields. Mostly FF FF FF 0F but sometimes changes during AC charging";
 CM_ SG_ 852 Button_Pressed "Bytes 0 & 2 seem to be redundant copies of same information";
 CM_ SG_ 852 Counter "Seems to be two nibbles counting independently";
 CM_ SG_ 1431 Active "This bit set when vehicle is in Ready, or Charging";
 CM_ SG_ 1433 CCS_CHARGE_TRIGGER "Might indicate contactors closed?";
 CM_ SG_ 1433 CCS_end_ack "Seems to go high to 'ack' the CCS_CCM_error bit from CCM";
 CM_ SG_ 1438 UNK_U_HV "Maps to 595 UBatt, maybe voltage at another point?";
+CM_ SG_ 1497 Counter_Charging "Counter only increments when charging? TBC";
+VAL_ 265 Unk_Drive_Status 0 "Not Ready" 252 "Check In Progress" 253 "Ready";
 VAL_ 512 CURRENT_GEAR 0 "P" 5 "D" 6 "N" 7 "R";
 VAL_ 852 Gear_Displayed 0 "None" 1 "P" 2 "R" 3 "N" 4 "D";
 VAL_ 1513 CCM_ChargeProgess 127 "WeldingDetection" 63 "PowerDeliveryStop" 31 "CurrentDemand" 7 "PreCharge" 3 "CableCheck";
