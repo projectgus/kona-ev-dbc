@@ -18,7 +18,7 @@ BO_ 274 SMK_B112: 8 XXX
 
 BO_ 275 SMK_B113: 8 XXX
 
-BO_ 339 TCS11: 8 XXX
+BO_ 339 IEB_153_TCS: 8 XXX
  SG_ TCS_REQ : 0|1@1+ (1,0) [0|1] "" XXX
  SG_ MSR_C_REQ : 1|1@1+ (1,0) [0|1] "" XXX
  SG_ TCS_PAS : 2|1@1+ (1,0) [0|1] "" XXX
@@ -48,6 +48,8 @@ BO_ 339 TCS11: 8 XXX
  SG_ BLA_CTL : 49|2@1+ (1,0) [0|3] "" XXX
  SG_ AliveCounter_TCS1 : 52|4@1+ (1,0) [0|14] "" XXX
  SG_ CheckSum_TCS1 : 56|8@1+ (1,0) [0|255] "" XXX
+
+BO_ 352 IEB_MAYBE_C160: 8 XXX
 
 BO_ 356 UNK_164: 8 XXX
 
@@ -87,6 +89,12 @@ BO_ 657 VCU_291: 8 XXX
 
 BO_ 673 VCU_2A1: 8 XXX
 
+BO_ 674 IEB_2A2: 8 XXX
+ SG_ HeartBeat : 0|1@0+ (1,0) [0|1] "" XXX
+ SG_ Regen_Maybe : 15|16@0+ (1,0) [0|65535] "" XXX
+ SG_ BrakePedalForce : 31|16@0+ (1,0) [0|65535] "" XXX
+ SG_ BrakeUnknown : 56|8@1+ (1,0) [0|255] "" XXX
+
 BO_ 688 SAS11: 5 XXX
  SG_ SAS_Angle : 0|16@1- (0.1,0) [-3276.8|3276.7] "Deg" XXX
  SG_ SAS_Speed : 16|8@1+ (4,0) [0|1016] "" XXX
@@ -106,7 +114,10 @@ BO_ 852 SBW_354: 8 XXX
  SG_ Gear_Displayed : 40|8@1+ (1,0) [0|255] "" XXX
  SG_ Counter : 56|8@1+ (1,0) [0|255] "" XXX
 
-BO_ 902 WHL_SPD11: 8 XXX
+BO_ 881 IEB_MAYBE_C371: 8 XXX
+ SG_ BrakeUnknown : 7|8@0+ (1,0) [0|255] "" XXX
+
+BO_ 902 IEB_386_WHEEL: 8 XXX
  SG_ WHL_SPD_FL : 0|14@1+ (0.03125,0) [0|511.96875] "km/h" XXX
  SG_ WHL_SPD_AliveCounter_LSB : 14|2@1+ (1,0) [0|15] "" XXX
  SG_ WHL_SPD_FR : 16|14@1+ (0.03125,0) [0|511.96875] "km/h" XXX
@@ -116,7 +127,7 @@ BO_ 902 WHL_SPD11: 8 XXX
  SG_ WHL_SPD_RR : 48|14@1+ (0.03125,0) [0|511.96875] "km/h" XXX
  SG_ WHL_SPD_Checksum_MSB : 62|2@1+ (1,0) [0|15] "" XXX
 
-BO_ 903 WHL_PUL11: 6 XXX
+BO_ 903 IEB_387_WHEEL: 6 XXX
  SG_ WHL_PUL_FL : 0|8@1+ (0.5,0) [0|127.5] "pulse count" XXX
  SG_ WHL_PUL_FR : 8|8@1+ (0.5,0) [0|127.5] "pulse count" XXX
  SG_ WHL_PUL_RL : 16|8@1+ (0.5,0) [0|127.5] "pulse count" XXX
@@ -199,7 +210,7 @@ BO_ 1252 UNK_4E4: 8 XXX
 
 BO_ 1262 UNK_4EE: 8 XXX
 
-BO_ 1287 TCS15: 4 XXX
+BO_ 1287 IEB_507_TCS: 4 XXX
  SG_ ABS_W_LAMP : 0|1@1+ (1,0) [0|1] "" XXX
  SG_ TCS_OFF_LAMP : 1|2@1+ (1,0) [0|1] "" XXX
  SG_ TCS_LAMP : 3|2@1+ (1,0) [0|3] "" XXX
@@ -668,12 +679,21 @@ BO_ 3221225472 VECTOR__INDEPENDENT_SIG_MSG: 0 XXX
  SG_ WHL_SPD_RL : 0|14@1+ (0.03125,0) [0|511.96875] "km/h" XXX
  SG_ WHL_SPD_RR : 0|14@1+ (0.03125,0) [0|511.96875] "km/h" XXX
 
+CM_ BO_ 265 "This is the PCAN message. Same ID is on BCAN, different payload.";
+CM_ BO_ 339 "TCS11 in other DBC Files. Appears  on PCAN, CCAN.";
 CM_ BO_ 852 "Shift Select Switch";
+CM_ BO_ 902 "Wheel speed. "WHL_SPD11" in some DBC files. Appears on PCAN, CCAN.";
+CM_ BO_ 903 "Wheel direction and status? "WHL_PUL11" in some DBC files. Appears on PCAN, CCAN.";
+CM_ BO_ 1287 "TCS15 in other DBC files";
 CM_ BO_ 1353 "Incorrect label comes from uwe's records, haven't verified these";
 CM_ SG_ 265 Unk_Status_1 "Goes to 0x02 temporarily during power on, maybe due to parking actuator. Also goes to 0x04 temporarily when switching to Drive, might be park brake actuator?";
 CM_ SG_ 265 Unk_AC_Charging "Probably multiple fields. Mostly FF FF FF 0F but sometimes changes during AC charging";
+CM_ SG_ 274 UNK_STATUS "LSB flips every few seconds - heartbeat?";
+CM_ SG_ 674 BrakeUnknown "Same byte exists in message 0x331";
+CM_ SG_ 817 BrakeUnknown "Same byte exists in message 0x2a2";
 CM_ SG_ 852 Button_Pressed "Bytes 0 & 2 seem to be redundant copies of same information";
 CM_ SG_ 852 Counter "Seems to be two nibbles counting independently";
+CM_ SG_ 881 BrakeUnknown "Same byte as 0x2a2, 0x331";
 CM_ SG_ 1431 Active "This bit set when vehicle is in Ready, or Charging";
 CM_ SG_ 1433 CCS_CHARGE_TRIGGER "Might indicate contactors closed?";
 CM_ SG_ 1433 CCS_end_ack "Seems to go high to 'ack' the CCS_CCM_error bit from CCM";
