@@ -9,6 +9,7 @@ Messages copied from other sources may not follow these conventions (yet!)
 ### CAN Message Names
 
 * Message naming follows convention `SourceModule_HEXID`, i.e. `VCU_333` is ID 0x333 sent by VCU (Vehicle Control Unit).
+* To make it quicker to find some messages, some are named `SourceModule_HEXID_Name`, i.e. `VCU_523_TEMP` is temperature information sent on ID 0x523 by VCU.
 * Most of these IDs are found on the PCAN bus. For IDs seen on other buses, add another letter i.e. `SMK_B112` is ID 0x112 sent by SMK (Smart Key Module) on the BCAN bus. If the message also appears on the PCAN bus then the letter should be removed, and can optionally add a comment about which bus(es) it is forwarded onto. So far I haven't see any places where the same ID is used for two different messages depending on the bus, but this probably happens at least somewhere...
 * `UNK` stands for unknown, i.e. `UNK_471` is ID 0x471 sent by an unknown module.
 
