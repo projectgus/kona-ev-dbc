@@ -94,6 +94,11 @@ BO_ 688 SAS11: 5 XXX
  SG_ MsgCount : 32|4@1+ (1,0) [0|15] "" XXX
  SG_ CheckSum : 36|4@1+ (1,0) [0|15] "" XXX
 
+BO_ 817 IEB_331: 8 XXX
+ SG_ BrakeUnknown : 0|8@1+ (1,0) [0|255] "" XXX
+ SG_ WheelSpeed1 : 23|16@0+ (1,0) [0|65535] "" XXX
+ SG_ WheelSpeed2 : 39|16@0+ (1,0) [0|65535] "" XXX
+
 BO_ 819 VCU_333: 8 XXX
 
 BO_ 852 SBW_354: 8 XXX
