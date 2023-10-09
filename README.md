@@ -2,6 +2,16 @@
 
 Hyundai Kona Electric DBC file, work in progress.
 
+## Conventions
+
+Messages copied from other sources may not follow these conventions (yet!)
+
+### CAN Message Names
+
+* Message naming follows convention `SourceModule_HEXID`, i.e. `VCU_333` is ID 0x333 sent by VCU (Vehicle Control Unit).
+* Most of these IDs are found on the PCAN bus. For IDs seen on other buses, add another letter i.e. `SMK_B112` is ID 0x112 sent by SMK (Smart Key Module) on the BCAN bus. If the message also appears on the PCAN bus then the letter should be removed, and can optionally add a comment about which bus(es) it is forwarded onto. So far I haven't see any places where the same ID is used for two different messages depending on the bus, but this probably happens at least somewhere...
+* `UNK` stands for unknown, i.e. `UNK_471` is ID 0x471 sent by an unknown module.
+
 ## Resources
 
 This file includes information pieced together from the following sources, as well as the logs in this repo. Massive gratitude to everyone who has worked on decoding Hyundai/Kia CAN messages, and/or who has posted CAN logs from vehicles online!
@@ -11,6 +21,7 @@ This file includes information pieced together from the following sources, as we
 * Eric Router's [spreadsheet](https://docs.google.com/spreadsheets/d/1nDxmM4uLwufTUaGpi_X94d79ptCv5niia4NZ-SJZmJ8/edit#gid=0) of PCAN messages, see also [this comment](https://www.reddit.com/r/CarHacking/comments/llooxp/comment/gnr0prk/). Eric also did a bunch of VESS hacking ([code](https://github.com/ereuter/vess), [video](https://www.youtube.com/watch?v=OLT1aKdpYhs)).
 * "vin" on openinverter's CAN log for [2020 Ioniq BMU with nothing else connected](https://openinverter.org/forum/viewtopic.php?p=45544#p45544).
 * "powertop" on openinverter has a [spreadsheet with CAN message content summaries here](https://docs.google.com/spreadsheets/d/1dbOT9I-Aj7lU7yCiJDpXERjYRVOL_M1Tm2QFgmyYt4Y/edit#gid=0) (see also [post](https://openinverter.org/forum/viewtopic.php?p=54257#p54257)).
+* [Kia Soul EV Message spreadsheet](https://docs.google.com/spreadsheets/d/1YYlZ-IcTQlz-LzaYkHO-7a4SFM8QYs2BGNXiSU5_EwI/edit#gid=0) (dates from ~2016 or so, author and relevance to Kona are both currently unknown!)
 
 Where possible the git log for the DBC file includes some comments on what the source for a particular addition or change is.
 
