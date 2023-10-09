@@ -1,3 +1,6 @@
+BO_ 263 UNK_B107: 8 XXX
+ SG_ NEW_SIGNAL_1 : 39|16@0+ (1,0) [0|255] "" XXX
+
 BO_ 265 VCU_109: 8 XXX
  SG_ Unk_Status_1 : 0|8@1+ (1,0) [0|255] "" XXX
  SG_ Unk_Status_2 : 8|8@1+ (1,0) [0|255] "" XXX
@@ -15,6 +18,7 @@ BO_ 272 SMK_B110: 8 XXX
 BO_ 273 SMK_B111: 8 XXX
 
 BO_ 274 SMK_B112: 8 XXX
+ SG_ UNK_STATUS : 23|8@0+ (1,0) [0|255] "" XXX
 
 BO_ 275 SMK_B113: 8 XXX
 
