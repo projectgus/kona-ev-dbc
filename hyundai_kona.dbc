@@ -240,7 +240,7 @@ BO_ 1315 VCU_523_TEMP: 8 XXX
  SG_ uwe523_7 : 56|8@1+ (1,0) [0|255] "" XXX
 
 BO_ 1316 VCU_524: 8 XXX
- SG_ uwe524_EPCU_voltage : 0|9@1+ (1,0) [0|511] "" XXX
+ SG_ Inverter_V : 0|16@1+ (1,0) [0|511] "" XXX
  SG_ UNK_OUTPUT_RELATED : 16|24@1+ (1,0) [0|16777215] "" XXX
 
 BO_ 1321 VCU_529: 8 XXX
