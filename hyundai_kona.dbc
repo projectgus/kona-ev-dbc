@@ -429,7 +429,7 @@ BO_ 1436 BMS_59C: 8 XXX
 BO_ 1438 BMS_59E: 8 XXX
  SG_ UNK_U_HV : 39|8@0+ (1,0) [0|255] "" XXX
 
-BO_ 1440 ACU11: 8 XXX
+BO_ 1440 ACU_508: 8 XXX
  SG_ CF_Ods_SNRcv : 1|1@1+ (1,0) [0|1] "" XXX
  SG_ CF_Ods_IDRcv : 2|1@1+ (1,0) [0|1] "" XXX
  SG_ CF_Ods_RZReq : 4|1@1+ (1,0) [0|1] "" XXX
@@ -691,6 +691,7 @@ CM_ BO_ 902 "Wheel speed. Named WHL_SPD11 in some DBC files. Appears on PCAN, CC
 CM_ BO_ 903 "Wheel direction and status? Named WHL_PUL11 in some DBC files. Appears on PCAN, CCAN.";
 CM_ BO_ 1287 "TCS15 in other DBC files";
 CM_ BO_ 1353 "Incorrect label comes from uwe's records, haven't verified these";
+CM_ BO_ 1440 "Also called ACU11";
 CM_ SG_ 265 Unk_Status_1 "Goes to 0x02 temporarily during power on, maybe due to parking actuator. Also goes to 0x04 temporarily when switching to Drive, might be park brake actuator?";
 CM_ SG_ 265 Unk_AC_Charging "Probably multiple fields. Mostly FF FF FF 0F but sometimes changes during AC charging";
 CM_ SG_ 274 UNK_STATUS "LSB flips every few seconds - heartbeat?";
