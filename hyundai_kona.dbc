@@ -174,12 +174,20 @@ BO_ 1014 BMS_3F6: 8 XXX
 
 BO_ 1025 SMK_B401: 8 XXX
 
+BO_ 1042 UNK_412: 8 XXX
+
 BO_ 1104 UNK_450: 3 XXX
  SG_ Speed : 7|8@0+ (1,0) [0|255] "" XXX
  SG_ UNK_MAYBE_CRUISE_BUTTONS : 15|16@0+ (1,0) [0|65535] "" XXX
 
 BO_ 1115 VCU_45B: 8 XXX
  SG_ UNK_CLIMATE_DRIVE_MODE : 0|16@1+ (1,0) [0|65535] "" XXX
+
+BO_ 1116 UNK_45C: 8 XXX
+
+BO_ 1117 UNK_45D: 8 XXX
+
+BO_ 1118 UNK_45E: 8 XXX
 
 BO_ 1137 UNK_471: 6 XXX
 
@@ -362,6 +370,8 @@ BO_ 1363 CGW_553: 8 XXX
  SG_ CF_Gway_KeyoutLp : 56|1@1+ (1,0) [0|1] "" XXX
  SG_ CF_Gway_SMKDispWarn : 57|4@1+ (1,0) [0|15] "" XXX
  SG_ CF_Gway_WngBuz : 61|3@1+ (1,0) [0|7] "" XXX
+
+BO_ 1372 UNK_55C: 8 XXX
 
 BO_ 1383 CLOCK: 8 XXX
  SG_ clock_hour : 8|8@1- (1,0) [0|0] "" XXX
@@ -702,8 +712,13 @@ CM_ BO_ 339 "TCS11 in other DBC Files. Appears  on PCAN, CCAN.";
 CM_ BO_ 852 "Shift Select Switch";
 CM_ BO_ 902 "Wheel speed. Named WHL_SPD11 in some DBC files. Appears on PCAN, CCAN.";
 CM_ BO_ 903 "Wheel direction and status? Named WHL_PUL11 in some DBC files. Appears on PCAN, CCAN.";
+CM_ BO_ 1042 "On PCAN this message is all zeroes";
+CM_ BO_ 1116 "Message data all zeroes";
+CM_ BO_ 1117 "Message body all zeroes, except sometimes when it becomes FF,FF,FF,FF,FF,FF,FF,0F";
+CM_ BO_ 1118 "Message mostly all zeroes, occasionally FF,FF,FF,FF,FF,00,00,00";
 CM_ BO_ 1287 "TCS15 in other DBC files";
 CM_ BO_ 1353 "Incorrect label comes from uwe's records, haven't verified these";
+CM_ BO_ 1372 "Constant message data, first two bytes different on different cars";
 CM_ BO_ 1428 "unknown purpose, could be cooling or temp related?";
 CM_ BO_ 1440 "Also called ACU11";
 CM_ BO_ 1500 "1Hz output seems to include signals also found in other messages";
