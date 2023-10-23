@@ -242,9 +242,12 @@ BO_ 1315 VCU_523_TEMP: 8 XXX
 
 BO_ 1316 VCU_524: 8 XXX
  SG_ Inverter_V : 0|16@1+ (1,0) [0|511] "" XXX
- SG_ UNK_OUTPUT_RELATED : 16|24@1+ (1,0) [0|16777215] "" XXX
+ SG_ Speed : 23|16@0+ (0.25,0) [0|65535] "rpm" XXX
+ SG_ Power_Unk : 32|12@1- (1,0) [0|65535] "" XXX
+ SG_ Power : 48|16@1- (1,0) [0|65535] "" XXX
 
 BO_ 1321 VCU_529: 8 XXX
+ SG_ NEW_SIGNAL_1 : 31|8@0+ (1,0) [0|255] "" XXX
 
 BO_ 1344 VCU_540: 8 XXX
  SG_ uwe540_01 : 0|16@1+ (1,0) [0|65535] "" XXX
@@ -700,6 +703,9 @@ CM_ SG_ 817 BrakeUnknown "Same byte exists in message 0x2a2";
 CM_ SG_ 852 Button_Pressed "Bytes 0 & 2 seem to be redundant copies of same information";
 CM_ SG_ 852 Counter "Seems to be two nibbles counting independently";
 CM_ SG_ 881 BrakeUnknown "Same byte as 0x2a2, 0x331";
+CM_ SG_ 1316 Speed "Possible this fieldelectrical rpm exactly, and there are 4 poles.";
+CM_ SG_ 1316 Power_Unk "Power related, maybe target point? Exact meaning unknown.";
+CM_ SG_ 1316 Power "Matches battery current in BMS_595 very closely";
 CM_ SG_ 1431 Active "This bit set when vehicle is in Ready, or Charging";
 CM_ SG_ 1433 CCS_CHARGE_TRIGGER "Might indicate contactors closed?";
 CM_ SG_ 1433 CCS_end_ack "Seems to go high to 'ack' the CCS_CCM_error bit from CCM";
