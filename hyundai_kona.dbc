@@ -136,10 +136,6 @@ BO_ 903 IEB_387_WHEEL: 8 XXX
  SG_ WHL_PUL_FR : 8|8@1+ (0.5,0) [0|127.5] "pulse count" XXX
  SG_ WHL_PUL_RL : 16|8@1+ (0.5,0) [0|127.5] "pulse count" XXX
  SG_ WHL_PUL_RR : 24|8@1+ (0.5,0) [0|127.5] "pulse count" XXX
- SG_ WHL_DIR_FL : 32|2@1+ (1,0) [0|3] "" XXX
- SG_ WHL_DIR_FR : 34|2@1+ (1,0) [0|3] "" XXX
- SG_ WHL_DIR_RL : 36|2@1+ (1,0) [0|3] "" XXX
- SG_ WHL_DIR_RR : 38|2@1+ (1,0) [0|3] "" XXX
  SG_ WHL_PUL_Chksum : 40|8@1+ (1,0) [0|255] "" XXX
  SG_ AliveCounterWHL_PUL : 48|4@1+ (1,0) [0|255] "" XXX
 
