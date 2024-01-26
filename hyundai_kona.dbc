@@ -57,21 +57,25 @@ BO_ 352 IEB_MAYBE_C160: 8 XXX
 
 BO_ 356 UNK_164: 8 XXX
 
-BO_ 512 VCU_200: 6 XXX
+BO_ 512 VCU_200: 8 XXX
  SG_ UNK_STATUS_CLIMATE_DRIVE : 0|8@1+ (1,0) [0|255] "" XXX
  SG_ CURRENT_GEAR : 11|3@1+ (1,0) [0|7] "" XXX
  SG_ CF_Ems_PumpTPres : 16|8@1+ (3.137254902,0) [0|800] "kPa" XXX
- SG_ NEW_SIGNAL_1 : 24|8@1+ (1,0) [0|255] "" XXX
- SG_ Split_Stat : 32|1@1+ (1,0) [0|1] "" XXX
- SG_ uwe_accpedal : 32|8@1+ (1,0) [0|255] "" XXX
+ SG_ Accel_Pedal_Pos2 : 32|8@1+ (1,0) [0|255] "" XXX
+ SG_ Counter : 46|2@1+ (1,0) [0|3] "" XXX
+ SG_ Accel_Pedal_Pos3 : 63|8@0+ (1,0) [0|255] "" XXX
 
 BO_ 513 VCU_201: 8 XXX
  SG_ Counter_1 : 0|8@1+ (1,0) [0|255] "" XXX
- SG_ Unk_Motor_Related : 8|8@1+ (1,0) [0|255] "" XXX
- SG_ Counter_Dup : 56|8@1+ (1,0) [0|255] "" XXX
+ SG_ Unk_Motor_Related : 8|16@1- (1,0) [0|255] "" XXX
+ SG_ Power_Unk6 : 24|16@1- (1,0) [0|65535] "" XXX
+ SG_ Regen_maybe : 40|16@1+ (1,0) [0|65535] "" XXX
+ SG_ Unk : 56|8@1+ (1,0) [0|255] "" XXX
 
 BO_ 514 VCU_202: 8 XXX
+ SG_ Power_Unk4 : 8|12@1- (1,0) [0|65535] "" XXX
  SG_ REGEN_LEVEL : 23|4@0+ (1,0) [0|1] "" XXX
+ SG_ Power_Unk3 : 32|12@1- (1,0) [0|65535] "" XXX
 
 BO_ 544 ESP12: 8 XXX
  SG_ LAT_ACCEL : 0|11@1+ (0.01,-10.23) [-10.23|10.24] "m/s^2" XXX
@@ -90,6 +94,8 @@ BO_ 544 ESP12: 8 XXX
  SG_ ESP12_AliveCounter : 60|4@1+ (1,0) [0|15] "" XXX
 
 BO_ 657 VCU_291: 8 XXX
+ SG_ Power_Unk2 : 0|12@1- (1,0) [0|65535] "" XXX
+ SG_ Speed_rel_signed : 16|16@1- (1,0) [0|65535] "" XXX
 
 BO_ 673 VCU_2A1: 8 XXX
 
@@ -108,8 +114,8 @@ BO_ 688 SAS11: 5 XXX
 
 BO_ 817 IEB_331: 8 XXX
  SG_ BrakeUnknown : 0|8@1+ (1,0) [0|255] "" XXX
- SG_ WheelSpeed1 : 23|16@0+ (1,0) [0|65535] "" XXX
- SG_ WheelSpeed2 : 39|16@0+ (1,0) [0|65535] "" XXX
+ SG_ WheelSpeed1 : 16|16@1+ (1,0) [0|65535] "" XXX
+ SG_ WheelSpeed2 : 32|16@1+ (1,0) [0|65535] "" XXX
 
 BO_ 819 VCU_333: 8 XXX
 
@@ -241,13 +247,11 @@ BO_ 1296 SMK_B510: 8 XXX
 
 BO_ 1315 VCU_523_TEMP: 8 XXX
  SG_ uwe523_0 : 0|8@1+ (1,0) [0|255] "" XXX
- SG_ uwe523_1 : 8|8@1+ (1,0) [0|255] "" XXX
  SG_ uwe523_2_TEPCU_in : 16|8@1+ (1,-40) [-40|215] "°C" XXX
  SG_ uwe523_3_TEPCU_fast1 : 24|8@1+ (1,-40) [-40|215] "°C" XXX
  SG_ uwe523_4_TEPCU_fast2 : 32|8@1+ (1,-40) [-40|215] "°C" XXX
  SG_ uwe523_5_TEPCU_slow : 40|8@1+ (1,-40) [-40|215] "°C" XXX
  SG_ uwe523_6_EPCU_coolingpump : 48|8@1+ (1,0) [0|255] "%" XXX
- SG_ uwe523_7 : 56|8@1+ (1,0) [0|255] "" XXX
 
 BO_ 1316 VCU_524: 8 XXX
  SG_ Inverter_V : 0|16@1+ (1,0) [0|511] "" XXX
@@ -256,12 +260,12 @@ BO_ 1316 VCU_524: 8 XXX
  SG_ Power : 48|16@1- (1,0) [0|65535] "" XXX
 
 BO_ 1321 VCU_529: 8 XXX
- SG_ NEW_SIGNAL_1 : 31|8@0+ (1,0) [0|255] "" XXX
 
 BO_ 1344 VCU_540: 8 XXX
  SG_ uwe540_01 : 0|16@1+ (1,0) [0|65535] "" XXX
  SG_ uwe540_23 : 16|16@1+ (1,0) [0|65535] "" XXX
  SG_ uwe540_45 : 32|16@1+ (1,0) [0|65535] "" XXX
+ SG_ Unk_Increases : 55|8@0+ (1,0) [0|255] "" XXX
 
 BO_ 1345 CGW_541: 8 XXX
  SG_ CF_Gway_IGNSw : 0|3@1+ (1,0) [0|7] "" XXX
@@ -402,11 +406,16 @@ BO_ 1412 AAF_584: 8 XXX
 BO_ 1422 UNK_58E: 8 XXX
 
 BO_ 1423 VCU_58F: 8 XXX
+ SG_ Unk_Status : 43|4@0+ (1,0) [0|15] "" XXX
 
 BO_ 1424 VCU_590: 8 XXX
 
 BO_ 1426 VCU_592: 8 XXX
+ SG_ NEW_SIGNAL_1 : 23|8@0+ (1,0) [0|255] "" XXX
  SG_ CC_React : 34|1@1+ (1,0) [0|1] "" XXX
+ SG_ NEW_SIGNAL_2 : 55|8@0+ (1,0) [0|255] "" XXX
+ SG_ Unk_Status : 56|4@1+ (1,0) [0|15] "" XXX
+ SG_ Counter : 62|2@1+ (1,0) [0|3] "" XXX
 
 BO_ 1428 BMS_594: 8 XXX
  SG_ UNK_1 : 0|16@1+ (1,0) [0|65535] "" XXX
@@ -464,7 +473,7 @@ BO_ 1440 ACU_508: 8 XXX
 BO_ 1443 BMS_5A3: 8 XXX
 
 BO_ 1488 UNK_5D0: 8 XXX
- SG_ uwe5D0_ODO : 0|24@1+ (0.1,0) [0|800000] "km" XXX
+ SG_ Odometer : 0|24@1+ (0.1,0) [0|800000] "km" XXX
 
 BO_ 1491 HU_DATC_PE_00: 8 XXX
  SG_ HU_VRActivity : 0|2@1+ (1,0) [0|3] "" XXX
@@ -488,14 +497,20 @@ BO_ 1495 BMS_5D7: 8 XXX
 BO_ 1496 BMS_5D8: 8 XXX
 
 BO_ 1497 VCU_5D9: 8 XXX
+ SG_ NEW_SIGNAL_1 : 8|9@1+ (1,0) [0|255] "" XXX
+ SG_ NEW_SIGNAL_2 : 17|2@1+ (1,0) [0|3] "" XXX
  SG_ Counter_Charging : 63|8@0+ (1,0) [0|255] "" XXX
 
 BO_ 1500 VCU_5DC: 8 XXX
- SG_ Speed : 0|16@1- (1,0) [0|65535] "2" XXX
+ SG_ Speed_signed : 0|16@1- (1,0) [0|65535] "rpm" XXX
  SG_ Power_Unk : 24|8@1- (1,0) [0|255] "" XXX
  SG_ UNK : 40|16@1+ (1,0) [0|65535] "" XXX
 
 BO_ 1502 VCU_5DE: 8 XXX
+ SG_ NEW_SIGNAL_3 : 23|8@0+ (1,0) [0|255] "" XXX
+ SG_ NEW_SIGNAL_4 : 31|8@0+ (1,0) [0|255] "" XXX
+ SG_ NEW_SIGNAL_1 : 47|8@0+ (1,0) [0|255] "" XXX
+ SG_ NEW_SIGNAL_2 : 55|8@0+ (1,0) [0|255] "" XXX
 
 BO_ 1509 CCM_5E5: 8 XXX
  SG_ CCM_PresentVoltage : 32|16@1- (0.1,0) [0|500] "" XXX
@@ -513,6 +528,10 @@ BO_ 1513 CCM_5E9: 8 XXX
 
 BO_ 1525 UNK_5F5: 64 XXX
  SG_ UNK_COUNTER : 32|4@1+ (1,0) [0|15] "" XXX
+
+BO_ 1526 UNK_5F6: 8 XXX
+ SG_ Unk : 0|8@1+ (1,0) [0|255] "" XXX
+ SG_ Unk_Status : 8|4@1+ (1,0) [0|15] "" XXX
 
 BO_ 1527 UNK_5F7: 8 XXX
  SG_ uwe5F7_0 : 0|8@1+ (1,0) [0|255] "" XXX
@@ -705,6 +724,7 @@ BO_ 3221225472 VECTOR__INDEPENDENT_SIG_MSG: 0 XXX
 
 CM_ BO_ 265 "This is the PCAN message. Same ID is on BCAN, different payload.";
 CM_ BO_ 339 "TCS11 in other DBC Files. Appears  on PCAN, CCAN.";
+CM_ BO_ 513 "This message has a bunch of signals that do counter-like things when the motor is turning and all zero otherwise";
 CM_ BO_ 852 "Shift Select Switch";
 CM_ BO_ 902 "Wheel speed. Named WHL_SPD11 in some DBC files. Appears on PCAN, CCAN.";
 CM_ BO_ 903 "Wheel direction and status? Named WHL_PUL11 in some DBC files. Appears on PCAN, CCAN.";
@@ -721,6 +741,7 @@ CM_ BO_ 1500 "1Hz output seems to include signals also found in other messages";
 CM_ SG_ 265 Unk_Status_1 "Goes to 0x02 temporarily during power on, maybe due to parking actuator. Also goes to 0x04 temporarily when switching to Drive, might be park brake actuator?";
 CM_ SG_ 265 Unk_AC_Charging "Probably multiple fields. Mostly FF FF FF 0F but sometimes changes during AC charging";
 CM_ SG_ 274 UNK_STATUS "LSB flips every few seconds - heartbeat?";
+CM_ SG_ 657 Power_Unk2 "Tracks against  Power_Unk in VCU_524. Maybe acceleration not power?";
 CM_ SG_ 674 BrakeUnknown "Same byte exists in message 0x331";
 CM_ SG_ 817 BrakeUnknown "Same byte exists in message 0x2a2";
 CM_ SG_ 852 Button_Pressed "Bytes 0 & 2 seem to be redundant copies of same information";
