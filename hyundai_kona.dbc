@@ -4,7 +4,7 @@ BO_ 263 UNK_B107: 8 XXX
 BO_ 265 VCU_109: 8 XXX
  SG_ Unk_Status_1 : 0|8@1+ (1,0) [0|255] "" XXX
  SG_ Unk_Status_2 : 8|8@1+ (1,0) [0|255] "" XXX
- SG_ Unk_Drive_Status : 16|8@1+ (1,0) [0|255] "" XXX
+ SG_ Ready_Status : 16|8@1+ (1,0) [0|255] "" XXX
  SG_ Unk_AC_Charging : 31|32@0+ (1,0) [0|4294967295] "" XXX
  SG_ Counter : 56|8@1+ (1,0) [0|255] "" XXX
 
@@ -77,7 +77,7 @@ BO_ 514 VCU_202: 8 XXX
  SG_ REGEN_LEVEL : 23|4@0+ (1,0) [0|1] "" XXX
  SG_ Power_Unk3 : 32|12@1- (1,0) [0|65535] "" XXX
 
-BO_ 544 ESP12: 8 XXX
+BO_ 544 IEB_220_ESP12: 8 XXX
  SG_ LAT_ACCEL : 0|11@1+ (0.01,-10.23) [-10.23|10.24] "m/s^2" XXX
  SG_ LAT_ACCEL_STAT : 11|1@1+ (1,0) [0|1] "" XXX
  SG_ LAT_ACCEL_DIAG : 12|1@1+ (1,0) [0|1] "" XXX
@@ -95,14 +95,17 @@ BO_ 544 ESP12: 8 XXX
 
 BO_ 657 VCU_291: 8 XXX
  SG_ Power_Unk2 : 0|12@1- (1,0) [0|65535] "" XXX
- SG_ Speed_rel_signed : 16|16@1- (1,0) [0|65535] "" XXX
+ SG_ Speed : 16|16@1- (1,0) [0|65535] "rpm" XXX
+ SG_ NEW_SIGNAL_1 : 39|8@0+ (1,0) [0|255] "" XXX
+ SG_ NEW_SIGNAL_2 : 47|8@0+ (1,0) [0|255] "" XXX
+ SG_ NEW_SIGNAL_3 : 55|8@0+ (1,0) [0|65535] "" XXX
 
 BO_ 673 VCU_2A1: 8 XXX
 
 BO_ 674 IEB_2A2: 8 XXX
  SG_ HeartBeat : 0|1@0+ (1,0) [0|1] "" XXX
  SG_ Regen_Maybe : 15|16@0+ (1,0) [0|65535] "" XXX
- SG_ BrakePedalForce : 31|16@0+ (1,0) [0|65535] "" XXX
+ SG_ BrakePedalForce : 24|16@1+ (1,0) [0|65535] "" XXX
  SG_ BrakeUnknown : 56|8@1+ (1,0) [0|255] "" XXX
 
 BO_ 688 SAS11: 5 XXX
@@ -145,7 +148,7 @@ BO_ 903 IEB_387_WHEEL: 8 XXX
  SG_ WHL_PUL_Chksum : 40|8@1+ (1,0) [0|255] "" XXX
  SG_ AliveCounterWHL_PUL : 48|4@1+ (1,0) [0|255] "" XXX
 
-BO_ 916 TCS13: 8 XXX
+BO_ 916 IEB_394_TCS13: 8 XXX
  SG_ aBasis : 0|11@1+ (0.01,-10.23) [-10.23|10.24] "m/s^2" XXX
  SG_ BrakeLight : 11|1@1+ (1,0) [0|1] "" XXX
  SG_ DCEnable : 12|1@1+ (1,0) [0|1] "" XXX
@@ -195,7 +198,7 @@ BO_ 1137 UNK_471: 6 XXX
 
 BO_ 1148 UNK_47C: 8 XXX
 
-BO_ 1168 EPB11: 7 XXX
+BO_ 1168 IEB_490_EPB11: 7 XXX
  SG_ EPB_I_LAMP : 0|4@1+ (1,0) [0|15] "" XXX
  SG_ EPB_F_LAMP : 4|2@1+ (1,0) [0|3] "" XXX
  SG_ EPB_ALARM : 6|2@1+ (1,0) [0|3] "" XXX
@@ -255,7 +258,7 @@ BO_ 1315 VCU_523_TEMP: 8 XXX
 
 BO_ 1316 VCU_524: 8 XXX
  SG_ Inverter_V : 0|16@1+ (1,0) [0|511] "" XXX
- SG_ Speed : 23|16@0+ (0.25,0) [0|65535] "rpm" XXX
+ SG_ Speed_abs : 23|16@0+ (0.25,0) [0|65535] "rpm" XXX
  SG_ Power_Unk : 32|12@1- (1,0) [0|65535] "" XXX
  SG_ Power : 48|16@1- (1,0) [0|65535] "" XXX
 
@@ -264,7 +267,7 @@ BO_ 1321 VCU_529: 8 XXX
 BO_ 1344 VCU_540: 8 XXX
  SG_ uwe540_01 : 0|16@1+ (1,0) [0|65535] "" XXX
  SG_ uwe540_23 : 16|16@1+ (1,0) [0|65535] "" XXX
- SG_ uwe540_45 : 32|16@1+ (1,0) [0|65535] "" XXX
+ SG_ TorqueRequest_maybe : 32|16@1+ (1,0) [0|65535] "" XXX
  SG_ Unk_Increases : 55|8@0+ (1,0) [0|255] "" XXX
 
 BO_ 1345 CGW_541: 8 XXX
@@ -411,9 +414,9 @@ BO_ 1423 VCU_58F: 8 XXX
 BO_ 1424 VCU_590: 8 XXX
 
 BO_ 1426 VCU_592: 8 XXX
- SG_ NEW_SIGNAL_1 : 23|8@0+ (1,0) [0|255] "" XXX
+ SG_ Movement_related_unk : 23|8@0+ (1,0) [0|255] "" XXX
  SG_ CC_React : 34|1@1+ (1,0) [0|1] "" XXX
- SG_ NEW_SIGNAL_2 : 55|8@0+ (1,0) [0|255] "" XXX
+ SG_ Movement_related_unk2 : 55|8@0+ (1,0) [0|255] "" XXX
  SG_ Unk_Status : 56|4@1+ (1,0) [0|15] "" XXX
  SG_ Counter : 62|2@1+ (1,0) [0|3] "" XXX
 
@@ -510,7 +513,7 @@ BO_ 1502 VCU_5DE: 8 XXX
  SG_ NEW_SIGNAL_3 : 23|8@0+ (1,0) [0|255] "" XXX
  SG_ NEW_SIGNAL_4 : 31|8@0+ (1,0) [0|255] "" XXX
  SG_ NEW_SIGNAL_1 : 47|8@0+ (1,0) [0|255] "" XXX
- SG_ NEW_SIGNAL_2 : 55|8@0+ (1,0) [0|255] "" XXX
+ SG_ TracksSpeed_UNK : 55|8@0+ (1,0) [0|255] "" XXX
 
 BO_ 1509 CCM_5E5: 8 XXX
  SG_ CCM_PresentVoltage : 32|16@1- (0.1,0) [0|500] "" XXX
@@ -738,18 +741,24 @@ CM_ BO_ 1372 "Constant message data, first two bytes different on different cars
 CM_ BO_ 1428 "unknown purpose, could be cooling or temp related?";
 CM_ BO_ 1440 "Also called ACU11";
 CM_ BO_ 1500 "1Hz output seems to include signals also found in other messages";
+CM_ BO_ 1527 "Marked as 'Climate' by Eric Router";
+CM_ BO_ 1528 "Marked as 'Climate' by Eric Router";
 CM_ SG_ 265 Unk_Status_1 "Goes to 0x02 temporarily during power on, maybe due to parking actuator. Also goes to 0x04 temporarily when switching to Drive, might be park brake actuator?";
 CM_ SG_ 265 Unk_AC_Charging "Probably multiple fields. Mostly FF FF FF 0F but sometimes changes during AC charging";
 CM_ SG_ 274 UNK_STATUS "LSB flips every few seconds - heartbeat?";
+CM_ SG_ 513 Unk_Motor_Related "Could be amount of creep to apply, or error of motor output";
 CM_ SG_ 657 Power_Unk2 "Tracks against  Power_Unk in VCU_524. Maybe acceleration not power?";
+CM_ SG_ 657 Speed "Motor rpm, signed";
 CM_ SG_ 674 BrakeUnknown "Same byte exists in message 0x331";
 CM_ SG_ 817 BrakeUnknown "Same byte exists in message 0x2a2";
 CM_ SG_ 852 Button_Pressed "Bytes 0 & 2 seem to be redundant copies of same information";
 CM_ SG_ 852 Counter "Seems to be two nibbles counting independently";
 CM_ SG_ 881 BrakeUnknown "Same byte as 0x2a2, 0x331";
-CM_ SG_ 1316 Speed "Possible this fieldelectrical rpm exactly, and there are 4 poles.";
+CM_ SG_ 1316 Speed_abs "Motor rpm, unsigned";
 CM_ SG_ 1316 Power_Unk "Power related, maybe target point? Exact meaning unknown.";
 CM_ SG_ 1316 Power "Matches battery current in BMS_595 very closely";
+CM_ SG_ 1426 Movement_related_unk "Tracks absolute motor speed but not directly. May be torque output related (maybe)";
+CM_ SG_ 1426 Movement_related_unk2 "Another value that goes up both when moving and rolling, and back to 0 when still. Doesn't track speed.";
 CM_ SG_ 1431 Active "This bit set when vehicle is in Ready, or Charging";
 CM_ SG_ 1433 CCS_CHARGE_TRIGGER "Might indicate contactors closed?";
 CM_ SG_ 1433 CCS_end_ack "Seems to go high to 'ack' the CCS_CCM_error bit from CCM";
@@ -757,7 +766,8 @@ CM_ SG_ 1438 UNK_U_HV "Maps to 595 UBatt, maybe voltage at another point?";
 CM_ SG_ 1497 Counter_Charging "Counter only increments when charging? TBC";
 CM_ SG_ 1500 Power_Unk "Scaled version of signal POWER_UNK in VCU_524. This signal may also include preceding byte.";
 CM_ SG_ 1500 UNK "Starts at zero, increments inconsistently while vehicle is on?";
-VAL_ 265 Unk_Drive_Status 0 "Not Ready" 252 "Check In Progress" 253 "Ready";
+CM_ SG_ 1502 TracksSpeed_UNK "Seems to go up when motor is turning, even when rolling, but doesn't track to speed or motor current";
+VAL_ 265 Ready_Status 0 "Not Ready" 252 "Check In Progress" 253 "Ready";
 VAL_ 512 CURRENT_GEAR 0 "P" 5 "D" 6 "N" 7 "R";
 VAL_ 852 Gear_Displayed 0 "None" 1 "P" 2 "R" 3 "N" 4 "D";
 VAL_ 1513 CCM_ChargeProgess 127 "WeldingDetection" 63 "PowerDeliveryStop" 31 "CurrentDemand" 7 "PreCharge" 3 "CableCheck";
