@@ -754,6 +754,8 @@ CM_ SG_ 817 BrakeUnknown "Same byte exists in message 0x2a2";
 CM_ SG_ 852 Button_Pressed "Bytes 0 & 2 seem to be redundant copies of same information";
 CM_ SG_ 852 Counter "Seems to be two nibbles counting independently";
 CM_ SG_ 881 BrakeUnknown "Same byte as 0x2a2, 0x331";
+CM_ SG_ 1287 AVH_I_LAMP "Auto Vehicle Hold Lamp (inverted)";
+CM_ SG_ 1287 AVH_LAMP "Auto Vehicle Hold Lamp";
 CM_ SG_ 1316 Speed_abs "Motor rpm, unsigned";
 CM_ SG_ 1316 Power_Unk "Power related, maybe target point? Exact meaning unknown.";
 CM_ SG_ 1316 Power "Matches battery current in BMS_595 very closely";
@@ -770,6 +772,7 @@ CM_ SG_ 1502 TracksSpeed_UNK "Seems to go up when motor is turning, even when ro
 VAL_ 265 Ready_Status 0 "Not Ready" 252 "Check In Progress" 253 "Ready";
 VAL_ 512 CURRENT_GEAR 0 "P" 5 "D" 6 "N" 7 "R";
 VAL_ 852 Gear_Displayed 0 "None" 1 "P" 2 "R" 3 "N" 4 "D";
+VAL_ 1287 AVH_LAMP 0 "Disabled" 2 "Enabled Stationary" 3 "Enabled Moving";
 VAL_ 1513 CCM_ChargeProgess 127 "WeldingDetection" 63 "PowerDeliveryStop" 31 "CurrentDemand" 7 "PreCharge" 3 "CableCheck";
 VAL_ 3221225472 ACCMode 0 "off" 1 "enabled" 2 "driver_override" 3 "off_maybe_fault" 4 "cancelled";
 VAL_ 3221225472 CF_Lvr_Gear 5 "D" 8 "S" 6 "N" 7 "R" 0 "P";
