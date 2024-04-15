@@ -450,9 +450,9 @@ BO_ 1433 BMS_599: 8 XXX
  SG_ CCS_end_ack : 63|1@0+ (1,0) [0|1] "" XXX
 
 BO_ 1436 BMS_59C: 8 XXX
- SG_ ChargeUnknown1 : 16|8@1+ (1,0) [0|255] "" XXX
- SG_ ChargeUnknown2 : 24|8@1+ (1,0) [0|255] "" XXX
- SG_ ChargePowerTarget : 32|16@1+ (4,0) [0|65535] "W" XXX
+ SG_ DCChargeUnknown : 16|8@1+ (1,0) [0|255] "" CCM
+ SG_ DCChargeUnknown2 : 24|8@1+ (1,0) [0|255] "" CCM
+ SG_ DCChargePowerTarget : 32|16@1+ (40,0) [0|65535] "W" CCM
 
 BO_ 1438 BMS_59E: 8 XXX
  SG_ UNK_U_HV : 39|8@0+ (1,0) [0|255] "" XXX
@@ -761,6 +761,7 @@ CM_ BO_ 1428 "unknown purpose, could be cooling or temp related?";
 CM_ SG_ 1431 Active "This bit set when vehicle is in Ready, or Charging";
 CM_ SG_ 1433 CCS_CHARGE_TRIGGER "Might indicate contactors closed?";
 CM_ SG_ 1433 CCS_end_ack "Seems to go high to 'ack' the CCS_CCM_error bit from CCM";
+CM_ BO_ 1436 "DC fast charge related, all zero when CCM is not active.";
 CM_ SG_ 1438 UNK_U_HV "Maps to 595 UBatt, maybe voltage at another point?";
 CM_ BO_ 1440 "Also called ACU11";
 CM_ SG_ 1497 Counter_Charging "Counter only increments when charging? TBC";
