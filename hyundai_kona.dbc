@@ -67,15 +67,15 @@ BO_ 512 VCU_200: 8 XXX
 
 BO_ 513 VCU_201: 8 XXX
  SG_ Counter_1 : 0|8@1+ (1,0) [0|255] "" XXX
- SG_ Unk_Motor_Related : 8|16@1- (1,0) [0|255] "" XXX
- SG_ Power_Unk6 : 24|16@1- (1,0) [0|65535] "" XXX
+ SG_ Torque_error : 8|16@1- (1,0) [0|255] "rpm" XXX
+ SG_ Torque_desired : 24|16@1- (1,0) [0|65535] "" XXX
  SG_ Regen_maybe : 40|16@1+ (1,0) [0|65535] "" XXX
  SG_ Unk : 56|8@1+ (1,0) [0|255] "" XXX
 
 BO_ 514 VCU_202: 8 XXX
- SG_ Power_Unk4 : 8|12@1- (1,0) [0|65535] "" XXX
+ SG_ Torque_desired_unk : 8|12@1- (1,0) [0|65535] "" XXX
  SG_ REGEN_LEVEL : 23|4@0+ (1,0) [0|1] "" XXX
- SG_ Power_Unk3 : 32|12@1- (1,0) [0|65535] "" XXX
+ SG_ Torque_desired_unk2 : 32|12@1- (1,0) [0|65535] "" XXX
 
 BO_ 544 IEB_220_ESP12: 8 XXX
  SG_ LAT_ACCEL : 0|11@1+ (0.01,-10.23) [-10.23|10.24] "m/s^2" XXX
@@ -95,7 +95,7 @@ BO_ 544 IEB_220_ESP12: 8 XXX
 
 BO_ 657 VCU_291: 8 XXX
  SG_ Power_Unk2 : 0|12@1- (1,0) [0|65535] "" XXX
- SG_ Speed : 16|16@1- (1,0) [0|65535] "rpm" XXX
+ SG_ Speed_signed : 16|16@1- (1,0) [0|65535] "rpm" XXX
  SG_ NEW_SIGNAL_1 : 39|8@0+ (1,0) [0|255] "" XXX
  SG_ NEW_SIGNAL_2 : 47|8@0+ (1,0) [0|255] "" XXX
  SG_ NEW_SIGNAL_3 : 55|8@0+ (1,0) [0|65535] "" XXX
@@ -259,15 +259,15 @@ BO_ 1315 VCU_523_TEMP: 8 XXX
 BO_ 1316 VCU_524: 8 XXX
  SG_ Inverter_V : 0|16@1+ (1,0) [0|511] "" XXX
  SG_ Speed_abs : 23|16@0+ (0.25,0) [0|65535] "rpm" XXX
- SG_ Power_Unk : 32|12@1- (1,0) [0|65535] "" XXX
+ SG_ Speed_desired_unk : 32|12@1- (1,0) [0|65535] "" XXX
  SG_ Power : 48|16@1- (1,0) [0|65535] "" XXX
 
 BO_ 1321 VCU_529: 8 XXX
 
 BO_ 1344 VCU_540: 8 XXX
- SG_ uwe540_01 : 0|16@1+ (1,0) [0|65535] "" XXX
+ SG_ uwe540_01 : 0|12@1+ (1,0) [0|65535] "" XXX
  SG_ uwe540_23 : 16|16@1+ (1,0) [0|65535] "" XXX
- SG_ TorqueRequest_maybe : 32|16@1+ (1,0) [0|65535] "" XXX
+ SG_ Torque_actual : 32|16@1+ (1,0) [0|65535] "" XXX
  SG_ Unk_Increases : 55|8@0+ (1,0) [0|255] "" XXX
 
 BO_ 1345 CGW_541: 8 XXX
@@ -505,8 +505,8 @@ BO_ 1497 VCU_5D9: 8 XXX
  SG_ Counter_Charging : 63|8@0+ (1,0) [0|255] "" XXX
 
 BO_ 1500 VCU_5DC: 8 XXX
- SG_ Speed_signed : 0|16@1- (1,0) [0|65535] "rpm" XXX
- SG_ Power_Unk : 24|8@1- (1,0) [0|255] "" XXX
+ SG_ Speed_signed_slow : 0|16@1- (1,0) [0|65535] "rpm" XXX
+ SG_ Speed_desired_slow_maybe : 24|8@1- (1,0) [0|255] "" XXX
  SG_ UNK : 40|16@1+ (1,0) [0|65535] "" XXX
 
 BO_ 1502 VCU_5DE: 8 XXX
@@ -746,9 +746,9 @@ CM_ BO_ 1528 "Marked as 'Climate' by Eric Router";
 CM_ SG_ 265 Unk_Status_1 "Goes to 0x02 temporarily during power on, maybe due to parking actuator. Also goes to 0x04 temporarily when switching to Drive, might be park brake actuator?";
 CM_ SG_ 265 Unk_AC_Charging "Probably multiple fields. Mostly FF FF FF 0F but sometimes changes during AC charging";
 CM_ SG_ 274 UNK_STATUS "LSB flips every few seconds - heartbeat?";
-CM_ SG_ 513 Unk_Motor_Related "Could be amount of creep to apply, or error of motor output";
+CM_ SG_ 513 Torque_error "Ofte (not always) the difference between Speed_desired and the actual motor speed in VCU_291. Maps TorqueReqest_maybe in VCU 540 closely.";
 CM_ SG_ 657 Power_Unk2 "Tracks against  Power_Unk in VCU_524. Maybe acceleration not power?";
-CM_ SG_ 657 Speed "Motor rpm, signed";
+CM_ SG_ 657 Speed_signed "Motor rpm, signed";
 CM_ SG_ 674 BrakeUnknown "Same byte exists in message 0x331";
 CM_ SG_ 817 BrakeUnknown "Same byte exists in message 0x2a2";
 CM_ SG_ 852 Button_Pressed "Bytes 0 & 2 seem to be redundant copies of same information";
@@ -757,8 +757,9 @@ CM_ SG_ 881 BrakeUnknown "Same byte as 0x2a2, 0x331";
 CM_ SG_ 1287 AVH_I_LAMP "Auto Vehicle Hold Lamp (inverted)";
 CM_ SG_ 1287 AVH_LAMP "Auto Vehicle Hold Lamp";
 CM_ SG_ 1316 Speed_abs "Motor rpm, unsigned";
-CM_ SG_ 1316 Power_Unk "Power related, maybe target point? Exact meaning unknown.";
+CM_ SG_ 1316 Speed_desired_unk "This seems to lag the Speed_desired field in VCU_201 by a very small amount of time...";
 CM_ SG_ 1316 Power "Matches battery current in BMS_595 very closely";
+CM_ SG_ 1344 uwe540_01 "Unclear if 12 or 16 byte long signal";
 CM_ SG_ 1426 Movement_related_unk "Tracks absolute motor speed but not directly. May be torque output related (maybe)";
 CM_ SG_ 1426 Movement_related_unk2 "Another value that goes up both when moving and rolling, and back to 0 when still. Doesn't track speed.";
 CM_ SG_ 1431 Active "This bit set when vehicle is in Ready, or Charging";
@@ -766,7 +767,8 @@ CM_ SG_ 1433 CCS_CHARGE_TRIGGER "Might indicate contactors closed?";
 CM_ SG_ 1433 CCS_end_ack "Seems to go high to 'ack' the CCS_CCM_error bit from CCM";
 CM_ SG_ 1438 UNK_U_HV "Maps to 595 UBatt, maybe voltage at another point?";
 CM_ SG_ 1497 Counter_Charging "Counter only increments when charging? TBC";
-CM_ SG_ 1500 Power_Unk "Scaled version of signal POWER_UNK in VCU_524. This signal may also include preceding byte.";
+CM_ SG_ 1500 Speed_signed_slow "1Hz version of the signal found in VCU_291";
+CM_ SG_ 1500 Speed_desired_slow_maybe "May be a scaled slow version of signal Speed_desired in VCU 201";
 CM_ SG_ 1500 UNK "Starts at zero, increments inconsistently while vehicle is on?";
 CM_ SG_ 1502 TracksSpeed_UNK "Seems to go up when motor is turning, even when rolling, but doesn't track to speed or motor current";
 VAL_ 265 Ready_Status 0 "Not Ready" 252 "Check In Progress" 253 "Ready";
