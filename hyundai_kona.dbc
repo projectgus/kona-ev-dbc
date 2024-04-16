@@ -421,8 +421,8 @@ BO_ 1426 VCU_592: 8 XXX
  SG_ Counter : 62|2@1+ (1,0) [0|3] "" XXX
 
 BO_ 1428 BMS_594: 8 XXX
- SG_ UNK_1 : 0|16@1+ (1,0) [0|65535] "" XXX
- SG_ UNK_2 : 16|15@1- (1,0) [0|65535] "" XXX
+ SG_ ChargeAvailable : 0|16@1+ (0.01,0) [0|65535] "kW" XXX
+ SG_ DischargeAvailable : 16|16@1+ (0.01,0) [0|65535] "kW" XXX
 
 BO_ 1429 BMS_595: 8 XXX
  SG_ IBatt : 32|16@1- (0.1,0) [-1000|1000] "A" XXX
@@ -758,6 +758,8 @@ CM_ BO_ 1372 "Constant message data, first two bytes different on different cars
 CM_ SG_ 1426 Movement_related_unk "Tracks absolute motor speed but not directly. May be torque output related (maybe)";
 CM_ SG_ 1426 Movement_related_unk2 "Another value that goes up both when moving and rolling, and back to 0 when still. Doesn't track speed.";
 CM_ BO_ 1428 "unknown purpose, could be cooling or temp related?";
+CM_ SG_ 1428 ChargeAvailable "Unconfirmed but seems correct";
+CM_ SG_ 1428 DischargeAvailable "Unconfirmed but seems correct";
 CM_ SG_ 1431 Active "This bit set when vehicle is in Ready, or Charging";
 CM_ SG_ 1433 CCS_CHARGE_TRIGGER "Might indicate contactors closed?";
 CM_ SG_ 1433 CCS_end_ack "Seems to go high to 'ack' the CCS_CCM_error bit from CCM";
