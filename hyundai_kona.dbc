@@ -1,15 +1,13 @@
-BO_ 263 UNK_B107: 8 XXX
- SG_ NEW_SIGNAL_1 : 39|16@0+ (1,0) [0|255] "" XXX
+VERSION ""
 
-BO_ 265 VCU_109: 8 XXX
- SG_ Unk_Status_1 : 0|8@1+ (1,0) [0|255] "" XXX
- SG_ Unk_Status_2 : 8|8@1+ (1,0) [0|255] "" XXX
- SG_ Ready_Status : 16|8@1+ (1,0) [0|255] "" XXX
- SG_ Unk_AC_Charging : 31|32@0+ (1,0) [0|4294967295] "" XXX
- SG_ Counter : 56|8@1+ (1,0) [0|255] "" XXX
+NS_ :
+  NS_DESC_
+
+BO_ 263 UNK_B107: 8 XXX
+ SG_ NEW_SIGNAL_1 : 39|16@0+ (1,0) [0|255] "a" XXX
 
 BO_ 268 SCU_10C: 8 XXX
- SG_ Counter_Dual : 63|8@0+ (1,0) [0|255] "" XXX
+ SG_ Counter_Dual : 63|8@0+ (1,0) [0|255] "b" XXX
 
 BO_ 272 SMK_B110: 8 XXX
  SG_ MAYBE_POWER_PRESSED : 0|8@1+ (1,0) [0|255] "" XXX
@@ -393,7 +391,7 @@ BO_ 1403 VCU_57B: 8 XXX
 BO_ 1407 HU_MON_PE_01: 8 XXX
  SG_ HU_Type : 0|8@1+ (1,0) [0|255] "" XXX
 
-BO_ 1409 UNK_581: 8 XXX
+BO_ 1409 OBC_581_Maybe: 8 OBC
 
 BO_ 1412 AAF_584: 8 XXX
  SG_ CF_Aaf_ActFlapStatus : 0|2@1+ (1,0) [0|3] "" XXX
@@ -446,13 +444,8 @@ BO_ 1433 BMS_599: 8 XXX
  SG_ UNK : 7|16@0+ (1,0) [0|65535] "" XXX
  SG_ STATE_OF_CHARGE : 16|8@1+ (1,0) [0|255] "" XXX
  SG_ CCS_COMMS_TRIGGER : 56|1@1+ (1,0) [0|3] "" XXX
- SG_ CCS_CHARGE_TRIGGER : 57|1@0+ (1,0) [0|1] "" XXX
- SG_ CCS_end_ack : 63|1@0+ (1,0) [0|1] "" XXX
-
-BO_ 1436 BMS_59C: 8 XXX
- SG_ DCChargeUnknown : 16|8@1+ (1,0) [0|255] "" CCM
- SG_ DCChargeUnknown2 : 24|8@1+ (1,0) [0|255] "" CCM
- SG_ DCChargePowerTarget : 32|16@1+ (40,0) [0|65535] "W" CCM
+ SG_ ChargeTrigger : 57|1@0+ (1,0) [0|1] "" XXX
+ SG_ ChargeEndAck : 63|1@0+ (1,0) [0|1] "" XXX
 
 BO_ 1438 BMS_59E: 8 XXX
  SG_ UNK_U_HV : 39|8@0+ (1,0) [0|255] "" XXX
@@ -474,6 +467,7 @@ BO_ 1440 ACU_508: 8 XXX
  SG_ CF_Acu_NumOfFlt : 56|8@1+ (1,0) [0|255] "" XXX
 
 BO_ 1443 BMS_5A3: 8 XXX
+ SG_ Maybe_Contactor_Closed : 6|1@0+ (1,0) [0|1] "" XXX
 
 BO_ 1488 UNK_5D0: 8 XXX
  SG_ Odometer : 0|24@1+ (0.1,0) [0|800000] "km" XXX
@@ -725,9 +719,6 @@ BO_ 3221225472 VECTOR__INDEPENDENT_SIG_MSG: 0 XXX
  SG_ WHL_SPD_RL : 0|14@1+ (0.03125,0) [0|511.96875] "km/h" XXX
  SG_ WHL_SPD_RR : 0|14@1+ (0.03125,0) [0|511.96875] "km/h" XXX
 
-CM_ BO_ 265 "This is the PCAN message. Same ID is on BCAN, different payload.";
-CM_ SG_ 265 Unk_Status_1 "Goes to 0x02 temporarily during power on, maybe due to parking actuator. Also goes to 0x04 temporarily when switching to Drive, might be park brake actuator?";
-CM_ SG_ 265 Unk_AC_Charging "Probably multiple fields. Mostly FF FF FF 0F but sometimes changes during AC charging";
 CM_ SG_ 274 UNK_STATUS "LSB flips every few seconds - heartbeat?";
 CM_ BO_ 339 "TCS11 in other DBC Files. Appears  on PCAN, CCAN.";
 CM_ BO_ 513 "This message has a bunch of signals that do counter-like things when the motor is turning and all zero otherwise";
@@ -755,15 +746,15 @@ CM_ SG_ 1316 Power "Matches battery current in BMS_595 very closely";
 CM_ SG_ 1344 uwe540_01 "Unclear if 12 or 16 byte long signal";
 CM_ BO_ 1353 "Incorrect label comes from uwe's records, haven't verified these";
 CM_ BO_ 1372 "Constant message data, first two bytes different on different cars";
+CM_ BO_ 1409 "WIP, need to verify against more logs but all these values change at end of AC charge session";
 CM_ SG_ 1426 Movement_related_unk "Tracks absolute motor speed but not directly. May be torque output related (maybe)";
 CM_ SG_ 1426 Movement_related_unk2 "Another value that goes up both when moving and rolling, and back to 0 when still. Doesn't track speed.";
 CM_ BO_ 1428 "unknown purpose, could be cooling or temp related?";
 CM_ SG_ 1428 ChargeAvailable "Unconfirmed but seems correct";
 CM_ SG_ 1428 DischargeAvailable "Unconfirmed but seems correct";
 CM_ SG_ 1431 Active "This bit set when vehicle is in Ready, or Charging";
-CM_ SG_ 1433 CCS_CHARGE_TRIGGER "Might indicate contactors closed?";
-CM_ SG_ 1433 CCS_end_ack "Seems to go high to 'ack' the CCS_CCM_error bit from CCM";
-CM_ BO_ 1436 "DC fast charge related, all zero when CCM is not active.";
+CM_ SG_ 1433 ChargeTrigger "Set to 1 during both AC and DC charging. Might indicate contactors closed?";
+CM_ SG_ 1433 ChargeEndAck "Seems to go high to 'ack' the CCS_CCM_error bit from CCM, and also at end of AC charge";
 CM_ SG_ 1438 UNK_U_HV "Maps to 595 UBatt, maybe voltage at another point?";
 CM_ BO_ 1440 "Also called ACU11";
 CM_ SG_ 1497 Counter_Charging "Counter only increments when charging? TBC";
@@ -774,7 +765,6 @@ CM_ SG_ 1500 UNK "Starts at zero, increments inconsistently while vehicle is on?
 CM_ SG_ 1502 TracksSpeed_UNK "Seems to go up when motor is turning, even when rolling, but doesn't track to speed or motor current";
 CM_ BO_ 1527 "Marked as 'Climate' by Eric Router";
 CM_ BO_ 1528 "Marked as 'Climate' by Eric Router";
-VAL_ 265 Ready_Status 0 "Not Ready" 252 "Check In Progress" 253 "Ready";
 VAL_ 512 CURRENT_GEAR 0 "P" 5 "D" 6 "N" 7 "R";
 VAL_ 852 Gear_Displayed 0 "None" 1 "P" 2 "R" 3 "N" 4 "D";
 VAL_ 1287 AVH_LAMP 0 "Disabled" 2 "Enabled Stationary" 3 "Enabled Moving";
