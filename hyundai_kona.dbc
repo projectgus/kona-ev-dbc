@@ -469,6 +469,10 @@ BO_ 1440 ACU_508: 8 XXX
 BO_ 1443 BMS_5A3: 8 XXX
  SG_ Maybe_Contactor_Closed : 6|1@0+ (1,0) [0|1] "" XXX
 
+BO_ 1483 ClimateStatus_5CB: 8 FATC
+ SG_ Setpoint : 7|8@0+ (0.5,14) [14|27] "C" XXX
+ SG_ SetpointDup : 15|8@0+ (0.5,14) [14|27] "C" XXX
+
 BO_ 1488 UNK_5D0: 8 XXX
  SG_ Odometer : 0|24@1+ (0.1,0) [0|800000] "km" XXX
 
@@ -757,6 +761,7 @@ CM_ SG_ 1433 ChargeTrigger "Set to 1 during both AC and DC charging. Might indic
 CM_ SG_ 1433 ChargeEndAck "Seems to go high to 'ack' the CCS_CCM_error bit from CCM, and also at end of AC charge";
 CM_ SG_ 1438 UNK_U_HV "Maps to 595 UBatt, maybe voltage at another point?";
 CM_ BO_ 1440 "Also called ACU11";
+CM_ SG_ 1483 SetpointDup "When vehicle is Ready, this signal is always the same as Setpoint. When off, one or both of these fields have value FF.";
 CM_ SG_ 1497 Counter_Charging "Counter only increments when charging? TBC";
 CM_ BO_ 1500 "1Hz output seems to include signals also found in other messages";
 CM_ SG_ 1500 Speed_signed_slow "1Hz version of the signal found in VCU_291";

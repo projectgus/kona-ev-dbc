@@ -1,0 +1,7 @@
+BO_ 272 NEW_MSG_110: 8 XXX
+ SG_ OnOffMaybe : 23|8@0+ (1,0) [0|255] "" XXX
+
+BO_ 273 HeaterStatus: 8 PTCH
+ SG_ SetpointMaybe : 0|16@1+ (1,0) [0|65535] "" XXX
+
+CM_ BO_ 273 "PTC Heater status?";
