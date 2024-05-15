@@ -66,14 +66,14 @@ BO_ 512 VCU_200: 8 XXX
 BO_ 513 VCU_201: 8 XXX
  SG_ Counter_1 : 0|8@1+ (1,0) [0|255] "" XXX
  SG_ Torque_error : 8|16@1- (1,0) [0|255] "rpm" XXX
- SG_ Torque_desired : 24|16@1- (1,0) [0|65535] "" XXX
+ SG_ Torque_desired : 24|16@1- (1,0) [-32767|32768] "" XXX
  SG_ Regen_maybe : 40|16@1+ (1,0) [0|65535] "" XXX
  SG_ Unk : 56|8@1+ (1,0) [0|255] "" XXX
 
 BO_ 514 VCU_202: 8 XXX
- SG_ Torque_desired_unk : 8|12@1- (1,0) [0|65535] "" XXX
+ SG_ Torque_desired_unk : 8|12@1- (1,0) [-32768|32767] "" XXX
  SG_ REGEN_LEVEL : 23|4@0+ (1,0) [0|1] "" XXX
- SG_ Torque_desired_unk2 : 32|12@1- (1,0) [0|65535] "" XXX
+ SG_ Torque_desired_unk2 : 32|12@1- (1,0) [-32768|32767] "" XXX
 
 BO_ 544 IEB_220_ESP12: 8 XXX
  SG_ LAT_ACCEL : 0|11@1+ (0.01,-10.23) [-10.23|10.24] "m/s^2" XXX
@@ -92,11 +92,11 @@ BO_ 544 IEB_220_ESP12: 8 XXX
  SG_ ESP12_AliveCounter : 60|4@1+ (1,0) [0|15] "" XXX
 
 BO_ 657 VCU_291: 8 XXX
- SG_ Power_Unk2 : 0|12@1- (1,0) [0|65535] "" XXX
- SG_ Speed_signed : 16|16@1- (1,0) [0|65535] "rpm" XXX
+ SG_ Power_Unk2 : 0|12@1- (1,0) [-32768|32767] "" XXX
+ SG_ Speed_signed : 16|16@1- (1,0) [-32768|32767] "rpm" XXX
  SG_ NEW_SIGNAL_1 : 39|8@0+ (1,0) [0|255] "" XXX
  SG_ NEW_SIGNAL_2 : 47|8@0+ (1,0) [0|255] "" XXX
- SG_ NEW_SIGNAL_3 : 55|8@0+ (1,0) [0|65535] "" XXX
+ SG_ NEW_SIGNAL_3 : 55|8@0+ (1,0) [0|255] "" XXX
 
 BO_ 673 VCU_2A1: 8 XXX
 
@@ -257,8 +257,8 @@ BO_ 1315 VCU_523_TEMP: 8 XXX
 BO_ 1316 VCU_524: 8 XXX
  SG_ Inverter_V : 0|16@1+ (1,0) [0|511] "" XXX
  SG_ Speed_abs : 23|16@0+ (0.25,0) [0|65535] "rpm" XXX
- SG_ Speed_desired_unk : 32|12@1- (1,0) [0|65535] "" XXX
- SG_ Power : 48|16@1- (1,0) [0|65535] "" XXX
+ SG_ Speed_desired_unk : 32|12@1- (1,0) [-32768|32767] "" XXX
+ SG_ Power : 48|16@1- (1,0) [-32768|32767] "" XXX
 
 BO_ 1321 VCU_529: 8 XXX
 
@@ -499,8 +499,8 @@ BO_ 1497 VCU_5D9: 8 XXX
  SG_ Counter_Charging : 63|8@0+ (1,0) [0|255] "" XXX
 
 BO_ 1500 VCU_5DC: 8 XXX
- SG_ Speed_signed_slow : 0|16@1- (1,0) [0|65535] "rpm" XXX
- SG_ Speed_desired_slow_maybe : 24|8@1- (1,0) [0|255] "" XXX
+ SG_ Speed_signed_slow : 0|16@1- (1,0) [-32767|32768] "rpm" XXX
+ SG_ Speed_desired_slow_maybe : 24|8@1- (1,0) [-128|127] "" XXX
  SG_ UNK : 40|16@1+ (1,0) [0|65535] "" XXX
 
 BO_ 1502 VCU_5DE: 8 XXX
