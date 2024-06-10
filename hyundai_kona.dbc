@@ -6,6 +6,9 @@ NS_ :
 BO_ 263 UNK_B107: 8 XXX
  SG_ NEW_SIGNAL_1 : 39|16@0+ (1,0) [0|255] "a" XXX
 
+BO_ 265 NEW_MSG_109: 8 XXX
+ SG_ Counter : 61|6@0+ (1,0) [0|63] "" XXX
+
 BO_ 268 SCU_10C: 8 SCU
  SG_ Counter_Dual : 63|8@0+ (1,0) [0|255] "b" XXX
 
@@ -193,7 +196,7 @@ BO_ 1117 UNK_45D: 8 XXX
 BO_ 1118 UNK_45E: 8 XXX
 
 BO_ 1137 UNK_471: 6 XXX
- SG_ NEW_SIGNAL_1 : 47|8@0+ (1,0) [0|255] "" XXX
+ SG_ Counter : 47|8@0+ (1,0) [0|255] "" XXX
 
 BO_ 1148 OBC_47C_MAYBE: 8 OBC_CDM_MAYBE
 
