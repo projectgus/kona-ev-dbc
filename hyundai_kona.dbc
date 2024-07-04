@@ -182,6 +182,8 @@ BO_ 1025 SMK_B401: 8 SMK
 
 BO_ 1042 UNK_412: 8 XXX
 
+BO_ 1044 CGW_414: 8 IGMP
+
 BO_ 1104 UNK_450: 3 XXX
  SG_ Speed : 7|8@0+ (1,0) [0|255] "" XXX
  SG_ UNK_MAYBE_CRUISE_BUTTONS : 15|16@0+ (1,0) [0|65535] "" XXX
@@ -478,10 +480,12 @@ BO_ 1483 ClimateStatus_5CB: 8 FATC
  SG_ Setpoint : 7|8@0+ (0.5,14) [14|27] "C" XXX
  SG_ SetpointDup : 15|8@0+ (0.5,14) [14|27] "C" XXX
 
-BO_ 1488 UNK_5D0: 8 XXX
+BO_ 1484 FATC_5CC: 8 FATC
+
+BO_ 1488 CGW_5D0: 8 IGPM
  SG_ Odometer : 0|24@1+ (0.1,0) [0|800000] "km" XXX
 
-BO_ 1491 HU_DATC_PE_00: 8 XXX
+BO_ 1491 CGW_HU_DATC_PE_00: 8 IGPM
  SG_ HU_VRActivity : 0|2@1+ (1,0) [0|3] "" XXX
  SG_ HU_PhoneActivity : 2|2@1+ (1,0) [0|3] "" XXX
  SG_ BlowerNoiseControl : 4|2@1+ (1,0) [0|3] "" XXX
@@ -518,6 +522,8 @@ BO_ 1502 VCU_5DE: 8 VCU
  SG_ NEW_SIGNAL_1 : 47|8@0+ (1,0) [0|255] "" XXX
  SG_ TracksSpeed_UNK : 55|8@0+ (1,0) [0|255] "" XXX
 
+BO_ 1503 CGW_5DF: 8 IGPM
+
 BO_ 1509 CCM_5E5: 8 CCM
  SG_ CCM_PresentVoltage : 32|16@1- (0.1,0) [0|500] "" XXX
  SG_ CCM_PresentCurrent : 48|16@1- (0.1,0) [0|1000] "" XXX
@@ -532,14 +538,16 @@ BO_ 1513 CCM_5E9: 8 CCM
  SG_ CCM_togglebit : 0|1@1- (1,0) [0|1] "" XXX
  SG_ CCM_ChargeProgess : 1|7@1+ (1,0) [0|127] "" XXX
 
-BO_ 1525 UNK_5F5: 64 XXX
+BO_ 1516 CGW_5EC: 8 IGPM
+
+BO_ 1525 FATC_5F5: 64 FATC
  SG_ UNK_COUNTER : 32|4@1+ (1,0) [0|15] "" XXX
 
-BO_ 1526 UNK_5F6: 8 XXX
+BO_ 1526 FATC_5F6: 8 FATC
  SG_ Unk : 0|8@1+ (1,0) [0|255] "" XXX
  SG_ Unk_Status : 8|4@1+ (1,0) [0|15] "" XXX
 
-BO_ 1527 UNK_5F7: 8 XXX
+BO_ 1527 FATC_5F7: 8 FATC
  SG_ uwe5F7_0 : 0|8@1+ (1,0) [0|255] "" XXX
  SG_ uwe5F7_1 : 8|8@1+ (1,0) [0|255] "" XXX
  SG_ uwe5F7_2 : 16|8@1+ (1,0) [0|255] "" XXX
@@ -549,7 +557,7 @@ BO_ 1527 UNK_5F7: 8 XXX
  SG_ uwe5F7_6 : 48|8@1+ (1,0) [0|255] "" XXX
  SG_ uwe5F7_7 : 56|8@1+ (1,0) [0|255] "" XXX
 
-BO_ 1528 UNK_5F8: 8 XXX
+BO_ 1528 FATC_5F8: 8 FATC
  SG_ uwe5F8_0 : 0|8@1+ (1,0) [0|255] "" XXX
  SG_ uwe5F8_1 : 8|8@1+ (1,0) [0|255] "" XXX
  SG_ uwe5F8_2 : 16|8@1+ (1,0) [0|255] "" XXX
@@ -558,6 +566,8 @@ BO_ 1528 UNK_5F8: 8 XXX
  SG_ uwe5F8_5_ClimateTTarget : 40|8@1+ (0.5,-40) [-40|87.5] "" XXX
  SG_ uwe5F8_6_ClimateTFreezer : 48|8@1+ (0.5,-40) [-40|87.5] "°C" XXX
  SG_ uwe5F8_7_ClimateTInside : 56|8@1+ (0.5,-40) [-40|87.5] "" XXX
+
+BO_ 1529 FATC_5F9: 8 FATC
 
 BO_ 3221225472 VECTOR__INDEPENDENT_SIG_MSG: 0 XXX
  SG_ ABS_ACT : 0|1@1+ (1,0) [0|1] "" XXX
@@ -743,6 +753,7 @@ CM_ SG_ 881 BrakeUnknown "Same byte as 0x2a2, 0x331";
 CM_ BO_ 902 "Wheel speed. Named WHL_SPD11 in some DBC files. Appears on PCAN, CCAN.";
 CM_ BO_ 903 "Wheel direction and status? Named WHL_PUL11 in some DBC files. Appears on PCAN, CCAN.";
 CM_ BO_ 1042 "On PCAN this message is all zeroes";
+CM_ BO_ 1044 "OBC classifies as coming from gateway";
 CM_ BO_ 1116 "Message data all zeroes";
 CM_ BO_ 1117 "Message body all zeroes, except sometimes when it becomes FF,FF,FF,FF,FF,FF,FF,0F";
 CM_ BO_ 1118 "Message mostly all zeroes, occasionally FF,FF,FF,FF,FF,00,00,00";
@@ -755,6 +766,7 @@ CM_ SG_ 1316 Power "Matches battery current in BMS_595 very closely";
 CM_ SG_ 1344 uwe540_01 "Unclear if 12 or 16 byte long signal";
 CM_ BO_ 1353 "Incorrect label comes from uwe's records, haven't verified these";
 CM_ BO_ 1372 "Constant message data, first two bytes different on different cars";
+CM_ BO_ 1383 "OBC needs to see this message";
 CM_ BO_ 1409 "WIP, need to verify against more logs but all these values change at end of AC charge session";
 CM_ SG_ 1426 Movement_related_unk "Tracks absolute motor speed but not directly. May be torque output related (maybe)";
 CM_ SG_ 1426 Movement_related_unk2 "Another value that goes up both when moving and rolling, and back to 0 when still. Doesn't track speed.";
@@ -766,13 +778,18 @@ CM_ SG_ 1433 ChargeTrigger "Set to 1 during both AC and DC charging. Might indic
 CM_ SG_ 1433 ChargeEndAck "Seems to go high to 'ack' the CCS_CCM_error bit from CCM, and also at end of AC charge";
 CM_ SG_ 1438 UNK_U_HV "Maps to 595 UBatt, maybe voltage at another point?";
 CM_ BO_ 1440 "Also called ACU11";
+CM_ BO_ 1483 "The VCU and BMS do not read this status message. Cabin only?";
 CM_ SG_ 1483 SetpointDup "When vehicle is Ready, this signal is always the same as Setpoint. When off, one or both of these fields have value FF.";
+CM_ BO_ 1488 "OBC classifies this as a gateway message";
+CM_ BO_ 1491 "OBC classifies this as a gateway message";
 CM_ SG_ 1497 Counter_Charging "Counter only increments when charging? TBC";
 CM_ BO_ 1500 "1Hz output seems to include signals also found in other messages";
 CM_ SG_ 1500 Speed_signed_slow "1Hz version of the signal found in VCU_291";
 CM_ SG_ 1500 Speed_desired_slow_maybe "May be a scaled slow version of signal Speed_desired in VCU 201";
 CM_ SG_ 1500 UNK "Starts at zero, increments inconsistently while vehicle is on?";
 CM_ SG_ 1502 TracksSpeed_UNK "Seems to go up when motor is turning, even when rolling, but doesn't track to speed or motor current";
+CM_ BO_ 1503 "OBC classifies this as a gateway message.";
+CM_ BO_ 1516 "OBC classifies this as a gateway message.";
 CM_ BO_ 1527 "Marked as 'Climate' by Eric Router";
 CM_ BO_ 1528 "Marked as 'Climate' by Eric Router";
 VAL_ 512 CURRENT_GEAR 0 "P" 5 "D" 6 "N" 7 "R";
