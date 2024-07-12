@@ -549,6 +549,7 @@ BO_ 1513 CCM_5E9: 8 CCM
  SG_ CCM_ChargeProgess : 1|7@1+ (1,0) [0|127] "" XXX
 
 BO_ 1516 CGW_5EC: 8 IGPM
+ SG_ ChargePortLocked : 0|1@0+ (1,0) [0|1] "" XXX
 
 BO_ 1525 FATC_5F5: 64 FATC
  SG_ UNK_COUNTER : 32|4@1+ (1,0) [0|15] "" XXX
@@ -812,6 +813,7 @@ VAL_ 512 CURRENT_GEAR 0 "P" 5 "D" 6 "N" 7 "R";
 VAL_ 852 Gear_Displayed 0 "None" 1 "P" 2 "R" 3 "N" 4 "D";
 VAL_ 1287 AVH_LAMP 0 "Disabled" 2 "Enabled Stationary" 3 "Enabled Moving";
 VAL_ 1513 CCM_ChargeProgess 127 "WeldingDetection" 63 "PowerDeliveryStop" 31 "CurrentDemand" 7 "PreCharge" 3 "CableCheck";
+VAL_ 1516 ChargePortLocked 0 "Unlocked" 1 "Locked";
 VAL_ 3221225472 ACCMode 0 "off" 1 "enabled" 2 "driver_override" 3 "off_maybe_fault" 4 "cancelled";
 VAL_ 3221225472 CF_Lvr_Gear 5 "D" 8 "S" 6 "N" 7 "R" 0 "P";
 VAL_ 3221225472 CF_VSM_Warn 2 "FCW" 3 "AEB";
