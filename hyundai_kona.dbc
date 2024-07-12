@@ -182,7 +182,7 @@ BO_ 1025 SMK_B401: 8 SMK
 
 BO_ 1042 UNK_412: 8 XXX
 
-BO_ 1044 CGW_414: 8 IGMP
+BO_ 1044 CGW_414: 8 IGPM
 
 BO_ 1104 UNK_450: 3 XXX
  SG_ Speed : 7|8@0+ (1,0) [0|255] "" XXX
@@ -454,10 +454,13 @@ BO_ 1433 BMS_599: 8 BMS
  SG_ ChargeTrigger : 57|1@0+ (1,0) [0|1] "" XXX
  SG_ ChargeEndAck : 63|1@0+ (1,0) [0|1] "" XXX
 
+BO_ 1436 UNK_59C: 8 XXX
+ SG_ unk_changerelated : 24|16@1+ (1,0) [0|65535] "" XXX
+
 BO_ 1438 BMS_59E: 8 BMS
  SG_ UNK_U_HV : 39|8@0+ (1,0) [0|255] "" XXX
 
-BO_ 1440 ACU_508: 8 ACU
+BO_ 1440 ACU_5A0: 8 ACU
  SG_ CF_Ods_SNRcv : 1|1@1+ (1,0) [0|1] "" XXX
  SG_ CF_Ods_IDRcv : 2|1@1+ (1,0) [0|1] "" XXX
  SG_ CF_Ods_RZReq : 4|1@1+ (1,0) [0|1] "" XXX
