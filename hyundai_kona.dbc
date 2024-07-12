@@ -6,7 +6,7 @@ NS_ :
 BO_ 263 UNK_B107: 8 XXX
  SG_ NEW_SIGNAL_1 : 39|16@0+ (1,0) [0|255] "a" XXX
 
-BO_ 265 NEW_MSG_109: 8 XXX
+BO_ 265 UNK_109: 8 XXX
  SG_ Counter : 61|6@0+ (1,0) [0|63] "" XXX
 
 BO_ 268 SCU_10C: 8 SCU
@@ -201,6 +201,7 @@ BO_ 1137 UNK_471: 6 XXX
  SG_ Counter : 47|8@0+ (1,0) [0|255] "" XXX
 
 BO_ 1148 OBC_47C_MAYBE: 8 OBC_CDM_MAYBE
+ SG_ ACCurrentRelated2 : 63|8@0+ (1,0) [0|255] "" XXX
 
 BO_ 1168 IEB_490_EPB11: 7 IEB
  SG_ EPB_I_LAMP : 0|4@1+ (1,0) [0|15] "" XXX
@@ -397,8 +398,11 @@ BO_ 1403 VCU_57B: 8 VCU
 BO_ 1407 HU_MON_PE_01: 8 OBC_CDM_MAYBE
  SG_ HU_Type : 0|8@1+ (1,0) [0|255] "" XXX
 
-BO_ 1409 OBC_581_Maybe: 8 OBC
- SG_ NEW_SIGNAL_1 : 24|16@1+ (1,0) [0|65535] "" XXX
+BO_ 1409 OBC_581: 8 OBC
+ SG_ ACCurrent : 0|16@1+ (0.01,0) [0|65535] "" XXX
+ SG_ ACVoltsx10Maybe : 16|16@1+ (0.1,0) [0|65535] "" XXX
+ SG_ UNK_Readback : 32|16@1+ (1,0) [0|65535] "" XXX
+ SG_ ACCurrentRelated : 48|16@1+ (1,0) [0|65535] "" XXX
 
 BO_ 1412 AAF_584: 8 AAF
  SG_ CF_Aaf_ActFlapStatus : 0|2@1+ (1,0) [0|3] "" XXX
@@ -411,7 +415,10 @@ BO_ 1412 AAF_584: 8 AAF
  SG_ CF_Aaf_SolFlapStatus : 40|2@1+ (1,0) [0|3] "" XXX
  SG_ CF_Aaf_MilOnReq : 42|1@1+ (1,0) [0|1] "" XXX
 
-BO_ 1422 OBC_58E_MAYBE: 8 OBC_CDM_MAYBE
+BO_ 1422 OBC_58E: 8 OBC
+ SG_ ChargeStatusMaybe : 8|8@1+ (1,0) [0|255] "" XXX
+ SG_ ACCurrentSettingRelated : 23|8@0+ (0.5,0) [0|255] "" XXX
+ SG_ ChargerModeMaybe : 39|8@0+ (1,0) [0|255] "" XXX
 
 BO_ 1423 VCU_58F: 8 VCU
  SG_ Unk_Status : 43|4@0+ (1,0) [0|15] "" XXX
@@ -770,7 +777,11 @@ CM_ SG_ 1344 uwe540_01 "Unclear if 12 or 16 byte long signal";
 CM_ BO_ 1353 "Incorrect label comes from uwe's records, haven't verified these";
 CM_ BO_ 1372 "Constant message data, first two bytes different on different cars";
 CM_ BO_ 1383 "OBC needs to see this message";
-CM_ BO_ 1409 "WIP, need to verify against more logs but all these values change at end of AC charge session";
+CM_ BO_ 1409 "AC charging status";
+CM_ SG_ 1409 ACCurrent "Possible one of these is nominal, one is actual";
+CM_ SG_ 1409 ACCurrentRelated "Seems to track current exactly and not voltage. Maybe is actual, or real current";
+CM_ BO_ 1422 "Originally thought might be CDM, but looks like OBC";
+CM_ SG_ 1422 ACCurrentSettingRelated "Seems to lag the actual charge current. Is not the current offered by EVSE as it goes down when changing max AC charge in car.";
 CM_ SG_ 1426 Movement_related_unk "Tracks absolute motor speed but not directly. May be torque output related (maybe)";
 CM_ SG_ 1426 Movement_related_unk2 "Another value that goes up both when moving and rolling, and back to 0 when still. Doesn't track speed.";
 CM_ BO_ 1428 "unknown purpose, could be cooling or temp related?";
@@ -783,7 +794,9 @@ CM_ SG_ 1438 UNK_U_HV "Maps to 595 UBatt, maybe voltage at another point?";
 CM_ BO_ 1440 "Also called ACU11";
 CM_ BO_ 1483 "The VCU and BMS do not read this status message. Cabin only?";
 CM_ SG_ 1483 SetpointDup "When vehicle is Ready, this signal is always the same as Setpoint. When off, one or both of these fields have value FF.";
-CM_ BO_ 1488 "OBC classifies this as a gateway message";
+CM_ BO_ 1488 "OBC classifies this as a gateway message
+
+Only has valid values when IG1 is on";
 CM_ BO_ 1491 "OBC classifies this as a gateway message";
 CM_ SG_ 1497 Counter_Charging "Counter only increments when charging? TBC";
 CM_ BO_ 1500 "1Hz output seems to include signals also found in other messages";
