@@ -323,6 +323,7 @@ BO_ 1345 CGW_541: 8 IGPM
 BO_ 1346 BMS_542: 8 BMS
  SG_ uwe542_0_SocDisp : 0|8@1+ (0.5,0) [0|100] "%" XXX
  SG_ uwe542_12_Backcounter : 8|16@1+ (1,0) [0|65535] "V" XXX
+ SG_ unkCurrentRelated : 40|8@1+ (1,0) [0|255] "" XXX
  SG_ uwe542_78_UCCS : 48|16@1+ (0.1,0) [0|500] "V" XXX
 
 BO_ 1353 VCU_549_BAT11_INCORRECT: 8 VCU_MAYBE
@@ -381,6 +382,11 @@ BO_ 1363 CGW_553: 8 IGPM
 
 BO_ 1372 UNK_55C: 8 XXX
 
+BO_ 1378 BATT_SETTINGS: 8 NAVI
+ SG_ SetChargeCurrent : 15|8@0+ (1,0) [0|255] "" XXX
+ SG_ SetACChargeLimit : 32|8@1+ (0.5,0) [0|255] "%" XXX
+ SG_ SetDCChargeLimit : 47|8@0+ (0.5,0) [0|255] "%" XXX
+
 BO_ 1383 CLOCK: 8 IGPM
  SG_ clock_hour : 8|8@1- (1,0) [0|0] "" XXX
  SG_ clock_minute : 16|8@1- (1,0) [0|0] "" XXX
@@ -398,7 +404,7 @@ BO_ 1403 VCU_57B: 8 VCU
 BO_ 1407 HU_MON_PE_01: 8 OBC_CDM_MAYBE
  SG_ HU_Type : 0|8@1+ (1,0) [0|255] "" XXX
 
-BO_ 1409 OBC_581: 8 OBC
+BO_ 1409 OBC_Sensors: 8 OBC
  SG_ ACCurrent : 0|16@1+ (0.01,0) [0|65535] "" XXX
  SG_ ACVoltsx10Maybe : 16|16@1+ (0.1,0) [0|65535] "" XXX
  SG_ UNK_Readback : 32|16@1+ (1,0) [0|65535] "" XXX
@@ -436,12 +442,12 @@ BO_ 1428 BMS_594: 8 BMS
  SG_ ChargeAvailable : 0|16@1+ (0.01,0) [0|65535] "kW" XXX
  SG_ DischargeAvailable : 16|16@1+ (0.01,0) [0|65535] "kW" XXX
 
-BO_ 1429 BMS_595: 8 BMS
+BO_ 1429 BMS_HV_Monitor: 8 BMS
  SG_ IBatt : 32|16@1- (0.1,0) [-1000|1000] "A" XXX
  SG_ VBatt : 48|16@1+ (0.1,0) [0|500] "V" XXX
 
 BO_ 1430 BMS_596: 8 BMS
- SG_ uwe596_1_UKl30 : 8|8@1+ (0.1,0) [0|25] "V" XXX
+ SG_ Voltage_12V : 8|8@1+ (0.1,0) [0|25] "V" XXX
  SG_ uwe596_2_remainingChTAC : 16|16@1+ (1,0) [0|65535] "min" XXX
  SG_ uwe596_4_remainingChTDC : 32|8@1+ (1,0) [0|255] "min" XXX
  SG_ uwe596_6_TAkkuL : 48|8@1+ (1,0) [0|255] "°C" XXX
@@ -485,6 +491,8 @@ BO_ 1440 ACU_5A0: 8 ACU
 
 BO_ 1443 BMS_5A3: 8 BMS
  SG_ Maybe_Contactor_Closed : 6|1@0+ (1,0) [0|1] "" XXX
+ SG_ ACChargeLimit : 32|16@1+ (0.003,0) [0|65535] "%" XXX
+ SG_ DCChargeLimit : 48|16@1+ (0.003,0) [0|65535] "%" XXX
 
 BO_ 1483 ClimateStatus_5CB: 8 FATC
  SG_ Setpoint : 7|8@0+ (0.5,14) [14|27] "C" XXX
@@ -552,7 +560,8 @@ BO_ 1516 CGW_5EC: 8 IGPM
  SG_ ChargePortLocked : 0|1@0+ (1,0) [0|1] "" XXX
 
 BO_ 1525 FATC_5F5: 64 FATC
- SG_ UNK_COUNTER : 32|4@1+ (1,0) [0|15] "" XXX
+ SG_ Counter1 : 32|4@1+ (1,0) [0|15] "" XXX
+ SG_ Counter2 : 59|4@0+ (1,0) [0|15] "" XXX
 
 BO_ 1526 FATC_5F6: 8 FATC
  SG_ Unk : 0|8@1+ (1,0) [0|255] "" XXX
@@ -768,6 +777,7 @@ CM_ BO_ 1044 "OBC classifies as coming from gateway";
 CM_ BO_ 1116 "Message data all zeroes";
 CM_ BO_ 1117 "Message body all zeroes, except sometimes when it becomes FF,FF,FF,FF,FF,FF,FF,0F";
 CM_ BO_ 1118 "Message mostly all zeroes, occasionally FF,FF,FF,FF,FF,00,00,00";
+CM_ SG_ 1148 ACCurrentRelated2 "Value is proportional to the actual charge current, looks like probably a scaled readback value";
 CM_ BO_ 1287 "TCS15 in other DBC files";
 CM_ SG_ 1287 AVH_I_LAMP "Auto Vehicle Hold Lamp (inverted)";
 CM_ SG_ 1287 AVH_LAMP "Auto Vehicle Hold Lamp";
@@ -775,10 +785,16 @@ CM_ SG_ 1316 Speed_abs "Motor rpm, unsigned";
 CM_ SG_ 1316 Speed_desired_unk "This seems to lag the Speed_desired field in VCU_201 by a very small amount of time...";
 CM_ SG_ 1316 Power "Matches battery current in BMS_595 very closely";
 CM_ SG_ 1344 uwe540_01 "Unclear if 12 or 16 byte long signal";
+CM_ SG_ 1346 unkCurrentRelated "Changes when AC Charge Current changes, might be readback or a request for the OBC";
 CM_ BO_ 1353 "Incorrect label comes from uwe's records, haven't verified these";
 CM_ BO_ 1372 "Constant message data, first two bytes different on different cars";
+CM_ BO_ 1378 "From infotainment/nav head unit but relayed via gateway, maybe rewritten.
+
+Message sent at 50ms intervals for 150-400ms any time a setting is changed on the head unit. Otherwise not seen on bus.";
+CM_ SG_ 1378 SetChargeCurrent "Looks like momentary button status for the Maximum / Reduced / Minimum buttons, maybe also others?";
+CM_ SG_ 1378 SetACChargeLimit "AC charge cutoff point. Special value FF for \"no change\".";
 CM_ BO_ 1383 "OBC needs to see this message";
-CM_ BO_ 1409 "AC charging status";
+CM_ BO_ 1409 "AC charging sensor readback values";
 CM_ SG_ 1409 ACCurrent "Possible one of these is nominal, one is actual";
 CM_ SG_ 1409 ACCurrentRelated "Seems to track current exactly and not voltage. Maybe is actual, or real current";
 CM_ BO_ 1422 "Originally thought might be CDM, but looks like OBC";
@@ -793,6 +809,8 @@ CM_ SG_ 1433 ChargeTrigger "Set to 1 during both AC and DC charging. Might indic
 CM_ SG_ 1433 ChargeEndAck "Seems to go high to 'ack' the CCS_CCM_error bit from CCM, and also at end of AC charge";
 CM_ SG_ 1438 UNK_U_HV "Maps to 595 UBatt, maybe voltage at another point?";
 CM_ BO_ 1440 "Also called ACU11";
+CM_ SG_ 1443 ACChargeLimit "Doesn't seem to quite match setpoint, maybe this is True not Display SoC?";
+CM_ SG_ 1443 DCChargeLimit "Doesn't seem to quite match setpoint, maybe this is True not Display SoC?";
 CM_ BO_ 1483 "The VCU and BMS do not read this status message. Cabin only?";
 CM_ SG_ 1483 SetpointDup "When vehicle is Ready, this signal is always the same as Setpoint. When off, one or both of these fields have value FF.";
 CM_ BO_ 1488 "OBC classifies this as a gateway message
@@ -807,11 +825,15 @@ CM_ SG_ 1500 UNK "Starts at zero, increments inconsistently while vehicle is on?
 CM_ SG_ 1502 TracksSpeed_UNK "Seems to go up when motor is turning, even when rolling, but doesn't track to speed or motor current";
 CM_ BO_ 1503 "OBC classifies this as a gateway message.";
 CM_ BO_ 1516 "OBC classifies this as a gateway message.";
+CM_ SG_ 1525 Counter2 "Inverse of the Counter1 signal in this same message";
 CM_ BO_ 1527 "Marked as 'Climate' by Eric Router";
 CM_ BO_ 1528 "Marked as 'Climate' by Eric Router";
 VAL_ 512 CURRENT_GEAR 0 "P" 5 "D" 6 "N" 7 "R";
 VAL_ 852 Gear_Displayed 0 "None" 1 "P" 2 "R" 3 "N" 4 "D";
 VAL_ 1287 AVH_LAMP 0 "Disabled" 2 "Enabled Stationary" 3 "Enabled Moving";
+VAL_ 1378 SetChargeCurrent 0 "No button down" 4 "Maximum down" 8 "Minimum down" 28 "Uninitialised default" 12 "Reduced down";
+VAL_ 1378 SetACChargeLimit 255 "No change";
+VAL_ 1378 SetDCChargeLimit 255 "No change";
 VAL_ 1513 CCM_ChargeProgess 127 "WeldingDetection" 63 "PowerDeliveryStop" 31 "CurrentDemand" 7 "PreCharge" 3 "CableCheck";
 VAL_ 1516 ChargePortLocked 0 "Unlocked" 1 "Locked";
 VAL_ 3221225472 ACCMode 0 "off" 1 "enabled" 2 "driver_override" 3 "off_maybe_fault" 4 "cancelled";
