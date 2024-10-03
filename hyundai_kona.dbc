@@ -490,7 +490,7 @@ BO_ 1440 ACU_5A0: 8 ACU
  SG_ CF_Acu_NumOfFlt : 56|8@1+ (1,0) [0|255] "" XXX
 
 BO_ 1443 BMS_5A3: 8 BMS
- SG_ Maybe_Contactor_Closed : 6|1@0+ (1,0) [0|1] "" XXX
+ SG_ Contactor_Closed : 6|1@0+ (1,0) [0|1] "" XXX
  SG_ ACChargeLimit : 32|16@1+ (0.003,0) [0|65535] "%" XXX
  SG_ DCChargeLimit : 48|16@1+ (0.003,0) [0|65535] "%" XXX
 
