@@ -780,7 +780,7 @@ CM_ BO_ 1378 "From infotainment/nav head unit but relayed via gateway, maybe rew
 
 Message sent at 50ms intervals for 150-400ms any time a setting is changed on the head unit. Otherwise not seen on bus.";
 CM_ SG_ 1378 SetChargeCurrent "Looks like momentary button status for the Maximum / Reduced / Minimum buttons, maybe also others?";
-CM_ SG_ 1378 SetACChargeLimit "AC charge cutoff point. Special value FF for \"no change\".";
+CM_ SG_ 1378 SetACChargeLimit "AC charge cutoff point. Special value FF for 'no change'.";
 CM_ BO_ 1383 "OBC needs to see this message";
 CM_ BO_ 1409 "AC charging sensor readback values";
 CM_ SG_ 1409 ACCurrent "Possible one of these is nominal, one is actual";
