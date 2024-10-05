@@ -55,7 +55,7 @@ BO_ 512 VCU_200: 8 VCU
 BO_ 513 VCU_201: 8 VCU
  SG_ Counter_1 : 0|8@1+ (1,0) [0|255] "" XXX
  SG_ Torque_error : 8|16@1- (1,0) [0|255] "rpm" XXX
- SG_ Torque_desired : 24|16@1- (1,0) [-32767|32768] "" XXX
+ SG_ Torque_desired : 24|16@1- (1,0) [-32768|32767] "" XXX
  SG_ Regen_maybe : 40|16@1+ (1,0) [0|65535] "" XXX
  SG_ Unk : 56|8@1+ (1,0) [0|255] "" XXX
 
@@ -514,7 +514,7 @@ BO_ 1497 VCU_5D9: 8 VCU
  SG_ Counter_Charging : 63|8@0+ (1,0) [0|255] "" XXX
 
 BO_ 1500 VCU_5DC: 8 VCU
- SG_ Speed_signed_slow : 0|16@1- (1,0) [-32767|32768] "rpm" XXX
+ SG_ Speed_signed_slow : 0|16@1- (1,0) [-32768|32767] "rpm" XXX
  SG_ Speed_desired_slow_maybe : 24|8@1- (1,0) [-128|127] "" XXX
  SG_ UNK : 40|16@1+ (1,0) [0|65535] "" XXX
 
