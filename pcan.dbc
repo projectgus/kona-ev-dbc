@@ -429,6 +429,10 @@ BO_ 1428 BMS_594: 8 BMS
  SG_ DischargeAvailable : 16|16@1+ (0.01,0) [0|65535] "kW" XXX
 
 BO_ 1429 BMS_HV_Monitor: 8 BMS
+ SG_ Precharging : 8|1@0+ (1,0) [0|1] "" XXX
+ SG_ ACChargerDetected : 9|1@0+ (1,0) [0|1] "" XXX
+ SG_ DCFastChargerDetected : 10|1@0+ (1,0) [0|1] "" XXX
+ SG_ ACChargingTransient : 11|1@0+ (1,0) [0|1] "" XXX
  SG_ IBatt : 32|16@1- (0.1,0) [-1000|1000] "A" XXX
  SG_ VBatt : 48|16@1+ (0.1,0) [0|500] "V" XXX
 
@@ -476,7 +480,9 @@ BO_ 1440 ACU_5A0: 8 ACU
  SG_ CF_Acu_NumOfFlt : 56|8@1+ (1,0) [0|255] "" XXX
 
 BO_ 1443 BMS_5A3: 8 BMS
- SG_ Contactor_Closed : 6|1@0+ (1,0) [0|1] "" XXX
+ SG_ UnkStatus : 0|4@1+ (1,0) [0|15] "" XXX
+ SG_ FastChargeRelayClosed : 5|1@0+ (1,0) [0|1] "" XXX
+ SG_ ContactorClosed : 6|1@0+ (1,0) [0|1] "" XXX
  SG_ ACChargeLimit : 32|16@1+ (0.003,0) [0|65535] "%" XXX
  SG_ DCChargeLimit : 48|16@1+ (0.003,0) [0|65535] "%" XXX
 
@@ -509,6 +515,7 @@ BO_ 1495 BMS_5D7: 8 BMS
  SG_ UNK_ChargeRelated3 : 23|16@0+ (1,0) [0|65535] "" XXX
 
 BO_ 1496 BMS_5D8: 8 BMS
+ SG_ UnkContactorRelated : 0|8@1+ (1,0) [0|255] "" XXX
 
 BO_ 1497 VCU_5D9: 8 VCU
  SG_ NEW_SIGNAL_1 : 8|9@1+ (1,0) [0|255] "" XXX
@@ -540,7 +547,7 @@ BO_ 1510 CCM_5E6: 8 CCM
 BO_ 1512 CCM_5E8: 8 CCM
 
 BO_ 1513 CCM_5E9: 8 CCM
- SG_ CCM_togglebit : 0|1@1- (1,0) [0|1] "" XXX
+ SG_ CCM_togglebit : 0|1@1+ (1,0) [0|1] "" XXX
  SG_ CCM_ChargeProgess : 1|7@1+ (1,0) [0|127] "" XXX
 
 BO_ 1516 ChargePort: 8 IGPM
@@ -803,12 +810,17 @@ CM_ BO_ 1428 "unknown purpose, could be cooling or temp related?";
 CM_ SG_ 1428 ChargeAvailable "Unconfirmed but seems correct";
 CM_ SG_ 1428 DischargeAvailable "Unconfirmed but seems correct";
 CM_ BO_ 1429 "A similar message with same ID appears on CCAN.";
+CM_ SG_ 1429 ACChargerDetected "Bit set when AC charger is detected. Pulse briefly when DC fast charge is detected/";
+CM_ SG_ 1429 ACChargingTransient "Bit briefly set while establishing an AC charge session";
 CM_ BO_ 1430 "A similar message with same ID appears on CCAN.";
 CM_ SG_ 1431 Active "This bit set when vehicle is in Ready, or Charging";
 CM_ SG_ 1433 ChargeTrigger "Set to 1 during both AC and DC charging. Might indicate contactors closed?";
 CM_ SG_ 1433 ChargeEndAck "Seems to go high to 'ack' the CCS_CCM_error bit from CCM, and also at end of AC charge";
 CM_ SG_ 1438 UNK_U_HV "Maps to 595 UBatt, maybe voltage at another point?";
 CM_ BO_ 1440 "Also called ACU11";
+CM_ SG_ 1443 UnkStatus "These 4 bytes are always 0xF except when DC Fast Charging when they are 0x3";
+CM_ SG_ 1443 FastChargeRelayClosed "Not 100% sure but I think it's this. Becomes set as DC fast charge negotiation starts.";
+CM_ SG_ 1443 ContactorClosed "Indicates contactors fully closed (i.e. after precharge)";
 CM_ SG_ 1443 ACChargeLimit "Doesn't seem to quite match setpoint, maybe this is True not Display SoC?";
 CM_ SG_ 1443 DCChargeLimit "Doesn't seem to quite match setpoint, maybe this is True not Display SoC?";
 CM_ BO_ 1483 "The VCU and BMS do not read this status message. Cabin only?";
@@ -839,7 +851,7 @@ VAL_ 1345 PassDoorSw 0 "Closed" 1 "Open";
 VAL_ 1378 SetChargeCurrent 0 "No button down" 4 "Maximum down" 8 "Minimum down" 28 "Uninitialised default" 12 "Reduced down";
 VAL_ 1378 SetACChargeLimit 255 "No change";
 VAL_ 1378 SetDCChargeLimit 255 "No change";
-VAL_ 1443 Contactor_Closed 0 "Open" 1 "Closed";
+VAL_ 1443 FastChargeRelayClosed 0 "Open" 1 "Closed";
 VAL_ 1513 CCM_ChargeProgess 127 "WeldingDetection" 63 "PowerDeliveryStop" 31 "CurrentDemand" 7 "PreCharge" 3 "CableCheck";
 VAL_ 1516 ChargePortLocked 0 "Unlocked" 1 "Locked";
 VAL_ 3221225472 ACCMode 0 "off" 1 "enabled" 2 "driver_override" 3 "off_maybe_fault" 4 "cancelled";
