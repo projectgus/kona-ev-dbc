@@ -552,6 +552,9 @@ BO_ 1513 CCM_5E9: 8 CCM
 
 BO_ 1516 ChargePort: 8 IGPM
  SG_ ChargePortLocked : 0|1@0+ (1,0) [0|1] "" XXX
+ SG_ UnkStatus1 : 3|1@0+ (1,0) [0|1] "" XXX
+ SG_ UnkStatus2 : 4|1@0+ (1,0) [0|1] "" XXX
+ SG_ MaybePassengerSeatOccupied : 26|1@0+ (1,0) [0|1] "" XXX
 
 BO_ 1525 FATC_5F5: 64 FATC
  SG_ Counter1 : 32|4@1+ (1,0) [0|15] "" XXX
@@ -836,7 +839,9 @@ CM_ SG_ 1500 Speed_desired_slow_maybe "May be a scaled slow version of signal Sp
 CM_ SG_ 1500 UNK "Starts at zero, increments inconsistently while vehicle is on?";
 CM_ SG_ 1502 TracksSpeed_UNK "Seems to go up when motor is turning, even when rolling, but doesn't track to speed or motor current";
 CM_ BO_ 1503 "OBC classifies this as a gateway message.";
-CM_ BO_ 1516 "OBC classifies this as a gateway message. Only known field relates to the charge port";
+CM_ BO_ 1516 "OBC classifies this as a gateway message. Only the four bits defined here are ever set in any logs.";
+CM_ SG_ 1516 UnkStatus1 "Goes high very briefly in a couple of logs while driving. Unclear what it corresponds to.";
+CM_ SG_ 1516 UnkStatus2 "Goes high very briefly in a couple of logs while driving. Unclear what it corresponds to.";
 CM_ SG_ 1525 Counter2 "Inverse of the Counter1 signal in this same message";
 CM_ BO_ 1527 "Marked as 'Climate' by Eric Router";
 CM_ BO_ 1528 "Marked as 'Climate' by Eric Router";
