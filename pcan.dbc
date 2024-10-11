@@ -245,7 +245,7 @@ BO_ 1315 VCU_523_TEMP: 8 VCU
  SG_ uwe523_6_EPCU_coolingpump : 48|8@1+ (1,0) [0|255] "%" XXX
 
 BO_ 1316 InverterStatus: 8 VCU
- SG_ Inverter_V : 0|16@1+ (1,0) [0|511] "" XXX
+ SG_ V_Inverter : 0|16@1+ (1,0) [0|511] "" XXX
  SG_ Speed_abs : 23|16@0+ (0.25,0) [0|65535] "rpm" XXX
  SG_ Speed_desired_unk : 32|12@1- (1,0) [-32768|32767] "" XXX
  SG_ Power : 48|16@1- (1,0) [-32768|32767] "" XXX
@@ -312,7 +312,7 @@ BO_ 1346 BMS_542: 8 BMS
 BO_ 1353 TwelveVolt_Battery_INCORRECT: 8 VCU_MAYBE
  SG_ BAT_SNSR_I : 0|16@1+ (0.01,-327) [-327|328] "A" XXX
  SG_ BAT_SOC : 16|8@1+ (1,0) [0|100] "%" XXX
- SG_ BAT_SNSR_V : 24|14@1+ (0.001,6) [6|18] "V" XXX
+ SG_ V_BAT_SNSR : 24|14@1+ (0.001,6) [6|18] "V" XXX
  SG_ BAT_SNSR_Temp : 38|9@1- (0.5,-40) [-40|125] "deg" XXX
  SG_ BAT_SNSR_State : 47|1@1+ (1,0) [0|1] "" XXX
  SG_ BAT_SOH : 48|7@1+ (1,0) [0|100] "%" XXX
