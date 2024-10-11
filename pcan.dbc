@@ -755,6 +755,7 @@ CM_ SG_ 852 Button_Pressed "Bytes 0 & 2 seem to be redundant copies of same info
 CM_ SG_ 852 Counter "Seems to be two nibbles counting independently";
 CM_ SG_ 881 BrakeUnknown "Same byte as 0x2a2, 0x331";
 CM_ BO_ 902 "Wheel speed. Named WHL_SPD11 in some DBC files. Forwarded onto CCAN.";
+CM_ SG_ 902 WHL_SPD_AliveCounter_MSB "Increments when the LSB counter wraps";
 CM_ BO_ 903 "Wheel direction and status? Named WHL_PUL11 in some DBC files. Forwarded onto CCAN.";
 CM_ BO_ 916 "Forwarded onto CCAN.";
 CM_ BO_ 1042 "On PCAN this message is all zeroes";
