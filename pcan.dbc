@@ -166,7 +166,8 @@ BO_ 1014 BMS_3F6: 8 BMS
 
 BO_ 1042 UNK_412: 8 XXX
 
-BO_ 1044 CGW_414: 8 IGPM
+BO_ 1044 ChargeSettings: 8 IGPM
+ SG_ ACChargingCurrent : 0|8@1+ (1,0) [0|255] "" XXX
 
 BO_ 1104 UNK_450: 3 XXX
  SG_ Speed : 7|8@0+ (1,0) [0|255] "" XXX
@@ -257,13 +258,13 @@ BO_ 1344 VCU_540: 8 VCU
  SG_ Torque_actual : 32|16@1+ (1,0) [0|65535] "" XXX
  SG_ Unk_Increases : 55|8@0+ (1,0) [0|255] "" XXX
 
-BO_ 1345 CGW_541: 8 IGPM
- SG_ CF_Gway_IGNSw : 0|3@1+ (1,0) [0|7] "" XXX
+BO_ 1345 BodyState: 8 IGPM
+ SG_ IgnitionSw : 0|3@1+ (1,0) [0|7] "" XXX
  SG_ CF_Gway_RKECmd : 3|3@1+ (1,0) [0|7] "" XXX
  SG_ CF_Gway_DrvKeyLockSw : 6|1@1+ (1,0) [0|1] "" XXX
  SG_ CF_Gway_DrvKeyUnlockSw : 7|1@1+ (1,0) [0|1] "" XXX
- SG_ CF_Gway_DrvDrSw : 8|2@1+ (1,0) [0|3] "" XXX
- SG_ CF_Gway_DrvSeatBeltSw : 10|2@1+ (1,0) [0|3] "" XXX
+ SG_ DrvDoorSw : 8|2@1+ (1,0) [0|3] "" XXX
+ SG_ DrvSeatBeltSw : 10|2@1+ (1,0) [0|3] "" XXX
  SG_ CF_Gway_TrunkTgSw : 12|2@1+ (1,0) [0|3] "" XXX
  SG_ CF_Gway_AstSeatBeltSw : 14|2@1+ (1,0) [0|3] "" XXX
  SG_ CF_Gway_SMKOption : 16|1@1+ (1,0) [0|1] "" XXX
@@ -278,7 +279,7 @@ BO_ 1345 CGW_541: 8 IGPM
  SG_ CF_Gway_HeadLampLow : 31|1@1+ (1,0) [0|1] "" XXX
  SG_ CF_Gway_HeadLampHigh : 32|1@1+ (1,0) [0|1] "" XXX
  SG_ CF_Gway_HazardSw : 33|2@1+ (1,0) [0|3] "" XXX
- SG_ CF_Gway_AstDrSw : 35|1@1+ (1,0) [0|1] "" XXX
+ SG_ PassDoorSw : 35|1@1+ (1,0) [0|1] "" XXX
  SG_ CF_Gway_DefoggerRly : 36|1@1+ (1,0) [0|1] "" XXX
  SG_ CF_Gway_ALightStat : 37|1@1+ (1,0) [0|1] "" XXX
  SG_ CF_Gway_LightSwState : 38|2@1+ (1,0) [0|3] "" XXX
@@ -297,8 +298,8 @@ BO_ 1345 CGW_541: 8 IGPM
  SG_ CF_Gway_InhibitRMT : 54|2@1+ (1,0) [0|3] "" XXX
  SG_ CF_Gway_RainSnsOption : 56|1@1+ (1,0) [0|1] "" XXX
  SG_ C_SunRoofOpenState : 57|1@1+ (1,0) [0|1] "" XXX
- SG_ CF_Gway_Ign1 : 58|1@1+ (1,0) [0|1] "" XXX
- SG_ CF_Gway_Ign2 : 59|1@1+ (1,0) [0|1] "" XXX
+ SG_ Ign1 : 58|1@1+ (1,0) [0|1] "" XXX
+ SG_ Ign2 : 59|1@1+ (1,0) [0|1] "" XXX
  SG_ CF_Gway_ParkBrakeSw : 60|2@1+ (1,0) [0|3] "" XXX
  SG_ CF_Gway_TurnSigRh : 62|2@1+ (1,0) [0|3] "" XXX
 
@@ -319,7 +320,7 @@ BO_ 1353 VCU_549_BAT11_INCORRECT: 8 VCU_MAYBE
  SG_ BAT_SOF : 56|7@1+ (0.1,0) [0|12] "V" XXX
  SG_ BAT_SNSR_Error : 63|1@1+ (1,0) [0|1] "" XXX
 
-BO_ 1363 CGW_553: 8 IGPM
+BO_ 1363 BodyWarnings: 8 IGPM
  SG_ CF_Gway_GwayDiagState : 0|1@1+ (1,0) [0|3] "" XXX
  SG_ CF_Gway_DDMDiagState : 1|1@1+ (1,0) [0|1] "" XXX
  SG_ CF_Gway_SCMDiagState : 2|1@1+ (1,0) [0|1] "" XXX
@@ -364,16 +365,17 @@ BO_ 1363 CGW_553: 8 IGPM
 
 BO_ 1372 UNK_55C: 8 XXX
 
-BO_ 1378 BATT_SETTINGS: 8 NAVI
+BO_ 1378 UpdateChargeSettings: 8 NAVI
  SG_ SetChargeCurrent : 15|8@0+ (1,0) [0|255] "" XXX
  SG_ SetACChargeLimit : 32|8@1+ (0.5,0) [0|255] "%" XXX
  SG_ SetDCChargeLimit : 47|8@0+ (0.5,0) [0|255] "%" XXX
 
-BO_ 1383 CLOCK: 8 IGPM
- SG_ clock_hour : 8|8@1- (1,0) [0|0] "" XXX
- SG_ clock_minute : 16|8@1- (1,0) [0|0] "" XXX
- SG_ clock_second : 24|8@1- (1,0) [0|0] "" XXX
- SG_ clock_valid : 32|8@1- (1,0) [0|0] "" XXX
+BO_ 1383 Clock: 8 IGPM
+ SG_ Unknown : 0|8@1+ (1,0) [0|255] "" XXX
+ SG_ Hour : 8|8@1+ (1,0) [0|23] "" XXX
+ SG_ Minute : 16|6@1+ (1,0) [0|59] "" XXX
+ SG_ Second : 24|8@1+ (1,0) [0|5] "" XXX
+ SG_ Valid : 32|8@1- (1,0) [0|0] "" XXX
 
 BO_ 1392 UNK_570: 8 XXX
 
@@ -484,7 +486,7 @@ BO_ 1483 ClimateStatus_5CB: 8 FATC
 
 BO_ 1484 FATC_5CC: 8 FATC
 
-BO_ 1488 CGW_5D0: 8 IGPM
+BO_ 1488 Odometer: 8 IGPM
  SG_ Odometer : 0|24@1+ (0.1,0) [0|800000] "km" XXX
 
 BO_ 1491 CGW_HU_DATC_PE_00: 8 IGPM
@@ -525,6 +527,7 @@ BO_ 1502 VCU_5DE: 8 VCU
  SG_ TracksSpeed_UNK : 55|8@0+ (1,0) [0|255] "" XXX
 
 BO_ 1503 CGW_5DF: 8 IGPM
+ SG_ NEW_SIGNAL_1 : 7|8@0+ (1,0) [0|255] "" XXX
 
 BO_ 1509 CCM_5E5: 8 CCM
  SG_ CCM_PresentVoltage : 32|16@1- (0.1,0) [0|500] "" XXX
@@ -540,7 +543,7 @@ BO_ 1513 CCM_5E9: 8 CCM
  SG_ CCM_togglebit : 0|1@1- (1,0) [0|1] "" XXX
  SG_ CCM_ChargeProgess : 1|7@1+ (1,0) [0|127] "" XXX
 
-BO_ 1516 CGW_5EC: 8 IGPM
+BO_ 1516 ChargePort: 8 IGPM
  SG_ ChargePortLocked : 0|1@0+ (1,0) [0|1] "" XXX
 
 BO_ 1525 FATC_5F5: 64 FATC
@@ -759,7 +762,10 @@ CM_ SG_ 902 WHL_SPD_AliveCounter_MSB "Increments when the LSB counter wraps";
 CM_ BO_ 903 "Wheel direction and status? Named WHL_PUL11 in some DBC files. Forwarded onto CCAN.";
 CM_ BO_ 916 "Forwarded onto CCAN.";
 CM_ BO_ 1042 "On PCAN this message is all zeroes";
-CM_ BO_ 1044 "OBC classifies as coming from gateway";
+CM_ BO_ 1044 "OBC classifies as coming from gateway. 1Hz. Possibly relayed from NAVI system.
+
+Only visible on 2019 model, 2021 model sends UpdateChargeSettings instead.";
+CM_ SG_ 1044 ACChargingCurrent "This message only seems to exist on the 2019 model, not on the 2021 model.";
 CM_ BO_ 1116 "Message data all zeroes";
 CM_ BO_ 1117 "Message body all zeroes, except sometimes when it becomes FF,FF,FF,FF,FF,FF,FF,0F";
 CM_ BO_ 1118 "Message mostly all zeroes, occasionally FF,FF,FF,FF,FF,00,00,00";
@@ -772,17 +778,18 @@ CM_ SG_ 1316 Speed_abs "Motor rpm, unsigned";
 CM_ SG_ 1316 Speed_desired_unk "This seems to lag the Speed_desired field in VCU_201 by a very small amount of time...";
 CM_ SG_ 1316 Power "Matches battery current in BMS_595 very closely";
 CM_ SG_ 1344 uwe540_01 "Unclear if 12 or 16 byte long signal";
-CM_ BO_ 1345 "Forwarded onto CCAN (although some signals have difdferent values?)";
+CM_ BO_ 1345 "Looks like a summary of BCAN. Also forwarded onto CCAN (although some signals have different values?)";
 CM_ SG_ 1346 unkCurrentRelated "Changes when AC Charge Current changes, might be readback or a request for the OBC";
 CM_ BO_ 1353 "Incorrect label comes from uwe's records, haven't verified these";
 CM_ BO_ 1363 "Forwarded onto CCAN (although some signals have different values).";
 CM_ BO_ 1372 "Constant message data, first two bytes different on different cars";
-CM_ BO_ 1378 "From infotainment/nav head unit but relayed via gateway, maybe rewritten.
+CM_ BO_ 1378 "From NAVI head unit but relayed via gateway, maybe rewritten. Only visible on PCAN for the 2021 model, the 2019 model looks to send ChargeSettings message instead.
 
 Message sent at 50ms intervals for 150-400ms any time a setting is changed on the head unit. Otherwise not seen on bus.";
 CM_ SG_ 1378 SetChargeCurrent "Looks like momentary button status for the Maximum / Reduced / Minimum buttons, maybe also others?";
 CM_ SG_ 1378 SetACChargeLimit "AC charge cutoff point. Special value FF for 'no change'.";
 CM_ BO_ 1383 "OBC needs to see this message";
+CM_ SG_ 1383 Unknown "Not clear what this is. Non-zero when clock is 2, often 0, sometimes other values.";
 CM_ BO_ 1409 "AC charging sensor readback values";
 CM_ SG_ 1409 ACCurrent "Possible one of these is nominal, one is actual";
 CM_ SG_ 1409 ACCurrentRelated "Seems to track current exactly and not voltage. Maybe is actual, or real current";
@@ -817,13 +824,18 @@ CM_ SG_ 1500 Speed_desired_slow_maybe "May be a scaled slow version of signal Sp
 CM_ SG_ 1500 UNK "Starts at zero, increments inconsistently while vehicle is on?";
 CM_ SG_ 1502 TracksSpeed_UNK "Seems to go up when motor is turning, even when rolling, but doesn't track to speed or motor current";
 CM_ BO_ 1503 "OBC classifies this as a gateway message.";
-CM_ BO_ 1516 "OBC classifies this as a gateway message.";
+CM_ BO_ 1516 "OBC classifies this as a gateway message. Only known field relates to the charge port";
 CM_ SG_ 1525 Counter2 "Inverse of the Counter1 signal in this same message";
 CM_ BO_ 1527 "Marked as 'Climate' by Eric Router";
 CM_ BO_ 1528 "Marked as 'Climate' by Eric Router";
 VAL_ 512 CURRENT_GEAR 0 "P" 5 "D" 6 "N" 7 "R";
 VAL_ 852 Gear_Displayed 0 "None" 1 "P" 2 "R" 3 "N" 4 "D";
+VAL_ 1044 ACChargingCurrent 0 "Maximum" 1 "Reduced" 2 "Minimum";
 VAL_ 1287 AVH_LAMP 0 "Disabled" 2 "Enabled Stationary" 3 "Enabled Moving";
+VAL_ 1345 IgnitionSw 0 "OFF" 3 "ON" 2 "STARTING";
+VAL_ 1345 DrvDoorSw 0 "Closed" 1 "Open";
+VAL_ 1345 DrvSeatBeltSw 1 "Present" 0 "NotPresent";
+VAL_ 1345 PassDoorSw 0 "Closed" 1 "Open";
 VAL_ 1378 SetChargeCurrent 0 "No button down" 4 "Maximum down" 8 "Minimum down" 28 "Uninitialised default" 12 "Reduced down";
 VAL_ 1378 SetACChargeLimit 255 "No change";
 VAL_ 1378 SetDCChargeLimit 255 "No change";
