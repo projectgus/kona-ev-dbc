@@ -244,7 +244,7 @@ BO_ 1315 VCU_523_TEMP: 8 VCU
  SG_ uwe523_5_TEPCU_slow : 40|8@1+ (1,-40) [-40|215] "°C" XXX
  SG_ uwe523_6_EPCU_coolingpump : 48|8@1+ (1,0) [0|255] "%" XXX
 
-BO_ 1316 VCU_524: 8 VCU
+BO_ 1316 InverterStatus: 8 VCU
  SG_ Inverter_V : 0|16@1+ (1,0) [0|511] "" XXX
  SG_ Speed_abs : 23|16@0+ (0.25,0) [0|65535] "rpm" XXX
  SG_ Speed_desired_unk : 32|12@1- (1,0) [-32768|32767] "" XXX
@@ -309,7 +309,7 @@ BO_ 1346 BMS_542: 8 BMS
  SG_ unkCurrentRelated : 40|8@1+ (1,0) [0|255] "" XXX
  SG_ uwe542_78_UCCS : 48|16@1+ (0.1,0) [0|500] "V" XXX
 
-BO_ 1353 VCU_549_BAT11_INCORRECT: 8 VCU_MAYBE
+BO_ 1353 TwelveVolt_Battery_INCORRECT: 8 VCU_MAYBE
  SG_ BAT_SNSR_I : 0|16@1+ (0.01,-327) [-327|328] "A" XXX
  SG_ BAT_SOC : 16|8@1+ (1,0) [0|100] "%" XXX
  SG_ BAT_SNSR_V : 24|14@1+ (0.001,6) [6|18] "V" XXX
@@ -832,13 +832,14 @@ VAL_ 512 CURRENT_GEAR 0 "P" 5 "D" 6 "N" 7 "R";
 VAL_ 852 Gear_Displayed 0 "None" 1 "P" 2 "R" 3 "N" 4 "D";
 VAL_ 1044 ACChargingCurrent 0 "Maximum" 1 "Reduced" 2 "Minimum";
 VAL_ 1287 AVH_LAMP 0 "Disabled" 2 "Enabled Stationary" 3 "Enabled Moving";
-VAL_ 1345 IgnitionSw 0 "OFF" 3 "ON" 2 "STARTING";
+VAL_ 1345 IgnitionSw 0 "Off" 3 "On" 2 "Starting_maybe" 4 "PreCharging_maybe";
 VAL_ 1345 DrvDoorSw 0 "Closed" 1 "Open";
 VAL_ 1345 DrvSeatBeltSw 1 "Present" 0 "NotPresent";
 VAL_ 1345 PassDoorSw 0 "Closed" 1 "Open";
 VAL_ 1378 SetChargeCurrent 0 "No button down" 4 "Maximum down" 8 "Minimum down" 28 "Uninitialised default" 12 "Reduced down";
 VAL_ 1378 SetACChargeLimit 255 "No change";
 VAL_ 1378 SetDCChargeLimit 255 "No change";
+VAL_ 1443 Contactor_Closed 0 "Open" 1 "Closed";
 VAL_ 1513 CCM_ChargeProgess 127 "WeldingDetection" 63 "PowerDeliveryStop" 31 "CurrentDemand" 7 "PreCharge" 3 "CableCheck";
 VAL_ 1516 ChargePortLocked 0 "Unlocked" 1 "Locked";
 VAL_ 3221225472 ACCMode 0 "off" 1 "enabled" 2 "driver_override" 3 "off_maybe_fault" 4 "cancelled";
