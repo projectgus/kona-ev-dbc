@@ -374,8 +374,8 @@ BO_ 1383 Clock: 8 IGPM
  SG_ Unknown : 0|8@1+ (1,0) [0|255] "" XXX
  SG_ Hour : 8|8@1+ (1,0) [0|23] "" XXX
  SG_ Minute : 16|6@1+ (1,0) [0|59] "" XXX
- SG_ Second : 24|8@1+ (1,0) [0|5] "" XXX
- SG_ Valid : 32|8@1- (1,0) [0|0] "" XXX
+ SG_ Second : 24|8@1+ (1,0) [0|59] "" XXX
+ SG_ Valid : 32|8@1- (1,0) [0|1] "" XXX
 
 BO_ 1392 UNK_570: 8 XXX
 
