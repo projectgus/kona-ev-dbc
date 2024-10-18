@@ -500,10 +500,6 @@ BO_ 1491 CGW_HU_DATC_PE_00: 8 IGPM
  SG_ HU_PhoneActivity : 2|2@1+ (1,0) [0|3] "" XXX
  SG_ BlowerNoiseControl : 4|2@1+ (1,0) [0|3] "" XXX
 
-BO_ 1492 TMU_GW_PE_01: 8 XXX
- SG_ TMU_IVRActivity : 0|2@1+ (1,0) [0|3] "" XXX
- SG_ TMU_PhoneActivity : 2|2@1+ (1,0) [0|3] "" XXX
-
 BO_ 1493 BMS_5D5: 8 BMS
 
 BO_ 1494 BMS_5D6: 8 BMS
