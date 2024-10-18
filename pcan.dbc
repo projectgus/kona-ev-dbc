@@ -95,12 +95,12 @@ BO_ 674 IEB_2A2: 8 IEB
  SG_ BrakePedalForce : 24|16@1+ (1,0) [0|65535] "" XXX
  SG_ BrakeUnknown : 56|8@1+ (1,0) [0|255] "" XXX
 
-BO_ 688 SAS11: 5 XXX
- SG_ SAS_Angle : 0|16@1- (0.1,0) [-3276.8|3276.7] "Deg" XXX
- SG_ SAS_Speed : 16|8@1+ (4,0) [0|1016] "" XXX
- SG_ SAS_Stat : 24|8@1+ (1,0) [0|255] "" XXX
- SG_ MsgCount : 32|4@1+ (1,0) [0|15] "" XXX
- SG_ CheckSum : 36|4@1+ (1,0) [0|15] "" XXX
+BO_ 688 Steering: 5 IGPM
+ SG_ Angle : 0|16@1- (0.1,0) [-3276.8|3276.7] "Deg" XXX
+ SG_ Speed : 16|8@1+ (4,0) [0|1016] "" XXX
+ SG_ Stat : 24|8@1+ (1,0) [0|255] "" XXX
+ SG_ Counter : 32|4@1+ (1,0) [0|15] "" XXX
+ SG_ Checksum : 36|4@1+ (1,0) [0|15] "" XXX
 
 BO_ 817 IEB_331: 8 IEB
  SG_ BrakeUnknown : 0|8@1+ (1,0) [0|255] "" XXX
@@ -757,7 +757,9 @@ CM_ SG_ 513 Torque_error "Ofte (not always) the difference between Speed_desired
 CM_ SG_ 657 Power_Unk2 "Tracks against  Power_Unk in VCU_524. Maybe acceleration not power?";
 CM_ SG_ 657 Speed_signed "Motor rpm, signed";
 CM_ SG_ 674 BrakeUnknown "Same byte exists in message 0x331";
-CM_ BO_ 688 "Forwarded onto CCAN.";
+CM_ BO_ 688 "100Hz. Relayed onto PCAN from CCAN, from power steering module via IGPM";
+CM_ SG_ 688 Stat "'7' is probably 'normal'";
+CM_ SG_ 688 Checksum "XOR of all other nibbles in the message";
 CM_ SG_ 817 BrakeUnknown "Same byte exists in message 0x2a2";
 CM_ BO_ 852 "Shift Select Switch";
 CM_ SG_ 852 Button_Pressed "Bytes 0 & 2 seem to be redundant copies of same information";
