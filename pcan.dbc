@@ -40,8 +40,6 @@ BO_ 339 IEB_153_TCS: 8 IEB
  SG_ AliveCounter_TCS1 : 52|4@1+ (1,0) [0|14] "" XXX
  SG_ CheckSum_TCS1 : 56|8@1+ (1,0) [0|255] "" XXX
 
-BO_ 352 IEB_MAYBE_C160: 8 IEB
-
 BO_ 356 UNK_164: 8 XXX
 
 BO_ 512 VCU_200: 8 VCU
