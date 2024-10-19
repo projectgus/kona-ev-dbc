@@ -1,0 +1,11 @@
+VERSION ""
+
+NS_ :
+  NS_DESC_
+
+BO_ 356 UNK_164: 8 XXX
+
+BO_ 881 IEB_MAYBE_C371: 8 IEB_MAYBE
+ SG_ BrakeUnknown : 7|8@0+ (1,0) [0|255] "" XXX
+
+CM_ SG_ 881 BrakeUnknown "Same byte as PCAN 0x2a2, 0x331";

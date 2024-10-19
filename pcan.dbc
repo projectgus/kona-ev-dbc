@@ -43,8 +43,6 @@ BO_ 339 IEB_153_TCS: 8 IEB
  SG_ AliveCounter_TCS1 : 52|4@1+ (1,0) [0|14] "" XXX
  SG_ CheckSum_TCS1 : 56|8@1+ (1,0) [0|255] "" XXX
 
-BO_ 356 UNK_164: 8 XXX
-
 BO_ 512 VCU_200: 8 VCU
  SG_ UNK_STATUS_CLIMATE_DRIVE : 0|8@1+ (1,0) [0|255] "" XXX
  SG_ CURRENT_GEAR : 11|3@1+ (1,0) [0|7] "" XXX
@@ -114,9 +112,6 @@ BO_ 852 SBW_354: 8 SBW
  SG_ Button_Pressed : 7|24@0+ (1,0) [0|16777215] "" XXX
  SG_ Gear_Displayed : 40|8@1+ (1,0) [0|255] "" XXX
  SG_ Counter : 56|8@1+ (1,0) [0|255] "" XXX
-
-BO_ 881 IEB_MAYBE_C371: 8 IEB_MAYBE
- SG_ BrakeUnknown : 7|8@0+ (1,0) [0|255] "" XXX
 
 BO_ 902 IEB_386_WHEEL: 8 IEB
  SG_ WHL_SPD_FL : 0|14@1+ (0.03125,0) [0|511.96875] "km/h" XXX
@@ -237,13 +232,13 @@ BO_ 1287 IEB_507_TCS: 4 IEB
  SG_ AVH_ALARM : 27|2@1+ (1,0) [0|3] "" XXX
  SG_ AVH_LAMP : 29|3@1+ (1,0) [0|7] "" XXX
 
-BO_ 1315 VCU_523_TEMP: 8 VCU
+BO_ 1315 InverterTemp: 8 VCU
  SG_ uwe523_0 : 0|8@1+ (1,0) [0|255] "" XXX
- SG_ uwe523_2_TEPCU_in : 16|8@1+ (1,-40) [-40|215] "°C" XXX
- SG_ uwe523_3_TEPCU_fast1 : 24|8@1+ (1,-40) [-40|215] "°C" XXX
- SG_ uwe523_4_TEPCU_fast2 : 32|8@1+ (1,-40) [-40|215] "°C" XXX
- SG_ uwe523_5_TEPCU_slow : 40|8@1+ (1,-40) [-40|215] "°C" XXX
- SG_ uwe523_6_EPCU_coolingpump : 48|8@1+ (1,0) [0|255] "%" XXX
+ SG_ TempIn : 16|8@1+ (1,-40) [-40|215] "°C" XXX
+ SG_ TempFast1 : 24|8@1+ (1,-40) [-40|215] "°C" XXX
+ SG_ TempFast2 : 32|8@1+ (1,-40) [-40|215] "°C" XXX
+ SG_ TempSlow : 40|8@1+ (1,-40) [-40|215] "°C" XXX
+ SG_ CoolingPump : 48|8@1+ (1,0) [0|255] "%" XXX
 
 BO_ 1316 InverterStatus: 8 VCU
  SG_ V_Inverter : 0|16@1+ (1,0) [0|511] "" XXX
@@ -305,8 +300,8 @@ BO_ 1345 BodyState: 8 IGPM
  SG_ CF_Gway_TurnSigRh : 62|2@1+ (1,0) [0|3] "" XXX
 
 BO_ 1346 BMS_542: 8 BMS
- SG_ uwe542_0_SocDisp : 0|8@1+ (0.5,0) [0|100] "%" XXX
- SG_ uwe542_12_Backcounter : 8|16@1+ (1,0) [0|65535] "V" XXX
+ SG_ SocDisp : 0|8@1+ (0.5,0) [0|100] "%" XXX
+ SG_ uwe542_12_Backcounter : 8|16@1+ (1,0) [0|65535] "" XXX
  SG_ unkCurrentRelated : 40|8@1+ (1,0) [0|255] "" XXX
  SG_ uwe542_78_UCCS : 48|16@1+ (0.1,0) [0|500] "V" XXX
 
@@ -425,11 +420,11 @@ BO_ 1426 VCU_592: 8 VCU
 
 BO_ 1427 UNK_593: 6 XXX
 
-BO_ 1428 BMS_594: 8 BMS
+BO_ 1428 BatteryLimits: 8 BMS
  SG_ ChargeAvailable : 0|16@1+ (0.01,0) [0|65535] "kW" XXX
  SG_ DischargeAvailable : 16|16@1+ (0.01,0) [0|65535] "kW" XXX
 
-BO_ 1429 BMS_HV_Monitor: 8 BMS
+BO_ 1429 Batt_HV_Status: 8 BMS
  SG_ Precharging : 8|1@0+ (1,0) [0|1] "" XXX
  SG_ ACChargerDetected : 9|1@0+ (1,0) [0|1] "" XXX
  SG_ DCFastChargerDetected : 10|1@0+ (1,0) [0|1] "" XXX
@@ -437,7 +432,7 @@ BO_ 1429 BMS_HV_Monitor: 8 BMS
  SG_ IBatt : 32|16@1- (0.1,0) [-1000|1000] "A" XXX
  SG_ VBatt : 48|16@1+ (0.1,0) [0|500] "V" XXX
 
-BO_ 1430 BMS_596: 8 BMS
+BO_ 1430 BatteryCharging: 8 BMS
  SG_ Voltage_12V : 8|8@1+ (0.1,0) [0|25] "V" XXX
  SG_ uwe596_2_remainingChTAC : 16|16@1+ (1,0) [0|65535] "min" XXX
  SG_ uwe596_4_remainingChTDC : 32|8@1+ (1,0) [0|255] "min" XXX
@@ -464,7 +459,7 @@ BO_ 1436 UNK_59C: 8 XXX
 BO_ 1438 BMS_59E: 8 BMS
  SG_ UNK_U_HV : 39|8@0+ (1,0) [0|255] "" XXX
 
-BO_ 1440 ACU_5A0: 8 ACU
+BO_ 1440 AirbagStatus: 8 ACU
  SG_ CF_Ods_SNRcv : 1|1@1+ (1,0) [0|1] "" XXX
  SG_ CF_Ods_IDRcv : 2|1@1+ (1,0) [0|1] "" XXX
  SG_ CF_Ods_RZReq : 4|1@1+ (1,0) [0|1] "" XXX
@@ -752,26 +747,28 @@ BO_ 3221225472 VECTOR__INDEPENDENT_SIG_MSG: 0 XXX
  SG_ WHL_SPD_RL : 0|14@1+ (0.03125,0) [0|511.96875] "km/h" XXX
  SG_ WHL_SPD_RR : 0|14@1+ (0.03125,0) [0|511.96875] "km/h" XXX
 
-CM_ BO_ 265 "100Hz message from an unknown source, but probably part of motor stack.
+CM_ BO_ 265 "100Hz message from an unknown source, but probably part of motor stack. On when IG3 is powered.
 
 Apart from the counter, fields in this message don't seem to really change except in some unrelated seeming situations: transient gear changes, scheduled charging, and the motor accelerating unloaded...";
 CM_ SG_ 265 UNK_STATUS_BITS "Each bit seems to set briefly while transitioning gears";
 CM_ SG_ 265 Awake_Maybe "Goes to zero just before vehicle goes to sleep?";
-CM_ SG_ 265 NEW_SIGNAL_1 "This value is 0xFD nearly all the time but goes down like a sensor reading during unloaded acceleration";
+CM_ SG_ 265 NEW_SIGNAL_1 "0xFD nearly all the time  when on, but goes down like a sensor reading during unloaded acceleration";
+CM_ BO_ 268 "100Hz when IG3 is powered.";
 CM_ BO_ 339 "TCS11 in other DBC Files. Appears  on PCAN, CCAN.";
 CM_ BO_ 513 "This message has a bunch of signals that do counter-like things when the motor is turning and all zero otherwise";
 CM_ SG_ 513 Torque_error "Ofte (not always) the difference between Speed_desired and the actual motor speed in VCU_291. Maps TorqueReqest_maybe in VCU 540 closely.";
 CM_ SG_ 657 Power_Unk2 "Tracks against  Power_Unk in VCU_524. Maybe acceleration not power?";
 CM_ SG_ 657 Speed_signed "Motor rpm, signed";
 CM_ SG_ 674 BrakeUnknown "Same byte exists in message 0x331";
-CM_ BO_ 688 "100Hz. Relayed onto PCAN from CCAN, from power steering module via IGPM";
+CM_ BO_ 688 "100Hz when IG3 is powered.
+
+Relayed onto PCAN from CCAN, from power steering module via IGPM";
 CM_ SG_ 688 Stat "'7' is probably 'normal'";
 CM_ SG_ 688 Checksum "XOR of all other nibbles in the message";
 CM_ SG_ 817 BrakeUnknown "Same byte exists in message 0x2a2";
 CM_ BO_ 852 "Shift Select Switch";
 CM_ SG_ 852 Button_Pressed "Bytes 0 & 2 seem to be redundant copies of same information";
 CM_ SG_ 852 Counter "Seems to be two nibbles counting independently";
-CM_ SG_ 881 BrakeUnknown "Same byte as 0x2a2, 0x331";
 CM_ BO_ 902 "Wheel speed. Named WHL_SPD11 in some DBC files. Forwarded onto CCAN.";
 CM_ SG_ 902 WHL_SPD_AliveCounter_MSB "Increments when the LSB counter wraps";
 CM_ BO_ 903 "Wheel direction and status? Named WHL_PUL11 in some DBC files. Forwarded onto CCAN.";
@@ -789,13 +786,15 @@ CM_ BO_ 1168 "Forwarded onto CCAN (final byte may be different on CCAN?)";
 CM_ BO_ 1287 "TCS15 in other DBC files. Forwarded onto CCAN.";
 CM_ SG_ 1287 AVH_I_LAMP "Auto Vehicle Hold Lamp (inverted)";
 CM_ SG_ 1287 AVH_LAMP "Auto Vehicle Hold Lamp";
+CM_ SG_ 1315 uwe523_0 "Possibly a status indicator?";
 CM_ SG_ 1316 Speed_abs "Motor rpm, unsigned";
 CM_ SG_ 1316 Speed_desired_unk "This seems to lag the Speed_desired field in VCU_201 by a very small amount of time...";
 CM_ SG_ 1316 Power "Matches battery current in BMS_595 very closely";
 CM_ SG_ 1344 uwe540_01 "Unclear if 12 or 16 byte long signal";
 CM_ BO_ 1345 "Looks like a summary of BCAN. Also forwarded onto CCAN (although some signals have different values?)";
+CM_ SG_ 1346 SocDisp "State of charge as displayed on dash (unconfirmed)";
 CM_ SG_ 1346 unkCurrentRelated "Changes when AC Charge Current changes, might be readback or a request for the OBC";
-CM_ BO_ 1353 "Incorrect label comes from uwe's records, haven't verified these";
+CM_ BO_ 1353 "The marking of 'Incorrect' label comes from uwe's records, haven't verified these although some look correct";
 CM_ BO_ 1363 "Forwarded onto CCAN (although some signals have different values).";
 CM_ BO_ 1372 "Constant message data, first two bytes different on different cars";
 CM_ BO_ 1378 "From NAVI head unit but relayed via gateway, maybe rewritten. Only visible on PCAN for the 2021 model, the 2019 model looks to send ChargeSettings message instead.
@@ -814,18 +813,18 @@ CM_ BO_ 1426 "Forwarded onto CCAN.";
 CM_ SG_ 1426 Movement_related_unk "Tracks absolute motor speed but not directly. May be torque output related (maybe)";
 CM_ SG_ 1426 Movement_related_unk2 "Another value that goes up both when moving and rolling, and back to 0 when still. Doesn't track speed.";
 CM_ BO_ 1427 "Unchanging? Forwarded onto CCAN.";
-CM_ BO_ 1428 "unknown purpose, could be cooling or temp related?";
+CM_ BO_ 1428 "10Hz.";
 CM_ SG_ 1428 ChargeAvailable "Unconfirmed but seems correct";
 CM_ SG_ 1428 DischargeAvailable "Unconfirmed but seems correct";
-CM_ BO_ 1429 "A similar message with same ID appears on CCAN.";
+CM_ BO_ 1429 "10Hz. A similar message with same ID appears on CCAN.";
 CM_ SG_ 1429 ACChargerDetected "Bit set when AC charger is detected. Pulse briefly when DC fast charge is detected/";
 CM_ SG_ 1429 ACChargingTransient "Bit briefly set while establishing an AC charge session";
-CM_ BO_ 1430 "A similar message with same ID appears on CCAN.";
+CM_ BO_ 1430 "10Hz. A similar message with same ID appears on CCAN.";
 CM_ SG_ 1431 Active "This bit set when vehicle is in Ready, or Charging";
 CM_ SG_ 1433 ChargeTrigger "Set to 1 during both AC and DC charging. Might indicate contactors closed?";
 CM_ SG_ 1433 ChargeEndAck "Seems to go high to 'ack' the CCS_CCM_error bit from CCM, and also at end of AC charge";
 CM_ SG_ 1438 UNK_U_HV "Maps to 595 UBatt, maybe voltage at another point?";
-CM_ BO_ 1440 "Also called ACU11";
+CM_ BO_ 1440 "1Hz. Also called ACU11";
 CM_ SG_ 1443 UnkStatus "These 4 bytes are always 0xF except when DC Fast Charging when they are 0x3";
 CM_ SG_ 1443 FastChargeRelayClosed "Not 100% sure but I think it's this. Becomes set as DC fast charge negotiation starts.";
 CM_ SG_ 1443 ContactorClosed "Indicates contactors fully closed (i.e. after precharge)";
@@ -833,6 +832,7 @@ CM_ SG_ 1443 ACChargeLimit "Doesn't seem to quite match setpoint, maybe this is 
 CM_ SG_ 1443 DCChargeLimit "Doesn't seem to quite match setpoint, maybe this is True not Display SoC?";
 CM_ BO_ 1483 "The VCU and BMS do not read this status message. Cabin only?";
 CM_ SG_ 1483 SetpointDup "When vehicle is Ready, this signal is always the same as Setpoint. When off, one or both of these fields have value FF.";
+CM_ BO_ 1484 "1s interval but possibly sends a flurry of messages when values change";
 CM_ BO_ 1488 "OBC classifies this as a gateway message
 
 Only has valid values when IG1 is on";
