@@ -62,6 +62,9 @@ BO_ 514 VCU_202: 8 VCU
  SG_ Torque_desired_unk : 8|12@1- (1,0) [-32768|32767] "" XXX
  SG_ REGEN_LEVEL : 23|4@0+ (1,0) [0|1] "" XXX
  SG_ Torque_desired_unk2 : 32|12@1- (1,0) [-32768|32767] "" XXX
+ SG_ UnkMaybeStatus : 56|5@1+ (1,0) [0|31] "" XXX
+ SG_ Counter : 61|2@1+ (1,0) [0|3] "" XXX
+ SG_ UnkStatusBit : 63|1@0+ (1,0) [0|1] "" XXX
 
 BO_ 544 StabilityControl: 8 IEB
  SG_ LAT_ACCEL : 0|11@1+ (0.01,-10.23) [-10.23|10.24] "m/s^2" XXX
@@ -178,6 +181,8 @@ BO_ 1117 UNK_45D: 8 XXX
 
 BO_ 1118 UNK_45E: 8 XXX
 
+BO_ 1122 UNK_462: 8 XXX
+
 BO_ 1137 UNK_471: 6 XXX
  SG_ Counter : 47|8@0+ (1,0) [0|255] "" XXX
 
@@ -205,6 +210,7 @@ BO_ 1169 BMS_491: 8 BMS
 BO_ 1171 BMS_493: 8 BMS
 
 BO_ 1175 BMS_497: 8 BMS
+ SG_ Unknown : 0|8@1+ (1,0) [0|255] "" XXX
 
 BO_ 1176 BMS_498: 8 BMS
 
@@ -219,6 +225,8 @@ BO_ 1252 UNK_4E4: 8 XXX
 
 BO_ 1262 OBC_4EE_MAYBE: 8 OBC_CDM_MAYBE
 
+BO_ 1278 UNK_4FE: 8 XXX
+
 BO_ 1287 IEB_507_TCS: 4 IEB
  SG_ ABS_W_LAMP : 0|1@1+ (1,0) [0|1] "" XXX
  SG_ TCS_OFF_LAMP : 1|2@1+ (1,0) [0|1] "" XXX
@@ -231,6 +239,10 @@ BO_ 1287 IEB_507_TCS: 4 IEB
  SG_ EBD_W_LAMP : 26|1@1+ (1,0) [0|1] "" XXX
  SG_ AVH_ALARM : 27|2@1+ (1,0) [0|3] "" XXX
  SG_ AVH_LAMP : 29|3@1+ (1,0) [0|7] "" XXX
+
+BO_ 1294 UNK_50E: 8 XXX
+
+BO_ 1312 UNK_520: 8 XXX
 
 BO_ 1315 InverterTemp: 8 VCU
  SG_ uwe523_0 : 0|8@1+ (1,0) [0|255] "" XXX
@@ -359,7 +371,13 @@ BO_ 1363 BodyWarnings: 8 IGPM
  SG_ CF_Gway_SMKDispWarn : 57|4@1+ (1,0) [0|15] "" XXX
  SG_ CF_Gway_WngBuz : 61|3@1+ (1,0) [0|7] "" XXX
 
+BO_ 1369 UNK_559: 8 XXX
+
 BO_ 1372 UNK_55C: 8 XXX
+
+BO_ 1375 UNK_55F: 8 XXX
+
+BO_ 1377 UNK_561: 8 XXX
 
 BO_ 1378 UpdateChargeSettings: 8 NAVI
  SG_ SetChargeCurrent : 15|8@0+ (1,0) [0|255] "" XXX
@@ -374,6 +392,8 @@ BO_ 1383 Clock: 8 IGPM
  SG_ Valid : 32|8@1- (1,0) [0|1] "" XXX
 
 BO_ 1392 UNK_570: 8 XXX
+
+BO_ 1400 UNK_578: 6 XXX
 
 BO_ 1401 VCU_579: 8 VCU
 
@@ -400,6 +420,8 @@ BO_ 1412 AAF_584: 8 AAF
  SG_ CF_Aaf_OpenRqSysSol : 32|8@1+ (1,0) [0|255] "" XXX
  SG_ CF_Aaf_SolFlapStatus : 40|2@1+ (1,0) [0|3] "" XXX
  SG_ CF_Aaf_MilOnReq : 42|1@1+ (1,0) [0|1] "" XXX
+
+BO_ 1416 UNK_588: 8 XXX
 
 BO_ 1422 OBC_58E: 8 OBC
  SG_ ChargeStatusMaybe : 8|8@1+ (1,0) [0|255] "" XXX
@@ -755,8 +777,15 @@ CM_ SG_ 265 Awake_Maybe "Goes to zero just before vehicle goes to sleep?";
 CM_ SG_ 265 NEW_SIGNAL_1 "0xFD nearly all the time  when on, but goes down like a sensor reading during unloaded acceleration";
 CM_ BO_ 268 "100Hz when IG3 is powered.";
 CM_ BO_ 339 "TCS11 in other DBC Files. Appears  on PCAN, CCAN.";
-CM_ BO_ 513 "This message has a bunch of signals that do counter-like things when the motor is turning and all zero otherwise";
+CM_ BO_ 512 "100Hz. Present when IG3 powered.";
+CM_ BO_ 513 "100Hz. Present when IG3 powered.
+
+This message has a bunch of signals that do counter-like things when the motor is turning and all zero otherwise";
 CM_ SG_ 513 Torque_error "Ofte (not always) the difference between Speed_desired and the actual motor speed in VCU_291. Maps TorqueReqest_maybe in VCU 540 closely.";
+CM_ BO_ 514 "100Hz. Present when IG3 powered.";
+CM_ SG_ 514 UnkMaybeStatus "This might be a discrete value or a set of status bits";
+CM_ SG_ 514 UnkStatusBit "Status bit, unknown purpose";
+CM_ BO_ 544 "100Hz. Present when IG3 powered.";
 CM_ SG_ 657 Power_Unk2 "Tracks against  Power_Unk in VCU_524. Maybe acceleration not power?";
 CM_ SG_ 657 Speed_signed "Motor rpm, signed";
 CM_ SG_ 674 BrakeUnknown "Same byte exists in message 0x331";
@@ -766,6 +795,7 @@ Relayed onto PCAN from CCAN, from power steering module via IGPM";
 CM_ SG_ 688 Stat "'7' is probably 'normal'";
 CM_ SG_ 688 Checksum "XOR of all other nibbles in the message";
 CM_ SG_ 817 BrakeUnknown "Same byte exists in message 0x2a2";
+CM_ BO_ 819 "100Hz when IG3 is powered.";
 CM_ BO_ 852 "Shift Select Switch";
 CM_ SG_ 852 Button_Pressed "Bytes 0 & 2 seem to be redundant copies of same information";
 CM_ SG_ 852 Counter "Seems to be two nibbles counting independently";
@@ -773,19 +803,38 @@ CM_ BO_ 902 "Wheel speed. Named WHL_SPD11 in some DBC files. Forwarded onto CCAN
 CM_ SG_ 902 WHL_SPD_AliveCounter_MSB "Increments when the LSB counter wraps";
 CM_ BO_ 903 "Wheel direction and status? Named WHL_PUL11 in some DBC files. Forwarded onto CCAN.";
 CM_ BO_ 916 "Forwarded onto CCAN.";
-CM_ BO_ 1042 "On PCAN this message is all zeroes";
+CM_ BO_ 1014 "1Hz";
+CM_ BO_ 1042 "5Hz when IG3 powered on. Could be: OBC, BMS, EPCU. Not EWP.
+
+On PCAN this message is all zeroes";
 CM_ BO_ 1044 "OBC classifies as coming from gateway. 1Hz. Possibly relayed from NAVI system.
 
 Only visible on 2019 model, 2021 model sends UpdateChargeSettings instead.";
 CM_ SG_ 1044 ACChargingCurrent "This message only seems to exist on the 2019 model, not on the 2021 model.";
+CM_ BO_ 1104 "50Hz when IG3 powered on. Could be: OBC, BMS, EPCU, CGW, cruise unit. Not EWP.";
 CM_ BO_ 1116 "Message data all zeroes";
-CM_ BO_ 1117 "Message body all zeroes, except sometimes when it becomes FF,FF,FF,FF,FF,FF,FF,0F";
-CM_ BO_ 1118 "Message mostly all zeroes, occasionally FF,FF,FF,FF,FF,00,00,00";
+CM_ BO_ 1117 "5Hz when IG3 powered. 
+
+Message body all zeroes, except sometimes when it becomes FF,FF,FF,FF,FF,FF,FF,0F";
+CM_ BO_ 1118 "5Hz when IG3 powered. Message mostly all zeroes, occasionally FF,FF,FF,FF,FF,00,00,00";
+CM_ BO_ 1122 "5Hz when IG3 powered.";
+CM_ BO_ 1137 "50Hz when IG3 powered.";
 CM_ SG_ 1148 ACCurrentRelated2 "Value is proportional to the actual charge current, looks like probably a scaled readback value";
 CM_ BO_ 1168 "Forwarded onto CCAN (final byte may be different on CCAN?)";
+CM_ BO_ 1169 "10Hz.
+
+Values mostly unchanging except during charging.";
+CM_ BO_ 1171 "10Hz.
+
+Values vary a little in normal use, and a lot during AC charging?";
+CM_ BO_ 1175 "1Hz.";
+CM_ SG_ 1175 Unknown "Seems to cycle 0x11 0x14 0x22 a lot, sometimes looks counter-like and sometimes random";
+CM_ BO_ 1278 "Present when IG3 powered on.";
 CM_ BO_ 1287 "TCS15 in other DBC files. Forwarded onto CCAN.";
 CM_ SG_ 1287 AVH_I_LAMP "Auto Vehicle Hold Lamp (inverted)";
 CM_ SG_ 1287 AVH_LAMP "Auto Vehicle Hold Lamp";
+CM_ BO_ 1294 "Present when IG3 powered on.";
+CM_ BO_ 1312 "Present when IG3 powered on.";
 CM_ SG_ 1315 uwe523_0 "Possibly a status indicator?";
 CM_ SG_ 1316 Speed_abs "Motor rpm, unsigned";
 CM_ SG_ 1316 Speed_desired_unk "This seems to lag the Speed_desired field in VCU_201 by a very small amount of time...";
@@ -796,7 +845,12 @@ CM_ SG_ 1346 SocDisp "State of charge as displayed on dash (unconfirmed)";
 CM_ SG_ 1346 unkCurrentRelated "Changes when AC Charge Current changes, might be readback or a request for the OBC";
 CM_ BO_ 1353 "The marking of 'Incorrect' label comes from uwe's records, haven't verified these although some look correct";
 CM_ BO_ 1363 "Forwarded onto CCAN (although some signals have different values).";
-CM_ BO_ 1372 "Constant message data, first two bytes different on different cars";
+CM_ BO_ 1369 "Present when IG3 powered on.";
+CM_ BO_ 1372 "Present when IG3 powered on.
+
+Constant message data, first two bytes different on different cars";
+CM_ BO_ 1375 "Present when IG3 powered on.";
+CM_ BO_ 1377 "Present when IG3 powered on.";
 CM_ BO_ 1378 "From NAVI head unit but relayed via gateway, maybe rewritten. Only visible on PCAN for the 2021 model, the 2019 model looks to send ChargeSettings message instead.
 
 Message sent at 50ms intervals for 150-400ms any time a setting is changed on the head unit. Otherwise not seen on bus.";
@@ -804,9 +858,13 @@ CM_ SG_ 1378 SetChargeCurrent "Looks like momentary button status for the Maximu
 CM_ SG_ 1378 SetACChargeLimit "AC charge cutoff point. Special value FF for 'no change'.";
 CM_ BO_ 1383 "OBC needs to see this message";
 CM_ SG_ 1383 Unknown "Not clear what this is. Non-zero when clock is 2, often 0, sometimes other values.";
+CM_ BO_ 1400 "Present when IG3 memory power on.";
 CM_ BO_ 1409 "AC charging sensor readback values";
 CM_ SG_ 1409 ACCurrent "Possible one of these is nominal, one is actual";
 CM_ SG_ 1409 ACCurrentRelated "Seems to track current exactly and not voltage. Maybe is actual, or real current";
+CM_ BO_ 1416 "10Hz. Present when IG3 memory power on.
+
+This message only seems to have a few discrete values.";
 CM_ BO_ 1422 "Originally thought might be CDM, but looks like OBC";
 CM_ SG_ 1422 ACCurrentSettingRelated "Seems to lag the actual charge current. Is not the current offered by EVSE as it goes down when changing max AC charge in car.";
 CM_ BO_ 1426 "Forwarded onto CCAN.";
