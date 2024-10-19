@@ -4,6 +4,9 @@ NS_ :
   NS_DESC_
 
 BO_ 265 UNK_109: 8 XXX
+ SG_ UNK_STATUS_BITS : 1|2@1+ (1,0) [0|3] "" XXX
+ SG_ Awake_Maybe : 8|1@0+ (1,0) [0|1] "" XXX
+ SG_ NEW_SIGNAL_1 : 23|8@0+ (1,0) [0|255] "" XXX
  SG_ Counter : 61|6@0+ (1,0) [0|63] "" XXX
 
 BO_ 268 SCU_10C: 8 SCU
@@ -62,7 +65,7 @@ BO_ 514 VCU_202: 8 VCU
  SG_ REGEN_LEVEL : 23|4@0+ (1,0) [0|1] "" XXX
  SG_ Torque_desired_unk2 : 32|12@1- (1,0) [-32768|32767] "" XXX
 
-BO_ 544 IEB_220_ESP12: 8 IEB
+BO_ 544 StabilityControl: 8 IEB
  SG_ LAT_ACCEL : 0|11@1+ (0.01,-10.23) [-10.23|10.24] "m/s^2" XXX
  SG_ LAT_ACCEL_STAT : 11|1@1+ (1,0) [0|1] "" XXX
  SG_ LAT_ACCEL_DIAG : 12|1@1+ (1,0) [0|1] "" XXX
@@ -75,8 +78,8 @@ BO_ 544 IEB_220_ESP12: 8 IEB
  SG_ YAW_RATE : 40|13@1+ (0.01,-40.95) [-40.95|40.96] "" XXX
  SG_ YAW_RATE_STAT : 53|1@1+ (1,0) [0|1] "" XXX
  SG_ YAW_RATE_DIAG : 54|1@1+ (1,0) [0|1] "" XXX
- SG_ ESP12_Checksum : 56|4@1+ (1,0) [0|15] "" XXX
- SG_ ESP12_AliveCounter : 60|4@1+ (1,0) [0|15] "" XXX
+ SG_ Checksum : 56|4@1+ (1,0) [0|15] "" XXX
+ SG_ Counter : 60|4@1+ (1,0) [0|15] "" XXX
 
 BO_ 657 VCU_291: 8 VCU
  SG_ Power_Unk2 : 0|12@1- (1,0) [-32768|32767] "" XXX
@@ -749,6 +752,12 @@ BO_ 3221225472 VECTOR__INDEPENDENT_SIG_MSG: 0 XXX
  SG_ WHL_SPD_RL : 0|14@1+ (0.03125,0) [0|511.96875] "km/h" XXX
  SG_ WHL_SPD_RR : 0|14@1+ (0.03125,0) [0|511.96875] "km/h" XXX
 
+CM_ BO_ 265 "100Hz message from an unknown source, but probably part of motor stack.
+
+Apart from the counter, fields in this message don't seem to really change except in some unrelated seeming situations: transient gear changes, scheduled charging, and the motor accelerating unloaded...";
+CM_ SG_ 265 UNK_STATUS_BITS "Each bit seems to set briefly while transitioning gears";
+CM_ SG_ 265 Awake_Maybe "Goes to zero just before vehicle goes to sleep?";
+CM_ SG_ 265 NEW_SIGNAL_1 "This value is 0xFD nearly all the time but goes down like a sensor reading during unloaded acceleration";
 CM_ BO_ 339 "TCS11 in other DBC Files. Appears  on PCAN, CCAN.";
 CM_ BO_ 513 "This message has a bunch of signals that do counter-like things when the motor is turning and all zero otherwise";
 CM_ SG_ 513 Torque_error "Ofte (not always) the difference between Speed_desired and the actual motor speed in VCU_291. Maps TorqueReqest_maybe in VCU 540 closely.";
