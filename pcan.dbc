@@ -12,7 +12,7 @@ BO_ 265 UNK_109: 8 XXX
 BO_ 268 SCU_10C: 8 SCU
  SG_ Counter_Dual : 63|8@0+ (1,0) [0|255] "b" XXX
 
-BO_ 339 TractionControl: 8 IEB
+BO_ 339 TractionControlFast: 8 IEB
  SG_ TCS_REQ : 0|1@1+ (1,0) [0|1] "" XXX
  SG_ MSR_C_REQ : 1|1@1+ (1,0) [0|1] "" XXX
  SG_ TCS_PAS : 2|1@1+ (1,0) [0|1] "" XXX
@@ -134,11 +134,11 @@ BO_ 903 IEB_387_WHEEL: 8 IEB
  SG_ WHL_PUL_Chksum : 40|8@1+ (1,0) [0|255] "" XXX
  SG_ AliveCounterWHL_PUL : 48|4@1+ (1,0) [0|14] "" XXX
 
-BO_ 916 IEB_394_TCS13: 8 IEB
+BO_ 916 TractionControlMed: 8 IEB
  SG_ aBasis : 0|11@1+ (0.01,-10.23) [-10.23|10.24] "m/s^2" XXX
  SG_ BrakeLight : 11|1@1+ (1,0) [0|1] "" XXX
  SG_ DCEnable : 12|1@1+ (1,0) [0|1] "" XXX
- SG_ AliveCounterTCS : 13|3@1+ (1,0) [0|7] "" XXX
+ SG_ Counter : 13|3@1+ (1,0) [0|7] "" XXX
  SG_ Pre_TCS_CTL : 16|1@1+ (1,0) [0|1] "" XXX
  SG_ EBA_ACK : 17|1@1+ (1,0) [0|1] "" XXX
  SG_ FCA_ACK : 18|1@1+ (1,0) [0|1] "" XXX
@@ -146,10 +146,9 @@ BO_ 916 IEB_394_TCS13: 8 IEB
  SG_ SCCReqLim : 22|2@1+ (1,0) [0|3] "" XXX
  SG_ TQI_SCC : 24|8@1+ (0.390625,0) [0|199.609375] "%" XXX
  SG_ ACCEL_REF_ACC : 32|11@1+ (0.01,-10.23) [-10.23|10.24] "m/s^2" XXX
- SG_ ACCEnable : 43|2@1+ (1,0) [0|3] "" XXX
  SG_ DriverOverride : 45|2@1+ (1,0) [0|3] "" XXX
  SG_ StandStill : 47|1@1+ (1,0) [0|1] "" XXX
- SG_ CheckSum_TCS3 : 48|4@1+ (1,0) [0|15] "" XXX
+ SG_ Checksum : 48|4@1+ (1,0) [0|15] "" XXX
  SG_ ACC_EQUIP : 52|1@1+ (1,0) [0|1] "" XXX
  SG_ PBRAKE_ACT : 53|1@1+ (1,0) [0|1] "" XXX
  SG_ ACC_REQ : 54|1@1+ (1,0) [0|1] "" XXX
@@ -804,7 +803,7 @@ CM_ SG_ 852 Counter "Seems to be two nibbles counting independently";
 CM_ BO_ 902 "Wheel speed. Named WHL_SPD11 in some DBC files. Forwarded onto CCAN.";
 CM_ SG_ 902 WHL_SPD_AliveCounter_MSB "Increments when the LSB counter wraps";
 CM_ BO_ 903 "Wheel direction and status? Named WHL_PUL11 in some DBC files. Forwarded onto CCAN.";
-CM_ BO_ 916 "Forwarded onto CCAN.";
+CM_ BO_ 916 "50Hz. Forwarded onto CCAN.";
 CM_ BO_ 1014 "1Hz";
 CM_ BO_ 1042 "5Hz when IG3 powered on. Could be: OBC, BMS, EPCU. Not EWP.
 
