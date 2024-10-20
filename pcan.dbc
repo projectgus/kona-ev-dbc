@@ -188,7 +188,7 @@ BO_ 1137 UNK_471: 6 XXX
 BO_ 1148 OBC_47C_MAYBE: 8 OBC_CDM_MAYBE
  SG_ ACCurrentRelated2 : 63|8@0+ (1,0) [0|255] "" XXX
 
-BO_ 1168 IEB_490_EPB11: 7 IEB
+BO_ 1168 ParkingBrake: 7 IEB
  SG_ EPB_I_LAMP : 0|4@1+ (1,0) [0|15] "" XXX
  SG_ EPB_F_LAMP : 4|2@1+ (1,0) [0|3] "" XXX
  SG_ EPB_ALARM : 6|2@1+ (1,0) [0|3] "" XXX
