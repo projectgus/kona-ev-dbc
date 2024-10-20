@@ -12,7 +12,7 @@ BO_ 265 UNK_109: 8 XXX
 BO_ 268 SCU_10C: 8 SCU
  SG_ Counter_Dual : 63|8@0+ (1,0) [0|255] "b" XXX
 
-BO_ 339 IEB_153_TCS: 8 IEB
+BO_ 339 TractionControl: 8 IEB
  SG_ TCS_REQ : 0|1@1+ (1,0) [0|1] "" XXX
  SG_ MSR_C_REQ : 1|1@1+ (1,0) [0|1] "" XXX
  SG_ TCS_PAS : 2|1@1+ (1,0) [0|1] "" XXX
@@ -40,8 +40,8 @@ BO_ 339 IEB_153_TCS: 8 IEB
  SG_ TQI_SLW_TCS : 40|8@1+ (0.390625,0) [0|99.609375] "%" XXX
  SG_ CF_Esc_BrkCtl : 48|1@1+ (1,0) [0|1] "" XXX
  SG_ BLA_CTL : 49|2@1+ (1,0) [0|3] "" XXX
- SG_ AliveCounter_TCS1 : 52|4@1+ (1,0) [0|14] "" XXX
- SG_ CheckSum_TCS1 : 56|8@1+ (1,0) [0|255] "" XXX
+ SG_ Counter1 : 52|4@1+ (1,0) [0|14] "" XXX
+ SG_ Counter2 : 60|4@1+ (1,0) [0|15] "" XXX
 
 BO_ 512 VCU_200: 8 VCU
  SG_ UNK_STATUS_CLIMATE_DRIVE : 0|8@1+ (1,0) [0|255] "" XXX
@@ -776,7 +776,9 @@ CM_ SG_ 265 UNK_STATUS_BITS "Each bit seems to set briefly while transitioning g
 CM_ SG_ 265 Awake_Maybe "Goes to zero just before vehicle goes to sleep?";
 CM_ SG_ 265 NEW_SIGNAL_1 "0xFD nearly all the time  when on, but goes down like a sensor reading during unloaded acceleration";
 CM_ BO_ 268 "100Hz when IG3 is powered.";
-CM_ BO_ 339 "TCS11 in other DBC Files. Appears  on PCAN, CCAN.";
+CM_ BO_ 339 "10Hz. TCS11 in other DBC Files. Appears  on PCAN, CCAN.";
+CM_ SG_ 339 Counter1 "Incrementing counter skips 0xF";
+CM_ SG_ 339 Counter2 "This counter skips value 9. Updates same frequency but out of phase with Counter1 (offset seems to vary from run to run but stays constant while module is on.)";
 CM_ BO_ 512 "100Hz. Present when IG3 powered.";
 CM_ BO_ 513 "100Hz. Present when IG3 powered.
 
