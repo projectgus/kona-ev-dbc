@@ -177,13 +177,16 @@ BO_ 1115 VCU_45B: 8 VCU
 BO_ 1116 UNK_45C: 8 XXX
 
 BO_ 1117 UNK_45D: 8 XXX
+ SG_ NEW_SIGNAL_1 : 0|8@1+ (1,0) [0|255] "" XXX
 
 BO_ 1118 UNK_45E: 8 XXX
 
 BO_ 1122 UNK_462: 8 XXX
 
 BO_ 1137 UNK_471: 6 XXX
- SG_ Counter : 47|8@0+ (1,0) [0|255] "" XXX
+ SG_ Maybezeroes : 40|2@1+ (1,0) [0|3] "" XXX
+ SG_ Counter : 42|4@1+ (1,0) [0|15] "" XXX
+ SG_ MaybeCounter : 46|2@1+ (1,0) [0|3] "" XXX
 
 BO_ 1148 OBC_47C_MAYBE: 8 OBC_CDM_MAYBE
  SG_ ACCurrentRelated2 : 63|8@0+ (1,0) [0|255] "" XXX
@@ -371,6 +374,7 @@ BO_ 1363 BodyWarnings: 8 IGPM
  SG_ CF_Gway_WngBuz : 61|3@1+ (1,0) [0|7] "" XXX
 
 BO_ 1369 UNK_559: 8 XXX
+ SG_ UnkBit : 14|1@0+ (1,0) [0|1] "" XXX
 
 BO_ 1372 UNK_55C: 8 XXX
 
@@ -440,6 +444,9 @@ BO_ 1426 VCU_592: 8 VCU
  SG_ Counter : 62|2@1+ (1,0) [0|3] "" XXX
 
 BO_ 1427 UNK_593: 6 XXX
+ SG_ Unknown1 : 0|8@1+ (1,0) [0|255] "" XXX
+ SG_ Unknown2 : 8|8@1+ (1,0) [0|255] "" XXX
+ SG_ Unknown3 : 23|32@0+ (1,0) [0|4294967295] "" XXX
 
 BO_ 1428 BatteryLimits: 8 BMS
  SG_ ChargeAvailable : 0|16@1+ (0.01,0) [0|65535] "kW" XXX
@@ -807,7 +814,7 @@ CM_ BO_ 916 "50Hz. Forwarded onto CCAN.";
 CM_ BO_ 1014 "1Hz";
 CM_ BO_ 1042 "5Hz when IG3 powered on. Could be: OBC, BMS, EPCU. Not EWP.
 
-On PCAN this message is all zeroes";
+On PCAN this message is all zeroes in every log";
 CM_ BO_ 1044 "OBC classifies as coming from gateway. 1Hz. Possibly relayed from NAVI system.
 
 Only visible on 2019 model, 2021 model sends UpdateChargeSettings instead.";
@@ -820,6 +827,8 @@ Message body all zeroes, except sometimes when it becomes FF,FF,FF,FF,FF,FF,FF,0
 CM_ BO_ 1118 "5Hz when IG3 powered. Message mostly all zeroes, occasionally FF,FF,FF,FF,FF,00,00,00";
 CM_ BO_ 1122 "5Hz when IG3 powered.";
 CM_ BO_ 1137 "50Hz when IG3 powered.";
+CM_ SG_ 1137 Maybezeroes "Possibly always zeroes";
+CM_ SG_ 1137 MaybeCounter "This value changes in sync with the counter but not 100%. Possibly this is a 2-bit checksum of some kind...?";
 CM_ SG_ 1148 ACCurrentRelated2 "Value is proportional to the actual charge current, looks like probably a scaled readback value";
 CM_ BO_ 1168 "Forwarded onto CCAN (final byte may be different on CCAN?)";
 CM_ BO_ 1169 "10Hz.
@@ -846,12 +855,15 @@ CM_ SG_ 1346 SocDisp "State of charge as displayed on dash (unconfirmed)";
 CM_ SG_ 1346 unkCurrentRelated "Changes when AC Charge Current changes, might be readback or a request for the OBC";
 CM_ BO_ 1353 "The marking of 'Incorrect' label comes from uwe's records, haven't verified these although some look correct";
 CM_ BO_ 1363 "Forwarded onto CCAN (although some signals have different values).";
-CM_ BO_ 1369 "Present when IG3 powered on.";
+CM_ BO_ 1369 "5Hz. In all logs this message is all zeroes except for one intermittent bit.";
+CM_ SG_ 1369 UnkBit "Only bit to be sometimes set in this message. Is often set when vehicle is in Park, but doesn't 100% line up with this either.";
 CM_ BO_ 1372 "Present when IG3 powered on.
 
-Constant message data, first two bytes different on different cars";
+Constant message data, first two bytes different on different cars. Probably some kind of vehicle identifier or diagnostic summary.";
 CM_ BO_ 1375 "Present when IG3 powered on.";
-CM_ BO_ 1377 "Present when IG3 powered on.";
+CM_ BO_ 1377 "10Hz. Present when IG3 powered on.
+
+Occasionally all zeroes, otherwise has constant values that never change (on both cars).";
 CM_ BO_ 1378 "From NAVI head unit but relayed via gateway, maybe rewritten. Only visible on PCAN for the 2021 model, the 2019 model looks to send ChargeSettings message instead.
 
 Message sent at 50ms intervals for 150-400ms any time a setting is changed on the head unit. Otherwise not seen on bus.";
@@ -871,7 +883,12 @@ CM_ SG_ 1422 ACCurrentSettingRelated "Seems to lag the actual charge current. Is
 CM_ BO_ 1426 "Forwarded onto CCAN.";
 CM_ SG_ 1426 Movement_related_unk "Tracks absolute motor speed but not directly. May be torque output related (maybe)";
 CM_ SG_ 1426 Movement_related_unk2 "Another value that goes up both when moving and rolling, and back to 0 when still. Doesn't track speed.";
-CM_ BO_ 1427 "Unchanging? Forwarded onto CCAN.";
+CM_ BO_ 1427 "5Hz. Present even when vehicle is off. Forwarded onto (from?) CCAN.
+
+Mostly unchanging but sometimes changes.";
+CM_ SG_ 1427 Unknown1 "0x00 or 0x01 when off, 0x24 when vehicle on. Sometimes 0x04 and 0xE4 as well.";
+CM_ SG_ 1427 Unknown2 "Only observed values 0x00 and 0x08";
+CM_ SG_ 1427 Unknown3 "These bytes are 0xFFFFFFFF always except for in one log, also the one where Unknown1 has value 0xE4";
 CM_ BO_ 1428 "10Hz.";
 CM_ SG_ 1428 ChargeAvailable "Unconfirmed but seems correct";
 CM_ SG_ 1428 DischargeAvailable "Unconfirmed but seems correct";
