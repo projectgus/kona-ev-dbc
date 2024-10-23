@@ -3,6 +3,8 @@ VERSION ""
 NS_ :
   NS_DESC_
 
+BO_ 127 UNK_07F: 8 XXX
+
 BO_ 265 UNK_109: 8 XXX
  SG_ UNK_STATUS_BITS : 1|2@1+ (1,0) [0|3] "" XXX
  SG_ Awake_Maybe : 8|1@0+ (1,0) [0|1] "" XXX
@@ -775,6 +777,9 @@ BO_ 3221225472 VECTOR__INDEPENDENT_SIG_MSG: 0 XXX
  SG_ WHL_SPD_RL : 0|14@1+ (0.03125,0) [0|511.96875] "km/h" XXX
  SG_ WHL_SPD_RR : 0|14@1+ (0.03125,0) [0|511.96875] "km/h" XXX
 
+CM_ BO_ 127 "Only seen on 2021 car. 1Hz.
+
+All zeroes except sometimes one bit is set. Heartbeat with some kind of indicator status?";
 CM_ BO_ 265 "100Hz message from an unknown source, but probably part of motor stack. On when IG3 is powered.
 
 Apart from the counter, fields in this message don't seem to really change except in some unrelated seeming situations: transient gear changes, scheduled charging, and the motor accelerating unloaded...";
