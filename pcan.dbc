@@ -244,6 +244,8 @@ BO_ 1287 IEB_507_TCS: 4 IEB
  SG_ AVH_ALARM : 27|2@1+ (1,0) [0|3] "" XXX
  SG_ AVH_LAMP : 29|3@1+ (1,0) [0|7] "" XXX
 
+BO_ 1293 UNK_50D: 8 XXX
+
 BO_ 1294 UNK_50E: 8 XXX
 
 BO_ 1312 UNK_520: 8 XXX
@@ -819,7 +821,7 @@ CM_ BO_ 916 "50Hz. Forwarded onto CCAN.";
 CM_ BO_ 1014 "1Hz";
 CM_ BO_ 1042 "5Hz when IG3 powered on. Could be: OBC, BMS, EPCU. Not EWP.
 
-On PCAN this message is all zeroes in every log";
+This message only appears on PCAN on the 2021 model and is all zeroes in every log. A similar message appears in CCAN on 2019 and 2021...";
 CM_ BO_ 1044 "OBC classifies as coming from gateway. 1Hz. Possibly relayed from NAVI system.
 
 Only visible on 2019 model, 2021 model sends UpdateChargeSettings instead.";
@@ -860,7 +862,9 @@ CM_ SG_ 1346 SocDisp "State of charge as displayed on dash (unconfirmed)";
 CM_ SG_ 1346 unkCurrentRelated "Changes when AC Charge Current changes, might be readback or a request for the OBC";
 CM_ BO_ 1353 "The marking of 'Incorrect' label comes from uwe's records, haven't verified these although some look correct";
 CM_ BO_ 1363 "Forwarded onto CCAN (although some signals have different values).";
-CM_ BO_ 1369 "5Hz. In all logs this message is all zeroes except for one intermittent bit.";
+CM_ BO_ 1369 "5Hz. In all logs this message is all zeroes except for one intermittent bit.
+
+On PCAN this message is only seen on the 2021 model. On the 2019 model this ID is present on CCAN only.";
 CM_ SG_ 1369 UnkBit "Only bit to be sometimes set in this message. Is often set when vehicle is in Park, but doesn't 100% line up with this either.";
 CM_ BO_ 1372 "Present when IG3 powered on.
 
