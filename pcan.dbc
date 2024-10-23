@@ -537,6 +537,7 @@ BO_ 1493 BMS_5D5: 8 BMS
 
 BO_ 1494 BMS_5D6: 8 BMS
  SG_ uwe5D6_UBatt_inv : 0|16@1- (0.1,0) [0|0] "V" XXX
+ SG_ IBatt : 16|16@1+ (0.1,0) [0|65535] "" XXX
 
 BO_ 1495 BMS_5D7: 8 BMS
  SG_ UNK_ChargeRelated1 : 0|8@1+ (1,0) [0|255] "" XXX
@@ -940,6 +941,8 @@ CM_ BO_ 1488 "OBC classifies this as a gateway message
 
 Only has valid values when IG1 is on";
 CM_ BO_ 1491 "OBC classifies this as a gateway message";
+CM_ SG_ 1494 uwe5D6_UBatt_inv "These two bytes seem to match two bytes in 0x595, but unsure what they are.";
+CM_ SG_ 1494 IBatt "This looks like a copy of the IBatt signal in 0x595";
 CM_ SG_ 1497 Counter_Charging "Counter only increments when charging? TBC";
 CM_ BO_ 1500 "1Hz output seems to include signals also found in other messages";
 CM_ SG_ 1500 Speed_signed_slow "1Hz version of the signal found in VCU_291";
