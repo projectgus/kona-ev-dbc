@@ -26,7 +26,7 @@ This file includes information pieced together from the following sources. Massi
 * Eric Router's [spreadsheet](https://docs.google.com/spreadsheets/d/1nDxmM4uLwufTUaGpi_X94d79ptCv5niia4NZ-SJZmJ8/edit#gid=0) of PCAN messages, see also [this comment](https://www.reddit.com/r/CarHacking/comments/llooxp/comment/gnr0prk/). Eric also did a bunch of VESS hacking ([code](https://github.com/ereuter/vess), [video](https://www.youtube.com/watch?v=OLT1aKdpYhs)).
 * "vin" on openinverter's CAN log for [2020 Ioniq BMU with nothing else connected](https://openinverter.org/forum/viewtopic.php?p=45544#p45544).
 * "powertop" on openinverter has a [spreadsheet with CAN message content summaries here](https://docs.google.com/spreadsheets/d/1dbOT9I-Aj7lU7yCiJDpXERjYRVOL_M1Tm2QFgmyYt4Y/edit#gid=0) (see also [post](https://openinverter.org/forum/viewtopic.php?p=54257#p54257)).
-* [Kia Soul EV Message spreadsheet](https://docs.google.com/spreadsheets/d/1YYlZ-IcTQlz-LzaYkHO-7a4SFM8QYs2BGNXiSU5_EwI/edit#gid=0) (dates from ~2016 or so, ayqyuthor and relevance to Kona are both currently unknown!)
+* [Kia Soul EV Message spreadsheet](https://docs.google.com/spreadsheets/d/1YYlZ-IcTQlz-LzaYkHO-7a4SFM8QYs2BGNXiSU5_EwI/edit#gid=0) (dates from ~2016 or so, I believe the author to be [Elmil](https://www.mykiasoulev.com/members/elmil.408/) and other users from the My Kia Soul EV forum.)
 
 Where possible the git log for the DBC file includes some comments on what the source for a particular addition or change is. 
 

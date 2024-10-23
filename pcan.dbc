@@ -46,10 +46,12 @@ BO_ 339 TractionControlFast: 8 IEB
  SG_ Counter2 : 60|4@1+ (1,0) [0|15] "" XXX
 
 BO_ 512 VCU_200: 8 VCU
- SG_ UNK_STATUS_CLIMATE_DRIVE : 0|8@1+ (1,0) [0|255] "" XXX
+ SG_ RangeAdditionalClimateOff : 0|8@1+ (1,0) [0|255] "" XXX
  SG_ CURRENT_GEAR : 11|3@1+ (1,0) [0|7] "" XXX
- SG_ CF_Ems_PumpTPres : 16|8@1+ (3.137254902,0) [0|800] "kPa" XXX
+ SG_ RangeLSB : 15|1@0+ (1,0) [0|1] "km" XXX
+ SG_ Range : 16|8@1+ (2,0) [0|800] "km" XXX
  SG_ Accel_Pedal_Pos2 : 32|8@1+ (1,0) [0|255] "" XXX
+ SG_ UnkStatus : 40|6@1+ (1,0) [0|63] "" XXX
  SG_ Counter : 46|2@1+ (1,0) [0|3] "" XXX
  SG_ Accel_Pedal_Pos3 : 63|8@0+ (1,0) [0|255] "" XXX
 
@@ -411,11 +413,11 @@ BO_ 1403 VCU_57B: 8 VCU
 BO_ 1407 HU_MON_PE_01: 8 OBC_CDM_MAYBE
  SG_ HU_Type : 0|8@1+ (1,0) [0|255] "" XXX
 
-BO_ 1409 OBC_Sensors: 8 OBC
- SG_ ACCurrent : 0|16@1+ (0.01,0) [0|65535] "" XXX
- SG_ ACVoltsx10Maybe : 16|16@1+ (0.1,0) [0|65535] "" XXX
- SG_ UNK_Readback : 32|16@1+ (1,0) [0|65535] "" XXX
- SG_ ACCurrentRelated : 48|16@1+ (1,0) [0|65535] "" XXX
+BO_ 1409 ACChargeStatus: 8 OBC
+ SG_ I_AC : 0|16@1+ (0.01,0) [0|65535] "A" XXX
+ SG_ V_AC : 16|16@1+ (0.1,0) [0|65535] "V" XXX
+ SG_ UnkReadback : 32|16@1+ (1,0) [0|65535] "" XXX
+ SG_ Power_AC : 48|16@1+ (3.90625,0) [0|65535] "W" XXX
 
 BO_ 1412 AAF_584: 8 AAF
  SG_ CF_Aaf_ActFlapStatus : 0|2@1+ (1,0) [0|3] "" XXX
@@ -455,6 +457,8 @@ BO_ 1427 UNK_593: 6 XXX
 BO_ 1428 BatteryLimits: 8 BMS
  SG_ ChargeAvailable : 0|16@1+ (0.01,0) [0|65535] "kW" XXX
  SG_ DischargeAvailable : 16|16@1+ (0.01,0) [0|65535] "kW" XXX
+ SG_ SoC_Maybe : 47|8@0+ (0.5,0) [0|255] "%" XXX
+ SG_ SoC_Fraction : 48|3@1+ (0.1,0) [0|7] "%" XXX
 
 BO_ 1429 Batt_HV_Status: 8 BMS
  SG_ Precharging : 8|1@0+ (1,0) [0|1] "" XXX
@@ -474,6 +478,7 @@ BO_ 1430 BatteryCharging: 8 BMS
 BO_ 1431 BMS_597: 8 BMS
  SG_ Active : 2|1@0+ (1,0) [0|1] "" XXX
  SG_ AliveCounterBit : 7|1@0+ (1,0) [0|1] "" XXX
+ SG_ NEW_SIGNAL_1 : 8|16@1+ (1,0) [0|65535] "" XXX
  SG_ UNK_STATUS_BITS : 56|8@1+ (1,0) [0|255] "" XXX
 
 BO_ 1432 BMS_598: 8 BMS
@@ -795,6 +800,9 @@ CM_ BO_ 339 "10Hz. TCS11 in other DBC Files. Appears  on PCAN, CCAN.";
 CM_ SG_ 339 Counter1 "Incrementing counter skips 0xF";
 CM_ SG_ 339 Counter2 "This counter skips value 9. Updates same frequency but out of phase with Counter1 (offset seems to vary from run to run but stays constant while module is on.)";
 CM_ BO_ 512 "100Hz. Present when IG3 powered.";
+CM_ SG_ 512 RangeAdditionalClimateOff "On Kia Soul this is apparently the extra range if climate control is off. Unconfirmed for Kona.";
+CM_ SG_ 512 RangeLSB "Add to 'range' to get the total range (not sure if can represent as one DBC field?)";
+CM_ SG_ 512 UnkStatus "Status bits, maybe? 0x3b for Ready, briefly 0x7b when going into Ready?";
 CM_ BO_ 513 "100Hz. Present when IG3 powered.
 
 This message has a bunch of signals that do counter-like things when the motor is turning and all zero otherwise";
@@ -883,12 +891,18 @@ CM_ SG_ 1378 SetACChargeLimit "AC charge cutoff point. Special value FF for 'no 
 CM_ BO_ 1383 "OBC needs to see this message";
 CM_ SG_ 1383 Unknown "Not clear what this is. Non-zero when clock is 2, often 0, sometimes other values.";
 CM_ BO_ 1400 "Present when IG3 memory power on.";
-CM_ BO_ 1409 "AC charging sensor readback values";
-CM_ SG_ 1409 ACCurrent "Possible one of these is nominal, one is actual";
-CM_ SG_ 1409 ACCurrentRelated "Seems to track current exactly and not voltage. Maybe is actual, or real current";
+CM_ BO_ 1409 "AC charging sensor readback values.
+
+During DC fast charge most of these values seem to be noise, except for UnkReadback signal.";
+CM_ SG_ 1409 I_AC "AC charging current (probably)";
+CM_ SG_ 1409 V_AC "AC charging volts (probably)";
+CM_ SG_ 1409 UnkReadback "Definitely looks like a contiguous readout. Non-zero when charging. Maybe related to charger PWM somehow?";
+CM_ SG_ 1409 Power_AC "Charge power as kW/256. This value seems to map with dash display, is a little higher than volts times amps.";
 CM_ BO_ 1416 "10Hz. Present when IG3 memory power on.
 
-This message only seems to have a few discrete values.";
+This message only seems to have a few discrete values.
+
+Note on the Kia Soul suggest this message might be related to Climate pre-heat timer settings...?";
 CM_ BO_ 1422 "Originally thought might be CDM, but looks like OBC";
 CM_ SG_ 1422 ACCurrentSettingRelated "Seems to lag the actual charge current. Is not the current offered by EVSE as it goes down when changing max AC charge in car.";
 CM_ BO_ 1426 "Forwarded onto CCAN.";
@@ -903,6 +917,8 @@ CM_ SG_ 1427 Unknown3 "These bytes are 0xFFFFFFFF always except for in one log, 
 CM_ BO_ 1428 "10Hz.";
 CM_ SG_ 1428 ChargeAvailable "Unconfirmed but seems correct";
 CM_ SG_ 1428 DischargeAvailable "Unconfirmed but seems correct";
+CM_ SG_ 1428 SoC_Maybe "Probably SoC Actual, TBC";
+CM_ SG_ 1428 SoC_Fraction "Additional 0.1% increments of SoC, it seems";
 CM_ BO_ 1429 "10Hz. A similar message with same ID appears on CCAN.";
 CM_ SG_ 1429 ACChargerDetected "Bit set when AC charger is detected. Pulse briefly when DC fast charge is detected/";
 CM_ SG_ 1429 ACChargingTransient "Bit briefly set while establishing an AC charge session";
@@ -933,7 +949,7 @@ CM_ SG_ 1502 TracksSpeed_UNK "Seems to go up when motor is turning, even when ro
 CM_ BO_ 1503 "OBC classifies this as a gateway message.";
 CM_ BO_ 1507 "1Hz heartbeat from VESS.";
 CM_ BO_ 1516 "OBC classifies this as a gateway message. Only the four bits defined here are ever set in any logs.";
-CM_ SG_ 1516 UnkStatus1 "Goes high very briefly in a couple of logs while driving. Unclear what it corresponds to.";
+CM_ SG_ 1516 UnkStatus1 "Goes high very briefly in a couple of logs while driving. Might be \"doors locking\".";
 CM_ SG_ 1516 UnkStatus2 "Goes high very briefly in a couple of logs while driving. Unclear what it corresponds to.";
 CM_ SG_ 1525 Counter2 "Inverse of the Counter1 signal in this same message";
 CM_ BO_ 1527 "Marked as 'Climate' by Eric Router";
