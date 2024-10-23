@@ -560,6 +560,8 @@ BO_ 1502 VCU_5DE: 8 VCU
 BO_ 1503 CGW_5DF: 8 IGPM
  SG_ NEW_SIGNAL_1 : 7|8@0+ (1,0) [0|255] "" XXX
 
+BO_ 1507 Heartbeat: 8 VESS
+
 BO_ 1509 CCM_5E5: 8 CCM
  SG_ CCM_PresentVoltage : 32|16@1- (0.1,0) [0|500] "" XXX
  SG_ CCM_PresentCurrent : 48|16@1- (0.1,0) [0|1000] "" XXX
@@ -929,6 +931,7 @@ CM_ SG_ 1500 Speed_desired_slow_maybe "May be a scaled slow version of signal Sp
 CM_ SG_ 1500 UNK "Starts at zero, increments inconsistently while vehicle is on?";
 CM_ SG_ 1502 TracksSpeed_UNK "Seems to go up when motor is turning, even when rolling, but doesn't track to speed or motor current";
 CM_ BO_ 1503 "OBC classifies this as a gateway message.";
+CM_ BO_ 1507 "1Hz heartbeat from VESS.";
 CM_ BO_ 1516 "OBC classifies this as a gateway message. Only the four bits defined here are ever set in any logs.";
 CM_ SG_ 1516 UnkStatus1 "Goes high very briefly in a couple of logs while driving. Unclear what it corresponds to.";
 CM_ SG_ 1516 UnkStatus2 "Goes high very briefly in a couple of logs while driving. Unclear what it corresponds to.";
