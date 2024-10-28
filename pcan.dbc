@@ -181,11 +181,11 @@ BO_ 1115 VCU_45B: 8 VCU
 BO_ 1116 UNK_45C: 8 XXX
 
 BO_ 1117 UNK_45D: 8 XXX
- SG_ NEW_SIGNAL_1 : 0|8@1+ (1,0) [0|255] "" XXX
 
 BO_ 1118 UNK_45E: 8 XXX
 
 BO_ 1122 UNK_462: 8 XXX
+ SG_ SometimesCounter : 32|4@1+ (1,0) [0|15] "" XXX
 
 BO_ 1137 UNK_471: 6 XXX
  SG_ Maybezeroes : 40|2@1+ (1,0) [0|3] "" XXX
@@ -232,6 +232,7 @@ BO_ 1252 UNK_4E4: 8 XXX
 BO_ 1262 OBC_4EE_MAYBE: 8 OBC_CDM_MAYBE
 
 BO_ 1278 UNK_4FE: 8 XXX
+ SG_ UnknownBit : 16|1@0+ (1,0) [0|1] "" XXX
 
 BO_ 1287 IEB_507_TCS: 4 IEB
  SG_ ABS_W_LAMP : 0|1@1+ (1,0) [0|1] "" XXX
@@ -247,10 +248,13 @@ BO_ 1287 IEB_507_TCS: 4 IEB
  SG_ AVH_LAMP : 29|3@1+ (1,0) [0|7] "" XXX
 
 BO_ 1293 UNK_50D: 8 XXX
+ SG_ UnknownBit : 27|1@0+ (1,0) [0|1] "" XXX
+ SG_ Counter10s : 32|16@1+ (1,0) [0|65535] "" XXX
 
 BO_ 1294 UNK_50E: 8 XXX
 
 BO_ 1312 UNK_520: 8 XXX
+ SG_ StartIndicator : 22|1@0+ (1,0) [0|1] "" XXX
 
 BO_ 1315 InverterTemp: 8 VCU
  SG_ uwe523_0 : 0|8@1+ (1,0) [0|255] "" XXX
@@ -403,6 +407,10 @@ BO_ 1383 Clock: 8 IGPM
 BO_ 1392 UNK_570: 8 XXX
 
 BO_ 1400 UNK_578: 6 XXX
+ SG_ FaultMaybe : 15|8@0+ (1,0) [0|255] "" XXX
+ SG_ NaviRequest1 : 31|8@0+ (1,0) [0|255] "" XXX
+ SG_ UnkStatus : 39|8@0+ (1,0) [0|255] "" XXX
+ SG_ DriveModeChange : 47|1@0+ (1,0) [0|1] "" XXX
 
 BO_ 1401 VCU_579: 8 VCU
 
@@ -431,6 +439,9 @@ BO_ 1412 AAF_584: 8 AAF
  SG_ CF_Aaf_MilOnReq : 42|1@1+ (1,0) [0|1] "" XXX
 
 BO_ 1416 UNK_588: 8 XXX
+ SG_ Unk0 : 7|8@0+ (1,0) [0|255] "" XXX
+ SG_ Unk1 : 15|8@0+ (1,0) [0|255] "" XXX
+ SG_ Unk2 : 23|8@0+ (1,0) [0|255] "" XXX
 
 BO_ 1422 OBC_58E: 8 OBC
  SG_ ChargeStatusMaybe : 8|8@1+ (1,0) [0|255] "" XXX
@@ -443,7 +454,8 @@ BO_ 1423 VCU_58F: 8 VCU
 BO_ 1424 VCU_590: 8 VCU
 
 BO_ 1426 VCU_592: 8 VCU
- SG_ Movement_related_unk : 23|8@0+ (1,0) [0|255] "" XXX
+ SG_ MaybeTotalDrivingPower : 23|8@0+ (1,0) [0|255] "" XXX
+ SG_ MaybeClimateConsumption : 31|8@0+ (1,0) [0|255] "" XXX
  SG_ CC_React : 34|1@1+ (1,0) [0|1] "" XXX
  SG_ Movement_related_unk2 : 55|8@0+ (1,0) [0|255] "" XXX
  SG_ Unk_Status : 56|4@1+ (1,0) [0|15] "" XXX
@@ -461,7 +473,7 @@ BO_ 1428 BatteryLimits: 8 BMS
  SG_ SoC_Fraction : 48|3@1+ (0.1,0) [0|7] "%" XXX
 
 BO_ 1429 Batt_HV_Status: 8 BMS
- SG_ Precharging : 8|1@0+ (1,0) [0|1] "" XXX
+ SG_ PrechargeRelay : 8|1@0+ (1,0) [0|1] "" XXX
  SG_ ACChargerDetected : 9|1@0+ (1,0) [0|1] "" XXX
  SG_ DCFastChargerDetected : 10|1@0+ (1,0) [0|1] "" XXX
  SG_ ACChargingTransient : 11|1@0+ (1,0) [0|1] "" XXX
@@ -518,6 +530,14 @@ BO_ 1443 BMS_5A3: 8 BMS
  SG_ ContactorClosed : 6|1@0+ (1,0) [0|1] "" XXX
  SG_ ACChargeLimit : 32|16@1+ (0.003,0) [0|65535] "%" XXX
  SG_ DCChargeLimit : 48|16@1+ (0.003,0) [0|65535] "%" XXX
+
+BO_ 1459 UNK_5B3: 8 XXX
+ SG_ UnkPowerRelated : 4|4@1+ (1,0) [0|15] "" XXX
+ SG_ Unknown2 : 8|8@1+ (1,0) [0|255] "" XXX
+ SG_ Unknown3 : 16|8@1+ (1,0) [0|255] "" XXX
+ SG_ PowerState : 31|4@0+ (1,0) [0|15] "" XXX
+
+BO_ 1482 UNK_5CA: 8 XXX
 
 BO_ 1483 ClimateStatus_5CB: 8 FATC
  SG_ Setpoint : 7|8@0+ (0.5,14) [14|27] "C" XXX
@@ -833,18 +853,21 @@ CM_ BO_ 1014 "1Hz";
 CM_ BO_ 1042 "5Hz when IG3 powered on. Could be: OBC, BMS, EPCU. Not EWP.
 
 This message only appears on PCAN on the 2021 model and is all zeroes in every log. A similar message appears in CCAN on 2019 and 2021...";
-CM_ BO_ 1044 "OBC classifies as coming from gateway. 1Hz. Possibly relayed from NAVI system.
+CM_ BO_ 1044 "OBC classifies as coming from gateway. 5Hz always present (maybe 1Hz sometimes?). Possibly relayed from NAVI system.
 
 Only visible on 2019 model, 2021 model sends UpdateChargeSettings instead.";
 CM_ SG_ 1044 ACChargingCurrent "This message only seems to exist on the 2019 model, not on the 2021 model.";
-CM_ BO_ 1104 "50Hz when IG3 powered on. Could be: OBC, BMS, EPCU, CGW, cruise unit. Not EWP.";
-CM_ BO_ 1116 "Message data all zeroes";
-CM_ BO_ 1117 "5Hz when IG3 powered. 
+CM_ BO_ 1104 "50Hz. Always present.";
+CM_ BO_ 1116 "5Hz. Message data all zeroes";
+CM_ BO_ 1117 "5Hz always present.
 
 Message body all zeroes, except sometimes when it becomes FF,FF,FF,FF,FF,FF,FF,0F";
-CM_ BO_ 1118 "5Hz when IG3 powered. Message mostly all zeroes, occasionally FF,FF,FF,FF,FF,00,00,00";
-CM_ BO_ 1122 "5Hz when IG3 powered.";
-CM_ BO_ 1137 "50Hz when IG3 powered.";
+CM_ BO_ 1118 "5Hz always present. Message mostly all zeroes, occasionally FF,FF,FF,FF,FF,00,00,00";
+CM_ BO_ 1122 "50Hz. Always present.
+
+Contents mostly constant. The 2019 logs seem to always show a mostly-FFs pattern, on the 2021 it changes when the car comes on to another mostly constant pattern.";
+CM_ SG_ 1122 SometimesCounter "While moving(?) this value sometimes counts 0-3 in a loop at 10Hz but sometimes pauses";
+CM_ BO_ 1137 "50Hz. Always present.";
 CM_ SG_ 1137 Maybezeroes "Possibly always zeroes";
 CM_ SG_ 1137 MaybeCounter "This value changes in sync with the counter but not 100%. Possibly this is a 2-bit checksum of some kind...?";
 CM_ SG_ 1148 ACCurrentRelated2 "Value is proportional to the actual charge current, looks like probably a scaled readback value";
@@ -857,31 +880,36 @@ CM_ BO_ 1171 "10Hz.
 Values vary a little in normal use, and a lot during AC charging?";
 CM_ BO_ 1175 "1Hz.";
 CM_ SG_ 1175 Unknown "Seems to cycle 0x11 0x14 0x22 a lot, sometimes looks counter-like and sometimes random";
-CM_ BO_ 1278 "Present when IG3 powered on.";
+CM_ BO_ 1278 "5Hz. Always present. Mostly constant in logs.";
+CM_ SG_ 1278 UnknownBit "Mostly set but sometimes clears, seemingly when fuses are pulled - so error related? Only bit observed to change in entire message.";
 CM_ BO_ 1287 "TCS15 in other DBC files. Forwarded onto CCAN.";
 CM_ SG_ 1287 AVH_I_LAMP "Auto Vehicle Hold Lamp (inverted)";
 CM_ SG_ 1287 AVH_LAMP "Auto Vehicle Hold Lamp";
 CM_ BO_ 1294 "Present when IG3 powered on.";
-CM_ BO_ 1312 "Present when IG3 powered on.";
+CM_ BO_ 1312 "10Hz. Always present.
+
+Only one bit in this message is observed to change.";
+CM_ SG_ 1312 StartIndicator "Goes high for 1-5 seconds when car comes On, seemingly at end of precharge.";
 CM_ SG_ 1315 uwe523_0 "Possibly a status indicator?";
 CM_ SG_ 1316 Speed_abs "Motor rpm, unsigned";
 CM_ SG_ 1316 Speed_desired_unk "This seems to lag the Speed_desired field in VCU_201 by a very small amount of time...";
 CM_ SG_ 1316 Power "Matches battery current in BMS_595 very closely";
 CM_ SG_ 1344 uwe540_01 "Unclear if 12 or 16 byte long signal";
-CM_ BO_ 1345 "Looks like a summary of BCAN. Also forwarded onto CCAN (although some signals have different values?)";
+CM_ BO_ 1345 "10Hz. Always present. Looks like a summary of BCAN. Also forwarded onto CCAN (although some signals have different values?)";
 CM_ SG_ 1346 SocDisp "State of charge as displayed on dash (unconfirmed)";
 CM_ SG_ 1346 unkCurrentRelated "Changes when AC Charge Current changes, might be readback or a request for the OBC";
 CM_ BO_ 1353 "The marking of 'Incorrect' label comes from uwe's records, haven't verified these although some look correct";
-CM_ BO_ 1363 "Forwarded onto CCAN (although some signals have different values).";
+CM_ BO_ 1363 "5Hz. Always present. Forwarded onto CCAN (although some signals have different values).";
 CM_ BO_ 1369 "5Hz. In all logs this message is all zeroes except for one intermittent bit.
 
 On PCAN this message is only seen on the 2021 model. On the 2019 model this ID is present on CCAN only.";
 CM_ SG_ 1369 UnkBit "Only bit to be sometimes set in this message. Is often set when vehicle is in Park, but doesn't 100% line up with this either.";
-CM_ BO_ 1372 "Present when IG3 powered on.
-
+CM_ BO_ 1372 "10Hz. Always present. 
 Constant message data, first two bytes different on different cars. Probably some kind of vehicle identifier or diagnostic summary.";
-CM_ BO_ 1375 "Present when IG3 powered on.";
-CM_ BO_ 1377 "10Hz. Present when IG3 powered on.
+CM_ BO_ 1375 "10Hz. Always present.
+
+Message payload is all zeroes on the 2019 logs but mostly another (constant) byte sequence on the 2021 logs.";
+CM_ BO_ 1377 "10Hz. Always present.
 
 Occasionally all zeroes, otherwise has constant values that never change (on both cars).";
 CM_ BO_ 1378 "From NAVI head unit but relayed via gateway, maybe rewritten. Only visible on PCAN for the 2021 model, the 2019 model looks to send ChargeSettings message instead.
@@ -891,7 +919,13 @@ CM_ SG_ 1378 SetChargeCurrent "Looks like momentary button status for the Maximu
 CM_ SG_ 1378 SetACChargeLimit "AC charge cutoff point. Special value FF for 'no change'.";
 CM_ BO_ 1383 "OBC needs to see this message";
 CM_ SG_ 1383 Unknown "Not clear what this is. Non-zero when clock is 2, often 0, sometimes other values.";
-CM_ BO_ 1400 "Present when IG3 memory power on.";
+CM_ BO_ 1400 "10Hz, always present.
+
+Fairly sure this is another IGPM message.";
+CM_ SG_ 1400 FaultMaybe "Usually 0x00. 0x18 in logs where IEB disconnected. 0x02 in logs where VCU disconnected.";
+CM_ SG_ 1400 NaviRequest1 "Goes to 0x3 while Utility Mode is on. Seems to momentarily go to 0x1 and 0x2 while changing 'smart recuperation' setting.";
+CM_ SG_ 1400 UnkStatus "Consistently has value 0F when vehicle is off (head unit asleep, maybe). 00 mostly when on, but some 2021 logs show 01,02,03 instead for unknown reason.";
+CM_ SG_ 1400 DriveModeChange "This bit is set for approx 2 messages when the drive mode changes. Possibly is trigger for 'select next drive mode', unverified";
 CM_ BO_ 1409 "AC charging sensor readback values.
 
 During DC fast charge most of these values seem to be noise, except for UnkReadback signal.";
@@ -899,15 +933,22 @@ CM_ SG_ 1409 I_AC "AC charging current (probably)";
 CM_ SG_ 1409 V_AC "AC charging volts (probably)";
 CM_ SG_ 1409 UnkReadback "Definitely looks like a contiguous readout. Non-zero when charging. Maybe related to charger PWM somehow?";
 CM_ SG_ 1409 Power_AC "Charge power as kW/256. This value seems to map with dash display, is a little higher than volts times amps.";
-CM_ BO_ 1416 "10Hz. Present when IG3 memory power on.
+CM_ BO_ 1416 "10Hz. Always present.
 
-This message only seems to have a few discrete values.
+This message only seems to have a few discrete values. Possibly charging related, or schedule related.
 
-Note on the Kia Soul suggest this message might be related to Climate pre-heat timer settings...?";
+Note on the Kia Soul suggest this message might be related to Climate pre-heat timer settings...?
+
+- Always 00s when vehicle is off.
+- FC FF 03 00 00 00 00 00 when driving/Ready mode
+- 58 1C 00 00 00 00 00 00 when on but not ready (or charging)
+- first byte goes to 5A when scheduled charging enabled, and 5B 1E at some other times...?
+- 33 1E 00 00 00 00 00 00 during scheduled charge (?)";
 CM_ BO_ 1422 "Originally thought might be CDM, but looks like OBC";
 CM_ SG_ 1422 ACCurrentSettingRelated "Seems to lag the actual charge current. Is not the current offered by EVSE as it goes down when changing max AC charge in car.";
 CM_ BO_ 1426 "Forwarded onto CCAN.";
-CM_ SG_ 1426 Movement_related_unk "Tracks absolute motor speed but not directly. May be torque output related (maybe)";
+CM_ SG_ 1426 MaybeTotalDrivingPower "Could be total power used for driving perhaps";
+CM_ SG_ 1426 MaybeClimateConsumption "Seems a bit off but tracks climate consumption on display";
 CM_ SG_ 1426 Movement_related_unk2 "Another value that goes up both when moving and rolling, and back to 0 when still. Doesn't track speed.";
 CM_ BO_ 1427 "5Hz. Present even when vehicle is off. Forwarded onto (from?) CCAN.
 
@@ -934,13 +975,16 @@ CM_ SG_ 1443 FastChargeRelayClosed "Not 100% sure but I think it's this. Becomes
 CM_ SG_ 1443 ContactorClosed "Indicates contactors fully closed (i.e. after precharge)";
 CM_ SG_ 1443 ACChargeLimit "Doesn't seem to quite match setpoint, maybe this is True not Display SoC?";
 CM_ SG_ 1443 DCChargeLimit "Doesn't seem to quite match setpoint, maybe this is True not Display SoC?";
+CM_ BO_ 1459 "5Hz always present.";
+CM_ SG_ 1459 PowerState "Seems to show when car is powering on or off";
+CM_ BO_ 1482 "1Hz when IG3 is on";
 CM_ BO_ 1483 "The VCU and BMS do not read this status message. Cabin only?";
 CM_ SG_ 1483 SetpointDup "When vehicle is Ready, this signal is always the same as Setpoint. When off, one or both of these fields have value FF.";
 CM_ BO_ 1484 "1s interval but possibly sends a flurry of messages when values change";
-CM_ BO_ 1488 "OBC classifies this as a gateway message
+CM_ BO_ 1488 "1Hz. OBC classifies this as a gateway message
 
-Only has valid values when IG1 is on";
-CM_ BO_ 1491 "OBC classifies this as a gateway message";
+Always present, but only has valid values when IG1 is on";
+CM_ BO_ 1491 "1Hz always present. OBC classifies this as a gateway message";
 CM_ SG_ 1494 uwe5D6_UBatt_inv "These two bytes seem to match two bytes in 0x595, but unsure what they are.";
 CM_ SG_ 1494 IBatt "This looks like a copy of the IBatt signal in 0x595";
 CM_ SG_ 1497 Counter_Charging "Counter only increments when charging? TBC";
@@ -949,10 +993,10 @@ CM_ SG_ 1500 Speed_signed_slow "1Hz version of the signal found in VCU_291";
 CM_ SG_ 1500 Speed_desired_slow_maybe "May be a scaled slow version of signal Speed_desired in VCU 201";
 CM_ SG_ 1500 UNK "Starts at zero, increments inconsistently while vehicle is on?";
 CM_ SG_ 1502 TracksSpeed_UNK "Seems to go up when motor is turning, even when rolling, but doesn't track to speed or motor current";
-CM_ BO_ 1503 "OBC classifies this as a gateway message.";
+CM_ BO_ 1503 "5Hz always present. OBC classifies this as a gateway message.";
 CM_ BO_ 1507 "1Hz heartbeat from VESS.";
-CM_ BO_ 1516 "OBC classifies this as a gateway message. Only the four bits defined here are ever set in any logs.";
-CM_ SG_ 1516 UnkStatus1 "Goes high very briefly in a couple of logs while driving. Might be \"doors locking\".";
+CM_ BO_ 1516 "10Hz always present. OBC classifies this as a gateway message. Only the four bits defined here are ever set in any logs.";
+CM_ SG_ 1516 UnkStatus1 "Goes high very briefly in a couple of logs while driving. Might be 'doors locking'.";
 CM_ SG_ 1516 UnkStatus2 "Goes high very briefly in a couple of logs while driving. Unclear what it corresponds to.";
 CM_ SG_ 1525 Counter2 "Inverse of the Counter1 signal in this same message";
 CM_ BO_ 1527 "Marked as 'Climate' by Eric Router";
@@ -961,14 +1005,18 @@ VAL_ 512 CURRENT_GEAR 0 "P" 5 "D" 6 "N" 7 "R";
 VAL_ 852 Gear_Displayed 0 "None" 1 "P" 2 "R" 3 "N" 4 "D";
 VAL_ 1044 ACChargingCurrent 0 "Maximum" 1 "Reduced" 2 "Minimum";
 VAL_ 1287 AVH_LAMP 0 "Disabled" 2 "Enabled Stationary" 3 "Enabled Moving";
-VAL_ 1345 IgnitionSw 0 "Off" 3 "On" 2 "Starting_maybe" 4 "PreCharging_maybe";
+VAL_ 1345 IgnitionSw 0 "Off" 3 "On" 2 "TurningOn_maybe" 4 "Starting";
 VAL_ 1345 DrvDoorSw 0 "Closed" 1 "Open";
 VAL_ 1345 DrvSeatBeltSw 1 "Present" 0 "NotPresent";
 VAL_ 1345 PassDoorSw 0 "Closed" 1 "Open";
 VAL_ 1378 SetChargeCurrent 0 "No button down" 4 "Maximum down" 8 "Minimum down" 28 "Uninitialised default" 12 "Reduced down";
 VAL_ 1378 SetACChargeLimit 255 "No change";
 VAL_ 1378 SetDCChargeLimit 255 "No change";
+VAL_ 1429 PrechargeRelay 0 "Open" 1 "Closed";
 VAL_ 1443 FastChargeRelayClosed 0 "Open" 1 "Closed";
+VAL_ 1459 UnkPowerRelated 15 "PoweredOff" 4 "PowerOn" 5 "PowerOnAlt";
+VAL_ 1459 Unknown3 255 "StartingUp" 254 "Normal";
+VAL_ 1459 PowerState 15 "Off" 3 "GoingToSleep" 0 "On" 12 "PoweringOn";
 VAL_ 1513 CCM_ChargeProgess 127 "WeldingDetection" 63 "PowerDeliveryStop" 31 "CurrentDemand" 7 "PreCharge" 3 "CableCheck";
 VAL_ 1516 ChargePortLocked 0 "Unlocked" 1 "Locked";
 VAL_ 3221225472 ACCMode 0 "off" 1 "enabled" 2 "driver_override" 3 "off_maybe_fault" 4 "cancelled";
