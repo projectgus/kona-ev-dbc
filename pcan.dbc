@@ -171,7 +171,7 @@ BO_ 1042 UNK_412: 8 XXX
 BO_ 1044 ChargeSettings: 8 IGPM
  SG_ ACChargingCurrent : 0|8@1+ (1,0) [0|255] "" XXX
 
-BO_ 1104 UNK_450: 3 XXX
+BO_ 1104 CGW_450: 3 IGPM
  SG_ Speed : 7|8@0+ (1,0) [0|255] "" XXX
  SG_ UNK_MAYBE_CRUISE_BUTTONS : 15|16@0+ (1,0) [0|65535] "" XXX
 
@@ -180,11 +180,11 @@ BO_ 1115 VCU_45B: 8 VCU
 
 BO_ 1116 UNK_45C: 8 XXX
 
-BO_ 1117 UNK_45D: 8 XXX
+BO_ 1117 CGW_45D: 8 IGPM
 
-BO_ 1118 UNK_45E: 8 XXX
+BO_ 1118 CGW_45E: 8 IGPM
 
-BO_ 1122 UNK_462: 8 XXX
+BO_ 1122 CGW_462: 8 IGPM
  SG_ SometimesCounter : 32|4@1+ (1,0) [0|15] "" XXX
 
 BO_ 1137 UNK_471: 6 XXX
@@ -231,7 +231,7 @@ BO_ 1252 UNK_4E4: 8 XXX
 
 BO_ 1262 OBC_4EE_MAYBE: 8 OBC_CDM_MAYBE
 
-BO_ 1278 UNK_4FE: 8 XXX
+BO_ 1278 CGW_4FE: 8 IGPM
  SG_ UnknownBit : 16|1@0+ (1,0) [0|1] "" XXX
 
 BO_ 1287 IEB_507_TCS: 4 IEB
@@ -386,11 +386,11 @@ BO_ 1363 BodyWarnings: 8 IGPM
 BO_ 1369 UNK_559: 8 XXX
  SG_ UnkBit : 14|1@0+ (1,0) [0|1] "" XXX
 
-BO_ 1372 UNK_55C: 8 XXX
+BO_ 1372 CGW_55C: 8 IGPM
 
-BO_ 1375 UNK_55F: 8 XXX
+BO_ 1375 CGW_55F: 8 IGPM
 
-BO_ 1377 UNK_561: 8 XXX
+BO_ 1377 CGW_561: 8 IGPM
 
 BO_ 1378 UpdateChargeSettings: 8 NAVI
  SG_ SetChargeCurrent : 15|8@0+ (1,0) [0|255] "" XXX
@@ -406,7 +406,7 @@ BO_ 1383 Clock: 8 IGPM
 
 BO_ 1392 UNK_570: 8 XXX
 
-BO_ 1400 UNK_578: 6 XXX
+BO_ 1400 CGW_578: 6 IGPM
  SG_ FaultMaybe : 15|8@0+ (1,0) [0|255] "" XXX
  SG_ NaviRequest1 : 31|8@0+ (1,0) [0|255] "" XXX
  SG_ UnkStatus : 39|8@0+ (1,0) [0|255] "" XXX
@@ -438,7 +438,7 @@ BO_ 1412 AAF_584: 8 AAF
  SG_ CF_Aaf_SolFlapStatus : 40|2@1+ (1,0) [0|3] "" XXX
  SG_ CF_Aaf_MilOnReq : 42|1@1+ (1,0) [0|1] "" XXX
 
-BO_ 1416 UNK_588: 8 XXX
+BO_ 1416 CGW_588: 8 IGPM
  SG_ Unk0 : 7|8@0+ (1,0) [0|255] "" XXX
  SG_ Unk1 : 15|8@0+ (1,0) [0|255] "" XXX
  SG_ Unk2 : 23|8@0+ (1,0) [0|255] "" XXX
@@ -531,7 +531,7 @@ BO_ 1443 BMS_5A3: 8 BMS
  SG_ ACChargeLimit : 32|16@1+ (0.003,0) [0|65535] "%" XXX
  SG_ DCChargeLimit : 48|16@1+ (0.003,0) [0|65535] "%" XXX
 
-BO_ 1459 UNK_5B3: 8 XXX
+BO_ 1459 CGW_5B3: 8 IGPM
  SG_ UnkPowerRelated : 4|4@1+ (1,0) [0|15] "" XXX
  SG_ Unknown2 : 8|8@1+ (1,0) [0|255] "" XXX
  SG_ Unknown3 : 16|8@1+ (1,0) [0|255] "" XXX
@@ -857,15 +857,23 @@ CM_ BO_ 1044 "OBC classifies as coming from gateway. 5Hz always present (maybe 1
 
 Only visible on 2019 model, 2021 model sends UpdateChargeSettings instead.";
 CM_ SG_ 1044 ACChargingCurrent "This message only seems to exist on the 2019 model, not on the 2021 model.";
-CM_ BO_ 1104 "50Hz. Always present.";
+CM_ BO_ 1104 "50Hz. Always present.
+
+VCU triggers a Gateway Communications DTC if this message is missing. Not clear if the source is IGPM or a module on a different bus, forwarded by IGPM.";
 CM_ BO_ 1116 "5Hz. Message data all zeroes";
 CM_ BO_ 1117 "5Hz always present.
 
-Message body all zeroes, except sometimes when it becomes FF,FF,FF,FF,FF,FF,FF,0F";
-CM_ BO_ 1118 "5Hz always present. Message mostly all zeroes, occasionally FF,FF,FF,FF,FF,00,00,00";
+Message body all zeroes, except sometimes when it becomes FF,FF,FF,FF,FF,FF,FF,0F.
+
+VCU triggers a Gateway Communications DTC if this message is missing. Not clear if the source is IGPM or a module on a different bus, forwarded by IGPM.";
+CM_ BO_ 1118 "5Hz always present. Message mostly all zeroes, occasionally FF,FF,FF,FF,FF,00,00,00
+
+VCU triggers a Gateway Communications DTC if this message is missing. Not clear if the source is IGPM or a module on a different bus, forwarded by IGPM.";
 CM_ BO_ 1122 "50Hz. Always present.
 
-Contents mostly constant. The 2019 logs seem to always show a mostly-FFs pattern, on the 2021 it changes when the car comes on to another mostly constant pattern.";
+Contents mostly constant. The 2019 logs seem to always show a mostly-FFs pattern, on the 2021 it changes when the car comes on to another mostly constant pattern.
+
+VCU triggers a Gateway Communications DTC if this message is missing. Not clear if the source is IGPM or a module on a different bus, forwarded by IGPM.";
 CM_ SG_ 1122 SometimesCounter "While moving(?) this value sometimes counts 0-3 in a loop at 10Hz but sometimes pauses";
 CM_ BO_ 1137 "50Hz. Always present.";
 CM_ SG_ 1137 Maybezeroes "Possibly always zeroes";
@@ -880,7 +888,9 @@ CM_ BO_ 1171 "10Hz.
 Values vary a little in normal use, and a lot during AC charging?";
 CM_ BO_ 1175 "1Hz.";
 CM_ SG_ 1175 Unknown "Seems to cycle 0x11 0x14 0x22 a lot, sometimes looks counter-like and sometimes random";
-CM_ BO_ 1278 "5Hz. Always present. Mostly constant in logs.";
+CM_ BO_ 1278 "5Hz. Always present. Mostly constant in logs.
+
+VCU triggers a Gateway Communications DTC if this message is missing. Not clear if the source is IGPM or a module on a different bus, forwarded by IGPM.";
 CM_ SG_ 1278 UnknownBit "Mostly set but sometimes clears, seemingly when fuses are pulled - so error related? Only bit observed to change in entire message.";
 CM_ BO_ 1287 "TCS15 in other DBC files. Forwarded onto CCAN.";
 CM_ SG_ 1287 AVH_I_LAMP "Auto Vehicle Hold Lamp (inverted)";
@@ -895,33 +905,43 @@ CM_ SG_ 1316 Speed_abs "Motor rpm, unsigned";
 CM_ SG_ 1316 Speed_desired_unk "This seems to lag the Speed_desired field in VCU_201 by a very small amount of time...";
 CM_ SG_ 1316 Power "Matches battery current in BMS_595 very closely";
 CM_ SG_ 1344 uwe540_01 "Unclear if 12 or 16 byte long signal";
-CM_ BO_ 1345 "10Hz. Always present. Looks like a summary of BCAN. Also forwarded onto CCAN (although some signals have different values?)";
+CM_ BO_ 1345 "10Hz. Always present. Looks like a summary of BCAN. Also forwarded onto CCAN (although some signals have different values?)
+
+VCU and E-Shifter both trigger a DTC if missing.";
 CM_ SG_ 1346 SocDisp "State of charge as displayed on dash (unconfirmed)";
 CM_ SG_ 1346 unkCurrentRelated "Changes when AC Charge Current changes, might be readback or a request for the OBC";
 CM_ BO_ 1353 "The marking of 'Incorrect' label comes from uwe's records, haven't verified these although some look correct";
-CM_ BO_ 1363 "5Hz. Always present. Forwarded onto CCAN (although some signals have different values).";
+CM_ BO_ 1363 "5Hz. Always present. Forwarded onto CCAN (although some signals have different values).
+
+VCU triggers a DTC if this message is missing.";
 CM_ BO_ 1369 "5Hz. In all logs this message is all zeroes except for one intermittent bit.
 
 On PCAN this message is only seen on the 2021 model. On the 2019 model this ID is present on CCAN only.";
 CM_ SG_ 1369 UnkBit "Only bit to be sometimes set in this message. Is often set when vehicle is in Park, but doesn't 100% line up with this either.";
 CM_ BO_ 1372 "10Hz. Always present. 
-Constant message data, first two bytes different on different cars. Probably some kind of vehicle identifier or diagnostic summary.";
+Constant message data, first two bytes different on different cars. Probably some kind of vehicle identifier or diagnostic summary.
+
+VCU triggers a Gateway Communications DTC if this message is missing. Not clear if the source is IGPM or a module on a different bus, forwarded by IGPM.";
 CM_ BO_ 1375 "10Hz. Always present.
 
-Message payload is all zeroes on the 2019 logs but mostly another (constant) byte sequence on the 2021 logs.";
+Message payload is all zeroes on the 2019 logs but mostly another (constant) byte sequence on the 2021 logs.
+
+VCU triggers a Gateway Communications DTC if this message is missing. Not clear if the source is IGPM or a module on a different bus, forwarded by IGPM.";
 CM_ BO_ 1377 "10Hz. Always present.
 
-Occasionally all zeroes, otherwise has constant values that never change (on both cars).";
+Occasionally all zeroes, otherwise has constant values that never change (on both cars).
+
+VCU triggers a Gateway Communications DTC if this message is missing. Not clear if the source is IGPM or a module on a different bus, forwarded by IGPM.";
 CM_ BO_ 1378 "From NAVI head unit but relayed via gateway, maybe rewritten. Only visible on PCAN for the 2021 model, the 2019 model looks to send ChargeSettings message instead.
 
 Message sent at 50ms intervals for 150-400ms any time a setting is changed on the head unit. Otherwise not seen on bus.";
 CM_ SG_ 1378 SetChargeCurrent "Looks like momentary button status for the Maximum / Reduced / Minimum buttons, maybe also others?";
 CM_ SG_ 1378 SetACChargeLimit "AC charge cutoff point. Special value FF for 'no change'.";
-CM_ BO_ 1383 "OBC needs to see this message";
+CM_ BO_ 1383 "10Hz. OBC, E-Shifter and VCU all trigger a DTC if this message is missing.";
 CM_ SG_ 1383 Unknown "Not clear what this is. Non-zero when clock is 2, often 0, sometimes other values.";
 CM_ BO_ 1400 "10Hz, always present.
 
-Fairly sure this is another IGPM message.";
+VCU triggers a Gateway Communications DTC if this message is missing. Not clear if the source is IGPM or a module on a different bus, forwarded by IGPM.";
 CM_ SG_ 1400 FaultMaybe "Usually 0x00. 0x18 in logs where IEB disconnected. 0x02 in logs where VCU disconnected.";
 CM_ SG_ 1400 NaviRequest1 "Goes to 0x3 while Utility Mode is on. Seems to momentarily go to 0x1 and 0x2 while changing 'smart recuperation' setting.";
 CM_ SG_ 1400 UnkStatus "Consistently has value 0F when vehicle is off (head unit asleep, maybe). 00 mostly when on, but some 2021 logs show 01,02,03 instead for unknown reason.";
@@ -943,7 +963,9 @@ Note on the Kia Soul suggest this message might be related to Climate pre-heat t
 - FC FF 03 00 00 00 00 00 when driving/Ready mode
 - 58 1C 00 00 00 00 00 00 when on but not ready (or charging)
 - first byte goes to 5A when scheduled charging enabled, and 5B 1E at some other times...?
-- 33 1E 00 00 00 00 00 00 during scheduled charge (?)";
+- 33 1E 00 00 00 00 00 00 during scheduled charge (?)
+
+VCU triggers a Gateway Communications DTC if this message is missing. Not clear if the source is IGPM or a module on a different bus, forwarded by IGPM.";
 CM_ BO_ 1422 "Originally thought might be CDM, but looks like OBC";
 CM_ SG_ 1422 ACCurrentSettingRelated "Seems to lag the actual charge current. Is not the current offered by EVSE as it goes down when changing max AC charge in car.";
 CM_ BO_ 1426 "Forwarded onto CCAN.";
@@ -975,15 +997,17 @@ CM_ SG_ 1443 FastChargeRelayClosed "Not 100% sure but I think it's this. Becomes
 CM_ SG_ 1443 ContactorClosed "Indicates contactors fully closed (i.e. after precharge)";
 CM_ SG_ 1443 ACChargeLimit "Doesn't seem to quite match setpoint, maybe this is True not Display SoC?";
 CM_ SG_ 1443 DCChargeLimit "Doesn't seem to quite match setpoint, maybe this is True not Display SoC?";
-CM_ BO_ 1459 "5Hz always present.";
+CM_ BO_ 1459 "5Hz always present.
+
+VCU triggers a Gateway Communications DTC if this message is missing. Not clear if the source is IGPM or a module on a different bus, forwarded by IGPM.";
 CM_ SG_ 1459 PowerState "Seems to show when car is powering on or off";
 CM_ BO_ 1482 "1Hz when IG3 is on";
 CM_ BO_ 1483 "The VCU and BMS do not read this status message. Cabin only?";
 CM_ SG_ 1483 SetpointDup "When vehicle is Ready, this signal is always the same as Setpoint. When off, one or both of these fields have value FF.";
 CM_ BO_ 1484 "1s interval but possibly sends a flurry of messages when values change";
-CM_ BO_ 1488 "1Hz. OBC classifies this as a gateway message
+CM_ BO_ 1488 "1Hz. Always present, but only has valid values when IG1 is on.
 
-Always present, but only has valid values when IG1 is on";
+VCU and OBC both trigger a DTC if this message is missing.";
 CM_ BO_ 1491 "1Hz always present. OBC classifies this as a gateway message";
 CM_ SG_ 1494 uwe5D6_UBatt_inv "These two bytes seem to match two bytes in 0x595, but unsure what they are.";
 CM_ SG_ 1494 IBatt "This looks like a copy of the IBatt signal in 0x595";
@@ -993,7 +1017,9 @@ CM_ SG_ 1500 Speed_signed_slow "1Hz version of the signal found in VCU_291";
 CM_ SG_ 1500 Speed_desired_slow_maybe "May be a scaled slow version of signal Speed_desired in VCU 201";
 CM_ SG_ 1500 UNK "Starts at zero, increments inconsistently while vehicle is on?";
 CM_ SG_ 1502 TracksSpeed_UNK "Seems to go up when motor is turning, even when rolling, but doesn't track to speed or motor current";
-CM_ BO_ 1503 "5Hz always present. OBC classifies this as a gateway message.";
+CM_ BO_ 1503 "5Hz. Always present.
+
+VCU and OBC both trigger a DTC if this message is missing.";
 CM_ BO_ 1507 "1Hz heartbeat from VESS.";
 CM_ BO_ 1516 "10Hz always present. OBC classifies this as a gateway message. Only the four bits defined here are ever set in any logs.";
 CM_ SG_ 1516 UnkStatus1 "Goes high very briefly in a couple of logs while driving. Might be 'doors locking'.";
