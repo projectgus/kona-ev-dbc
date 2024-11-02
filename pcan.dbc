@@ -50,10 +50,10 @@ BO_ 512 VCU_200: 8 VCU
  SG_ CURRENT_GEAR : 11|3@1+ (1,0) [0|7] "" XXX
  SG_ RangeLSB : 15|1@0+ (1,0) [0|1] "km" XXX
  SG_ Range : 16|8@1+ (2,0) [0|800] "km" XXX
- SG_ Accel_Pedal_Pos2 : 32|8@1+ (1,0) [0|255] "" XXX
+ SG_ Accel_Pedal_Pos2 : 32|8@1+ (1,0) [0|254] "" XXX
  SG_ UnkStatus : 40|6@1+ (1,0) [0|63] "" XXX
  SG_ Counter : 46|2@1+ (1,0) [0|3] "" XXX
- SG_ Accel_Pedal_Pos3 : 63|8@0+ (1,0) [0|255] "" XXX
+ SG_ Accel_Pedal_Pos3 : 63|8@0+ (1,0) [0|254] "" XXX
 
 BO_ 513 VCU_201: 8 VCU
  SG_ Counter_1 : 0|8@1+ (1,0) [0|255] "" XXX
