@@ -12,7 +12,15 @@ BO_ 265 UNK_109: 8 XXX
  SG_ Counter : 61|6@0+ (1,0) [0|63] "" XXX
 
 BO_ 268 SCU_10C: 8 SCU
- SG_ Counter_Dual : 63|8@0+ (1,0) [0|255] "b" XXX
+ SG_ ParkingActuator : 0|8@1+ (1,0) [0|15] "" XXX
+ SG_ Busy : 12|1@0+ (1,0) [0|1] "" XXX
+ SG_ UnkConstant : 16|16@1+ (1,0) [0|65535] "" XXX
+ SG_ UnkStatus : 39|8@0+ (1,0) [0|255] "" XXX
+ SG_ StatusOK : 46|1@0+ (1,0) [0|1] "" XXX
+ SG_ StatusFault : 47|1@0+ (1,0) [0|1] "" XXX
+ SG_ UnkConstant2 : 55|8@0+ (1,0) [0|255] "" XXX
+ SG_ Checksum : 56|4@1+ (1,0) [0|15] "" XXX
+ SG_ Counter : 60|2@1+ (1,0) [0|3] "" XXX
 
 BO_ 339 TractionControlFast: 8 IEB
  SG_ TCS_REQ : 0|1@1+ (1,0) [0|1] "" XXX
@@ -648,6 +656,14 @@ CM_ SG_ 265 UNK_STATUS_BITS "Each bit seems to set briefly while transitioning g
 CM_ SG_ 265 Awake_Maybe "Goes to zero just before vehicle goes to sleep?";
 CM_ SG_ 265 NEW_SIGNAL_1 "0xFD nearly all the time  when on, but goes down like a sensor reading during unloaded acceleration";
 CM_ BO_ 268 "100Hz when IG3 is powered.";
+CM_ SG_ 268 ParkingActuator "Logs only show the discrete values in the value table. May be bits or enums.";
+CM_ SG_ 268 Busy "Only bit in this byte observed to be set. Set while the actuator is moving.";
+CM_ SG_ 268 UnkConstant "Same value in all logs";
+CM_ SG_ 268 UnkStatus "Observed to be 0x15 during normal operation, sometimes 0x25 usually during abnormal operation";
+CM_ SG_ 268 StatusOK "Seems to be set normally and cleared if StatusFault is set";
+CM_ SG_ 268 StatusFault "Bit seems to be set when there's a fault detected";
+CM_ SG_ 268 UnkConstant2 "Same value in all logs";
+CM_ SG_ 268 Checksum "Sum of all nibbles in the message";
 CM_ BO_ 339 "10Hz. TCS11 in other DBC Files. Appears  on PCAN, CCAN.";
 CM_ SG_ 339 Counter1 "Incrementing counter skips 0xF";
 CM_ SG_ 339 Counter2 "This counter skips value 9. Updates same frequency but out of phase with Counter1 (offset seems to vary from run to run but stays constant while module is on.)";
@@ -858,6 +874,7 @@ CM_ SG_ 1516 UnkStatus2 "Goes high very briefly in a couple of logs while drivin
 CM_ SG_ 1525 Counter2 "Inverse of the Counter1 signal in this same message";
 CM_ BO_ 1527 "Marked as 'Climate' by Eric Router";
 CM_ BO_ 1528 "Marked as 'Climate' by Eric Router";
+VAL_ 268 ParkingActuator 1 "Unlocked" 2 "Moving" 4 "Locked" 128 "Initialising";
 VAL_ 512 CURRENT_GEAR 0 "P" 5 "D" 6 "N" 7 "R";
 VAL_ 852 Gear_Displayed 0 "None" 1 "P" 2 "R" 3 "N" 4 "D";
 VAL_ 1044 ACChargingCurrent 0 "Maximum" 1 "Reduced" 2 "Minimum";
