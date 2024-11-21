@@ -205,7 +205,7 @@ BO_ 1137 UNK_471: 6 XXX
  SG_ Counter : 42|4@1+ (1,0) [0|15] "" XXX
  SG_ MaybeCounter : 46|2@1+ (1,0) [0|3] "" XXX
 
-BO_ 1148 OBC_47C_MAYBE: 8 OBC_CDM_MAYBE
+BO_ 1148 OBC_47C: 8 OBC
  SG_ ACCurrentRelated2 : 63|8@0+ (1,0) [0|255] "" XXX
 
 BO_ 1168 ParkingBrake: 8 IEB
@@ -240,9 +240,9 @@ BO_ 1246 BMS_4DE: 8 BMS
 BO_ 1250 BMS_4E2: 8 BMS
  SG_ UNK_1 : 16|16@1+ (1,0) [0|65535] "" XXX
 
-BO_ 1252 UNK_4E4: 8 XXX
+BO_ 1252 EWP_BMS_4E4: 8 EWP_BMS
 
-BO_ 1262 OBC_4EE_MAYBE: 8 OBC_CDM_MAYBE
+BO_ 1262 OBC_4EE: 8 OBC
 
 BO_ 1278 CGW_4FE: 8 IGPM
  SG_ UnknownBit : 16|1@0+ (1,0) [0|1] "" XXX
@@ -417,7 +417,7 @@ BO_ 1383 Clock: 8 IGPM
  SG_ Second : 24|8@1+ (1,0) [0|59] "" XXX
  SG_ Valid : 32|8@1- (1,0) [0|1] "" XXX
 
-BO_ 1392 UNK_570: 8 XXX
+BO_ 1392 EWP_ER_570: 8 EWP_ER
 
 BO_ 1400 CGW_578: 6 IGPM
  SG_ FaultMaybe : 15|8@0+ (1,0) [0|255] "" XXX
@@ -432,7 +432,7 @@ BO_ 1402 VCU_57A: 8 VCU
 BO_ 1403 VCU_57B: 8 VCU
  SG_ DriverErrorMaybe : 39|8@0+ (1,0) [0|255] "" XXX
 
-BO_ 1407 HU_MON_PE_01: 8 OBC_CDM_MAYBE
+BO_ 1407 HU_MON_PE_01: 8 OBC
  SG_ HU_Type : 0|8@1+ (1,0) [0|255] "" XXX
 
 BO_ 1409 ACChargeStatus: 8 OBC
@@ -747,6 +747,7 @@ CM_ BO_ 1171 "10Hz.
 Values vary a little in normal use, and a lot during AC charging?";
 CM_ BO_ 1175 "1Hz.";
 CM_ SG_ 1175 Unknown "Seems to cycle 0x11 0x14 0x22 a lot, sometimes looks counter-like and sometimes random";
+CM_ BO_ 1252 "10Hz.";
 CM_ BO_ 1278 "5Hz. Always present. Mostly constant in logs.
 
 VCU triggers a Gateway Communications DTC if this message is missing. Not clear if the source is IGPM or a module on a different bus, forwarded by IGPM.";
@@ -798,6 +799,7 @@ CM_ SG_ 1378 SetChargeCurrent "Looks like momentary button status for the Maximu
 CM_ SG_ 1378 SetACChargeLimit "AC charge cutoff point. Special value FF for 'no change'.";
 CM_ BO_ 1383 "10Hz. OBC, E-Shifter and VCU all trigger a DTC if this message is missing.";
 CM_ SG_ 1383 Unknown "Not clear what this is. Non-zero when clock is 2, often 0, sometimes other values.";
+CM_ BO_ 1392 "10Hz.";
 CM_ BO_ 1400 "10Hz, always present.
 
 VCU triggers a Gateway Communications DTC if this message is missing. Not clear if the source is IGPM or a module on a different bus, forwarded by IGPM.";
