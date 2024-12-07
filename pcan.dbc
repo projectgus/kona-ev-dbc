@@ -839,7 +839,7 @@ CM_ BO_ 1422 "Originally thought might be CDM, but looks like OBC";
 CM_ SG_ 1422 AlarmMaybe "Seems to be non-zero when EVSE is connected but powered off, or similar";
 CM_ SG_ 1422 ACCurrentPossible "Seems to be minimum of charge last offered by EVSE and max charge configured in OBC.";
 CM_ SG_ 1422 PortLocked "Updated by IGPM ChargePort message";
-CM_ SG_ 1422 PortLockSetting "Bit is set when the \"Lock\" is set via button in dash, and button is illuminated. Unset means \"auto unlock\"";
+CM_ SG_ 1422 PortLockSetting "Bit is set when the 'Lock' is set via button in dash, and button is illuminated. Unset means 'auto unlock'";
 CM_ BO_ 1426 "Forwarded onto CCAN.";
 CM_ SG_ 1426 MaybeTotalDrivingPower "Could be total power used for driving perhaps";
 CM_ SG_ 1426 MaybeClimateConsumption "Seems a bit off but tracks climate consumption on display";
