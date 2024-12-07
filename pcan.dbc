@@ -458,9 +458,15 @@ BO_ 1416 CGW_588: 8 IGPM
  SG_ Unk2 : 23|8@0+ (1,0) [0|255] "" XXX
 
 BO_ 1422 OBC_58E: 8 OBC
+ SG_ AlarmMaybe : 7|8@0+ (1,0) [0|255] "" XXX
  SG_ ChargeStatusMaybe : 8|8@1+ (1,0) [0|255] "" XXX
- SG_ ACCurrentSettingRelated : 23|8@0+ (0.5,0) [0|255] "" XXX
- SG_ ChargerModeMaybe : 39|8@0+ (1,0) [0|255] "" XXX
+ SG_ ACCurrentPossible : 23|8@0+ (0.5,0) [0|255] "" XXX
+ SG_ PortLocked : 32|1@0+ (1,0) [0|1] "" XXX
+ SG_ PortUnlockReq : 33|1@0+ (1,0) [0|1] "" XXX
+ SG_ PortLockReq : 34|1@0+ (1,0) [0|1] "" XXX
+ SG_ EVSEDisconnected : 35|1@0+ (1,0) [0|1] "" XXX
+ SG_ EVSEDetected : 36|1@0+ (1,0) [0|1] "" XXX
+ SG_ EVSEUnknown : 37|1@0+ (1,0) [0|1] "" XXX
 
 BO_ 1423 VCU_58F: 8 VCU
  SG_ Unk_Status : 43|4@0+ (1,0) [0|15] "" XXX
@@ -830,7 +836,10 @@ Note on the Kia Soul suggest this message might be related to Climate pre-heat t
 
 VCU triggers a Gateway Communications DTC if this message is missing. Not clear if the source is IGPM or a module on a different bus, forwarded by IGPM.";
 CM_ BO_ 1422 "Originally thought might be CDM, but looks like OBC";
-CM_ SG_ 1422 ACCurrentSettingRelated "Seems to lag the actual charge current. Is not the current offered by EVSE as it goes down when changing max AC charge in car.";
+CM_ SG_ 1422 AlarmMaybe "Seems to be non-zero when EVSE is connected but powered off, or similar";
+CM_ SG_ 1422 ACCurrentPossible "Seems to be minimum of charge last offered by EVSE and max charge configured in OBC.";
+CM_ SG_ 1422 PortLocked "Updated by IGPM ChargePort message";
+CM_ SG_ 1422 EVSEUnknown "This bit is set in some logs when the EVSE is connected and powered, but not other logs. May be the lock/auto button.";
 CM_ BO_ 1426 "Forwarded onto CCAN.";
 CM_ SG_ 1426 MaybeTotalDrivingPower "Could be total power used for driving perhaps";
 CM_ SG_ 1426 MaybeClimateConsumption "Seems a bit off but tracks climate consumption on display";
