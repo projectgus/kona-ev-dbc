@@ -629,12 +629,16 @@ BO_ 1516 ChargePort: 8 IGPM
  SG_ MaybePassengerSeatOccupied : 26|1@0+ (1,0) [0|1] "" XXX
 
 BO_ 1525 FATC_5F5: 64 FATC
+ SG_ UnkDoesntChange : 13|6@0+ (1,0) [0|63] "" XXX
+ SG_ CompressorPower : 14|10@1+ (10,1) [0|1023] "W" XXX
  SG_ Counter1 : 32|4@1+ (1,0) [0|15] "" XXX
  SG_ Counter2 : 59|4@0+ (1,0) [0|15] "" XXX
 
 BO_ 1526 FATC_5F6: 8 FATC
  SG_ Unk : 0|8@1+ (1,0) [0|255] "" XXX
  SG_ Unk_Status : 8|4@1+ (1,0) [0|15] "" XXX
+ SG_ UnkDoesntChange : 48|6@1+ (1,0) [0|63] "" XXX
+ SG_ HeaterPower : 54|10@1+ (10,0) [0|1023] "W" XXX
 
 BO_ 1527 FATC_5F7: 8 FATC
  SG_ uwe5F7_0 : 0|8@1+ (1,0) [0|255] "" XXX
@@ -836,7 +840,7 @@ Note on the Kia Soul suggest this message might be related to Climate pre-heat t
 
 VCU triggers a Gateway Communications DTC if this message is missing. Not clear if the source is IGPM or a module on a different bus, forwarded by IGPM.";
 CM_ BO_ 1422 "Originally thought might be CDM, but looks like OBC";
-CM_ SG_ 1422 AlarmMaybe "Seems to be non-zero when EVSE is connected but powered off, or similar";
+CM_ SG_ 1422 AlarmMaybe "Seems to be non-zero when EVSE is connected but powered off, or similar. 0x76 if charge port won't lock. 0x24 if EVSE powered off while charging. 0x08 when disconnected, maybe? 0x07 if connected and not powered.";
 CM_ SG_ 1422 ACCurrentPossible "Seems to be minimum of charge last offered by EVSE and max charge configured in OBC.";
 CM_ SG_ 1422 PortLocked "Updated by IGPM ChargePort message";
 CM_ SG_ 1422 PortLockSetting "Bit is set when the 'Lock' is set via button in dash, and button is illuminated. Unset means 'auto unlock'";
@@ -896,7 +900,9 @@ CM_ BO_ 1507 "1Hz heartbeat from VESS.";
 CM_ BO_ 1516 "10Hz always present. OBC classifies this as a gateway message. Only the four bits defined here are ever set in any logs.";
 CM_ SG_ 1516 UnkStatus1 "Goes high very briefly in a couple of logs while driving. Might be 'doors locking'.";
 CM_ SG_ 1516 UnkStatus2 "Goes high very briefly in a couple of logs while driving. Unclear what it corresponds to.";
+CM_ SG_ 1525 CompressorPower "Copied from signal in COMP_CAN ID 0x120, used in 'Climate' consumption field of infotainment display.";
 CM_ SG_ 1525 Counter2 "Inverse of the Counter1 signal in this same message";
+CM_ SG_ 1526 HeaterPower "Copied from signal in COMP_CAN ID 0x140, used in 'Climate' consumption field of infotainment display";
 CM_ BO_ 1527 "Marked as 'Climate' by Eric Router";
 CM_ BO_ 1528 "Marked as 'Climate' by Eric Router";
 VAL_ 265 ParkActuatorRequest 1 "RequestLock" 2 "RequestUnlock" 0 "None";

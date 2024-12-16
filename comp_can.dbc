@@ -1,7 +1,28 @@
-BO_ 272 NEW_MSG_110: 8 XXX
+BO_ 272 CompressorControlMaybe: 8 FATC
+ SG_ CompressorSetpointMaybe : 0|16@1+ (1,0) [0|65535] "" XXX
  SG_ OnOffMaybe : 23|8@0+ (1,0) [0|255] "" XXX
 
-BO_ 273 HeaterStatus: 8 PTCH
- SG_ SetpointMaybe : 0|16@1+ (1,0) [0|65535] "" XXX
+BO_ 273 HeaterControl: 8 FATC
+ SG_ OnOff : 0|1@0+ (1,0) [0|1] "" XXX
+ SG_ Setpoint : 8|8@1+ (1,0) [0|255] "MaybeC" XXX
 
-CM_ BO_ 273 "PTC Heater status?";
+BO_ 288 CompressorStatus: 8 COMP
+ SG_ CompressorPower : 0|16@1+ (1,0) [0|65535] "W" XXX
+ SG_ NEW_SIGNAL_1 : 39|8@0+ (1,0) [0|255] "" XXX
+
+BO_ 289 CompressorStatusMaybe: 8 COMP
+ SG_ CompressorLevelMaybe : 0|16@1+ (1,0) [0|65535] "" XXX
+ SG_ NEW_SIGNAL_2 : 23|8@0+ (1,0) [0|255] "" XXX
+
+BO_ 320 HeaterStatus: 8 PTCH
+ SG_ HeaterStatusMaybe : 7|8@0+ (1,0) [0|255] "" XXX
+ SG_ HeaterPower : 16|16@1+ (1,0) [0|65535] "W" XXX
+ SG_ SetpointRelated1 : 47|8@0+ (1,0) [0|255] "" XXX
+ SG_ SetpointRelated2 : 55|8@0+ (1,0) [0|255] "" XXX
+
+CM_ BO_ 273 "100Hz. Looks like PTC Heater control.";
+CM_ SG_ 273 Setpoint "Feels like setpoint is a target temperature for the heater core, probably";
+CM_ SG_ 288 CompressorPower "Compressor power consumption. Contributes to 'Climate' consumption in NAVI display.";
+CM_ SG_ 320 HeaterStatusMaybe "0x55 when the heater is turned on via control message, 0x01 when off";
+CM_ SG_ 320 HeaterPower "Power consumption of heater. Contributes to 'Climate' consumption in NAVI display.";
+CM_ SG_ 320 SetpointRelated1 "These two values seem to lag the setpoint in the control message. They might be temp readback, or they might be some property of the heater's control algorithm?";
