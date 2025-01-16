@@ -6,6 +6,10 @@ Reverse engineered Hyundai Kona Electric DBC file(s), work in progress.
 * `bcan.dbc` applies to BCAN (Body) CAN Bus.
 * `comp_can.dbc` applies to the "COMP CAN" bus that links the A/C controller (FATC), A/C compressor and the PTC heater modules only.
 
+## Additional docs
+
+* [Diagnostics.md](Diagnostics.md) contains a partial list of diagnostic CAN IDs.
+
 ## Conventions
 
 Messages copied from other sources may not follow these conventions (yet!)
